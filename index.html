@@ -1,0 +1,1207 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>ABM Website Concept</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" href="data:,">
+<script>(function(){var h=location.hash.slice(1),d=document,r=d.documentElement;if(h!=='donate'&&h!=='season-of-creation')return;r.setAttribute('data-v',h);if(h!=='season-of-creation')return;[['(max-width: 899px)','img/soc-crop-480.webp 480w, img/soc-crop-800.webp 800w'],['(min-width: 900px)','img/soc-wide-1000.webp 1000w, img/soc-wide-1600.webp 1600w, img/soc-wide-2200.webp 2200w']].forEach(function(x){var l=d.createElement('link');l.rel='preload';l.as='image';l.media=x[0];l.setAttribute('imagesrcset',x[1]);l.setAttribute('imagesizes','100vw');l.setAttribute('fetchpriority','high');d.head.appendChild(l);});})();</script>
+<meta name="description" content="A website concept for the Anglican Board of Mission and Anglicans in Development by Singh Studio, built from ABM’s own words and photographs.">
+<link rel="preload" as="font" type="font/woff2" href="fonts/zilla-600-latin.woff2" crossorigin data-standalone>
+<link rel="preload" as="font" type="font/woff2" href="fonts/lato-400-latin.woff2" crossorigin data-standalone>
+<style>
+@font-face{font-family:'Zilla Slab';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/zilla-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Zilla Slab';font-style:italic;font-weight:500;font-display:swap;src:url(fonts/zilla-500i-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/lato-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/lato-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
+/* Layout: full-bleed bands on a 1200px measure. ABM's round badges are the system: the red ABM and teal AID circles recur as the header lockup, the tax tags on every gift, and the overlapping pair that shows who does what. Photos open through a circle. */
+:root{
+  --paper:#FFFFFF; --cream:#F7F1E7; --sand:#EBE0CF; --sand-2:#DCCDB6;
+  --ink:#1C201F; --ink-2:#3B4240; --ink-3:#59605E; --line:#E3D9C9; --line-2:#CDBFA9;
+  --abm:#9E1718; --abm-deep:#7C1112; --abm-tint:#F7E7E4;
+  --aid:#127F91; --aid-deep:#0D6573; --aid-tint:#E2EFF0;
+  --night:#134357; --night-2:#0F3647; --night-ink:#D7E4E8; --night-line:rgba(215,228,232,.22);
+  --leaf:#99D451; --soc:#4B7814;
+  --c2c:#E0A226; --sc:#608975; --rec:#CA6438;
+  --f-display:"Zilla Slab","Rockwell","Roboto Slab",Georgia,serif;
+  --f-body:"Lato","Helvetica Neue",Arial,system-ui,sans-serif;
+  --ease-out:cubic-bezier(.2,.7,.2,1); --ease-io:cubic-bezier(.65,.05,.35,1);
+  --d1:.22s; --d2:.6s; --d3:1.1s; --stagger:70ms;
+  --measure:1200px; --pad-x:16px; --sec-y:clamp(3.5rem, 2.2rem + 4.2vw, 6.5rem);
+  --hdr-h:64px; --sq:24%;
+  color-scheme:light;
+}
+@media (min-width:720px){ :root{ --pad-x:32px } }
+@media (min-width:1100px){ :root{ --pad-x:48px; --hdr-h:84px } }
+
+*,*::before,*::after{ box-sizing:border-box }
+[hidden]{ display:none!important }
+html:not([data-v]) [data-view]:not([data-view="home"]),
+html[data-v="donate"] [data-view]:not([data-view="donate"]),
+html[data-v="season-of-creation"] [data-view]:not([data-view="season-of-creation"]){ display:none }
+html{ -webkit-text-size-adjust:100% }
+body{ margin:0; background:var(--paper); color:var(--ink); font-family:var(--f-body); font-size:clamp(1.0625rem, 1rem + .25vw, 1.125rem); line-height:1.5; font-kerning:normal; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:clip }
+img,svg{ max-width:100%; height:auto; display:block }
+a{ color:inherit }
+h1,h2,h3{ font-family:var(--f-display); font-weight:600; line-height:1.06; letter-spacing:-.01em; margin:0; text-wrap:balance; hyphens:none }
+h2{ font-size:clamp(2rem, 1.35rem + 2.3vw, 3.25rem) }
+h3{ font-size:clamp(1.25rem, 1.12rem + .5vw, 1.55rem); line-height:1.15 }
+p,figure,blockquote,dl,dd{ margin:0 }
+ul,ol{ margin:0; padding:0; list-style:none }
+button,input,select{ font:inherit; color:inherit }
+:focus-visible{ outline:3px solid var(--aid-deep); outline-offset:3px; border-radius:4px }
+.on-night :focus-visible,.hero :focus-visible,.prayer :focus-visible,.ftr :focus-visible,.strip :focus-visible{ outline-color:var(--leaf) }
+[id]{ scroll-margin-top:calc(var(--hdr-h) + 16px) }
+.sprite{ position:absolute; width:0; height:0; overflow:hidden }
+.sr-only{ position:absolute!important; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; margin:-1px; padding:0; border:0 }
+.skip{ position:absolute; left:max(16px, env(safe-area-inset-left,0px)); top:-80px; z-index:100; background:var(--ink); color:#fff; padding:.7rem 1rem; font-weight:700; text-decoration:none; border-radius:0 0 8px 8px }
+.skip:focus{ top:env(safe-area-inset-top,0px) }
+.ico{ width:1em; height:1em; flex:none; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round }
+
+/* gutters: one rule for every band's inner wrapper */
+.wrap{ padding-left:max(var(--pad-x), env(safe-area-inset-left,0px)); padding-right:max(var(--pad-x), env(safe-area-inset-right,0px)) }
+.inner{ max-width:var(--measure); margin-inline:auto }
+.sec{ padding-block:var(--sec-y) }
+.sec-head{ display:grid; gap:.9rem; max-width:44rem; margin-bottom:clamp(2rem, 1.4rem + 2vw, 3rem) }
+.sec-head p{ color:var(--ink-2); font-size:1.08em; max-width:40rem }
+.sec-head.row{ max-width:none; grid-template-columns:minmax(0,1fr) auto; align-items:end; column-gap:2rem }
+@media (max-width:719px){ .sec-head.row{ grid-template-columns:1fr } }
+
+/* tax tags: the two circles, small */
+.chip{ display:inline-flex; align-items:center; gap:.45rem; padding:.28rem .7rem .3rem .5rem; border-radius:999px; font-size:.84rem; font-weight:700; line-height:1.2; white-space:nowrap }
+.chip::before{ content:""; width:.72em; height:.72em; border-radius:50%; background:currentColor; flex:none }
+.chip-aid{ background:var(--aid-tint); color:var(--aid-deep) }
+.chip-abm{ background:var(--abm-tint); color:var(--abm) }
+.chip-night{ background:var(--night-2); color:var(--leaf); box-shadow:inset 0 0 0 1px rgba(153,212,81,.4) }
+
+/* buttons: hover lives on colour, type and arrows, never on photographs */
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:.55rem; min-height:48px; padding:.7rem 1.35rem; border-radius:999px; font-family:var(--f-body); font-weight:700; font-size:1rem; letter-spacing:.01em; text-decoration:none; border:2px solid transparent; cursor:pointer; transition:background-color var(--d1) var(--ease-out), color var(--d1) var(--ease-out), border-color var(--d1) var(--ease-out) }
+.btn .ico{ width:1.05em; height:1.05em; transition:transform var(--d1) var(--ease-out) }
+.btn:hover .ico{ transform:translateX(3px) }
+.btn-teal{ background:var(--aid); color:#fff }
+.btn-teal:hover{ background:var(--aid-deep) }
+.btn-leaf{ background:var(--leaf); color:var(--ink) }
+.btn-leaf:hover{ background:#B2E276 }
+.btn-line{ border-color:currentColor; background:transparent }
+.btn-line:hover{ background:var(--ink); border-color:var(--ink); color:#fff }
+.hero .btn-line:hover,.soc-hero .btn-line:hover{ background:#fff; border-color:#fff; color:var(--night) }
+.btn-block{ width:100% }
+.link-arrow{ display:inline-flex; align-items:center; gap:.45rem; font-weight:700; text-decoration:none; color:var(--aid-deep); background:linear-gradient(currentColor,currentColor) 0 100%/0 2px no-repeat; padding-bottom:3px; transition:background-size var(--d2) var(--ease-out) }
+.link-arrow .ico{ width:1em; height:1em; transition:transform var(--d1) var(--ease-out) }
+.link-arrow:hover{ background-size:100% 2px }
+.link-arrow:hover .ico{ transform:translateX(3px) }
+.link-arrow.on-night{ color:var(--leaf) }
+.prose a,.fine a,.give-note a{ color:var(--aid-deep); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px }
+.prose a:hover,.fine a:hover{ text-decoration-thickness:2px }
+
+/* concept strip */
+.strip{ background:var(--ink); color:#E8E3DA; font-size:.86rem; line-height:1.35 }
+.strip .inner{ display:flex; flex-wrap:wrap; gap:.3rem 1rem; justify-content:space-between; align-items:center; padding-block:.5rem }
+.strip p{ max-width:none }
+.strip-short{ display:none }
+@media (max-width:719px){ .strip-long{ display:none } .strip-short{ display:inline } }
+.strip-links{ display:flex; align-items:center; gap:.25rem 1.1rem; flex:none }
+.strip button,.strip-links a{ display:inline-flex; align-items:center; gap:.4rem; background:transparent; border:0; padding:.35rem 0; color:var(--leaf); font-weight:700; cursor:pointer; text-decoration:underline; text-underline-offset:3px; min-height:32px }
+
+/* header */
+.hdr{ position:sticky; top:env(safe-area-inset-top,0px); z-index:40; background:var(--paper); border-bottom:1px solid transparent; transition:border-color var(--d2) var(--ease-out), box-shadow var(--d2) var(--ease-out) }
+.hdr.scrolled{ border-bottom-color:var(--line); box-shadow:0 10px 30px -24px rgba(28,32,31,.45) }
+.hdr .inner{ height:var(--hdr-h); display:flex; align-items:center; gap:1rem }
+.brand{ display:block; flex:none; border-radius:8px }
+.brand img{ height:46px; width:auto }
+@media (min-width:1100px){ .brand img{ height:62px } }
+.nav{ display:none; margin-left:auto }
+.nav ul{ display:flex; gap:clamp(.9rem, .2rem + 1vw, 1.6rem) }
+.nav a{ display:block; font-family:var(--f-display); font-weight:600; font-size:1.08rem; text-decoration:none; padding-block:.35rem; color:var(--ink); background:linear-gradient(var(--abm),var(--abm)) 0 100%/0 2px no-repeat; transition:background-size var(--d2) var(--ease-out), color var(--d1) var(--ease-out) }
+.nav a:hover,.nav a[aria-current="true"]{ background-size:100% 2px; color:var(--abm) }
+.hdr-tools{ display:flex; align-items:center; gap:.6rem; margin-left:auto }
+.hdr-phone{ display:none; font-weight:700; font-size:.95rem; color:var(--ink-2); text-decoration:none; white-space:nowrap }
+.hdr-phone:hover{ color:var(--aid-deep) }
+.hdr-donate{ min-height:44px; padding:.5rem 1.15rem }
+.menu-btn{ display:inline-flex; align-items:center; gap:.45rem; min-height:44px; padding:.5rem .95rem; border:2px solid var(--ink); border-radius:999px; background:transparent; font-weight:700; cursor:pointer; transition:background-color var(--d1) var(--ease-out), color var(--d1) var(--ease-out) }
+.menu-btn:hover{ background:var(--ink); color:#fff }
+.menu-btn .ico{ width:18px; height:18px }
+@media (min-width:1180px){ .nav{ display:block } .menu-btn{ display:none } .hdr-tools{ margin-left:clamp(1rem, 2vw, 2rem) } .hdr-phone{ display:inline-block } }
+@media (max-width:400px){ .hdr .inner{ gap:.5rem } .brand img{ height:42px } .hdr-tools{ gap:.4rem } .menu-btn{ padding-inline:.75rem } .hdr-donate{ padding-inline:1rem } }
+
+/* dialogs: menu drawer and the concept notes */
+dialog{ border:0; padding:0; color:var(--ink); background:var(--paper) }
+dialog::backdrop{ background:rgba(28,32,31,.55) }
+.drawer{ margin:0 0 0 auto; width:min(420px, 100%); height:100%; max-height:100%; max-width:100%; padding:calc(env(safe-area-inset-top,0px) + 1rem) max(1.5rem, env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 1.5rem) 1.5rem; overflow-y:auto }
+.drawer[open]{ animation:slide-in var(--d2) var(--ease-out) }
+@keyframes slide-in{ from{ transform:translateX(28px) } }
+.drawer-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem }
+.drawer-top img{ height:46px; width:auto }
+.icon-btn{ width:48px; height:48px; display:grid; place-items:center; border:2px solid var(--ink); border-radius:50%; background:transparent; cursor:pointer; color:var(--ink); transition:background-color var(--d1) var(--ease-out), color var(--d1) var(--ease-out) }
+.icon-btn:hover{ background:var(--ink); color:#fff }
+.icon-btn .ico{ width:20px; height:20px }
+.drawer-nav a{ display:flex; justify-content:space-between; align-items:center; padding:.95rem 0; border-bottom:1px solid var(--line); font-family:var(--f-display); font-weight:600; font-size:1.45rem; text-decoration:none }
+.drawer-nav a .ico{ width:20px; height:20px; color:var(--abm) }
+.drawer-foot{ display:grid; gap:1rem; margin-top:1.75rem }
+.drawer-foot p{ color:var(--ink-2); font-size:.95rem }
+.sheet{ width:min(640px, calc(100% - 32px)); max-height:min(86vh, 760px); border-radius:20px; padding:0; overflow:auto }
+.sheet[open]{ animation:rise-in var(--d2) var(--ease-out) }
+@keyframes rise-in{ from{ transform:translateY(14px) } }
+.sheet-body{ padding:clamp(1.25rem, 1rem + 2vw, 2.25rem) }
+.sheet-top{ display:flex; justify-content:space-between; align-items:start; gap:1rem; margin-bottom:1rem }
+.sheet h2{ font-size:clamp(1.6rem, 1.3rem + 1.2vw, 2.1rem) }
+.sheet ol{ counter-reset:c; display:grid; gap:1rem; margin-top:.5rem }
+.sheet li{ counter-increment:c; position:relative; padding-left:2.6rem; color:var(--ink-2) }
+.sheet li::before{ content:counter(c); position:absolute; left:0; top:-.05rem; width:1.85rem; height:1.85rem; border-radius:50%; display:grid; place-items:center; background:var(--cream); color:var(--abm); font-family:var(--f-display); font-weight:600; font-size:1rem; line-height:1 }
+.sheet-foot{ margin-top:1.5rem; padding-top:1rem; border-top:1px solid var(--line); font-size:.92rem; color:var(--ink-3) }
+
+/* ---------- home: hero carries the current appeal ---------- */
+.hero{ position:relative; z-index:2; background:var(--night); color:#fff }
+.hero .inner{ display:grid; gap:2.5rem; padding-block:clamp(2.75rem, 1.6rem + 4.5vw, 5.75rem) clamp(2.5rem, 1.5rem + 3vw, 4.5rem) }
+.hero-copy{ min-width:0 }
+.wordmark{ width:clamp(190px, 14vw + 140px, 340px); height:auto }
+.hero h1{ font-size:clamp(2.6rem, 1.55rem + 3.9vw, 4.75rem); line-height:1; letter-spacing:-.015em; margin-top:1.4rem; max-width:12ch; color:#fff }
+.hero-lede{ font-size:clamp(1.12rem, 1.02rem + .45vw, 1.35rem); line-height:1.5; color:var(--night-ink); max-width:31rem; margin-top:1.1rem }
+.hero-actions{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.9rem }
+.hero-meta{ display:flex; flex-wrap:wrap; align-items:center; gap:.6rem 1rem; margin-top:1.6rem; color:var(--night-ink); font-size:.95rem }
+.hero-badge{ position:relative; width:min(84vw, 360px); aspect-ratio:1; justify-self:center; margin-bottom:calc(-1 * clamp(2.5rem, 1.5rem + 3vw, 4.5rem) - 2rem) }
+.hero-badge .photo{ position:absolute; inset:8.5%; border-radius:50%; overflow:hidden; background:var(--night-2) }
+.hero-badge .photo img{ width:100%; height:100%; object-fit:cover }
+.hero-ring{ position:absolute; inset:0; width:100%; height:100%; overflow:visible }
+.hero-ring text{ font-family:var(--f-display); font-weight:600; font-size:15.5px; letter-spacing:.14em; fill:var(--cream) }
+.hero-ring .dot{ fill:var(--leaf) }
+.hero-ring g{ transform-origin:300px 300px; animation:turn 90s linear infinite }
+@keyframes turn{ to{ transform:rotate(360deg) } }
+@media (min-width:900px){
+  .hero .inner{ grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); align-items:center; column-gap:clamp(1.5rem, 3vw, 3rem) }
+  .hero-badge{ width:clamp(340px, 38vw, 560px); justify-self:end; margin-block:-1.5rem -7.5rem }
+}
+/* load sequence: everything is visible at rest; these only play once on arrival */
+.js .hero .ld{ animation:rise var(--d2) var(--ease-out) both; animation-delay:calc(120ms + var(--k,0) * 90ms) }
+.js .hero-badge .photo{ animation:open var(--d3) var(--ease-out) both }
+@keyframes rise{ from{ opacity:.35; transform:translateY(14px) } }
+@keyframes open{ from{ clip-path:circle(30% at 50% 50%) } to{ clip-path:circle(50% at 50% 50%) } }
+
+/* ---------- appeals ---------- */
+.appeals{ position:relative; z-index:1 }
+.appeals-grid{ display:grid; gap:2.25rem 1.5rem }
+@media (min-width:560px){ .appeals-grid{ grid-template-columns:repeat(2, minmax(0,1fr)) } }
+@media (min-width:1100px){ .appeals-grid{ grid-template-columns:repeat(4, minmax(0,1fr)) } }
+.appeal{ display:flex; flex-direction:column; gap:.7rem; min-width:0 }
+.sq{ position:relative; border-radius:var(--sq); overflow:hidden; background:var(--sand) }
+.sq img{ width:100%; height:100%; object-fit:cover }
+.appeal-media{ position:relative }
+.appeal-media .sq{ aspect-ratio:4/3 }
+.appeal-badge{ position:absolute; left:-4px; bottom:-14px; width:64px; height:64px; border-radius:50%; box-shadow:0 0 0 4px var(--paper) }
+.appeal h3{ margin-top:.9rem; font-size:clamp(1.25rem, 1.15rem + .35vw, 1.42rem) }
+.appeal h3 a{ text-decoration:none; background:linear-gradient(currentColor,currentColor) 0 100%/0 2px no-repeat; transition:background-size var(--d2) var(--ease-out) }
+.appeal h3 a:hover{ background-size:100% 2px }
+.appeal-text{ color:var(--ink-2); font-size:1rem }
+.appeal-foot{ margin-top:auto; padding-top:.35rem; display:flex; flex-wrap:wrap; gap:.6rem 1rem; align-items:center; justify-content:space-between }
+
+/* ---------- what we do: two circles ---------- */
+.work{ background:var(--cream) }
+.work-grid{ display:grid; gap:2.5rem }
+@media (min-width:1100px){ .work-grid{ grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); grid-template-areas:"intro venn" "panel venn"; column-gap:4rem; row-gap:1.5rem; align-items:start } .work-intro{ grid-area:intro } .venn-wrap{ grid-area:venn } .prog-panel{ grid-area:panel } }
+.work-intro{ display:grid; gap:1rem; color:var(--ink-2) }
+.work-intro h2{ color:var(--ink) }
+.work-intro .lede{ font-size:1.12em; color:var(--ink) }
+.venn-wrap{ min-width:0 }
+/* Geometry as fractions of the venn box. Phone: circles stacked (0.8W across, overlapping by 0.24W), converging vertically.
+   Wider: side by side (0.6W across, overlapping by 0.2W), converging horizontally. Badges ride inside their circle. */
+.venn{ --p:1; position:relative; width:100%; max-width:640px; margin-inline:auto; aspect-ratio:1/1.5; container-type:inline-size }
+.circle{ position:absolute; width:80%; left:10%; aspect-ratio:1; border-radius:50% }
+.c-abm{ top:4.667%; background:radial-gradient(circle at 50% 40%, rgba(158,23,24,.04), rgba(158,23,24,.1)); box-shadow:inset 0 0 0 3px var(--abm); transform:translateY(calc((1 - var(--p)) * -9%)) }
+.c-aid{ top:42%; background:radial-gradient(circle at 50% 60%, rgba(18,127,145,.04), rgba(18,127,145,.11)); box-shadow:inset 0 0 0 3px var(--aid); transform:translateY(calc((1 - var(--p)) * 9%)) }
+.org-badge{ position:absolute; width:17.5%; left:41.25%; top:-8.75%; aspect-ratio:1; border-radius:50%; box-shadow:0 0 0 5px var(--cream); background:var(--cream) }
+.c-aid .org-badge{ top:91.25% }
+.prog{ position:absolute; z-index:1; display:grid; justify-items:center; gap:.35rem; width:var(--w, 30%); padding:.3rem; margin:0; background:transparent; border:0; border-radius:16px; cursor:pointer; color:var(--ink); font-family:var(--f-body); font-weight:700; font-size:clamp(.8rem, .62rem + 1.1cqi, 1rem); line-height:1.15; text-align:center; transform:translate(-50%, -32%) }
+.prog img{ width:var(--img, 100%); aspect-ratio:1; border-radius:50%; transition:transform var(--d2) var(--ease-out), box-shadow var(--d2) var(--ease-out) }
+.prog:hover img{ transform:scale(1.05) }
+.prog[aria-pressed="true"] img{ box-shadow:0 0 0 4px var(--cream), 0 0 0 7px var(--ring, var(--ink)) }
+.prog[aria-pressed="true"] span{ text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:4px }
+.p-c2c{ --w:42%; --img:78%; --ring:var(--c2c); left:50%; top:31% }
+.p-sc{ --w:40%; --img:72%; --ring:var(--sc); left:27.5%; top:58% }
+.p-er{ --w:40%; --img:72%; --ring:var(--ink); left:72.5%; top:58% }
+.p-rec{ --w:28%; --img:68%; --ring:var(--rec); left:50%; top:47.5%; transform:translate(-50%, -50%) scale(calc(.86 + var(--p) * .14)) }
+@media (min-width:560px){
+  .venn{ aspect-ratio:1/.65 }
+  .circle{ width:60%; top:7.692% }
+  .c-abm{ left:0; transform:translateX(calc((1 - var(--p)) * -8%)) }
+  .c-aid{ left:40%; top:7.692%; transform:translateX(calc((1 - var(--p)) * 8%)) }
+  .org-badge,.c-aid .org-badge{ width:16.667%; left:41.667%; top:-8.333% }
+  .p-c2c{ --w:36%; --img:80%; left:33.3%; top:47% }
+  .p-sc{ --w:34%; --img:64%; left:66.7%; top:24% }
+  .p-er{ --w:34%; --img:64%; left:66.7%; top:64% }
+  .p-rec{ --w:21%; --img:74%; left:50%; top:54% }
+}
+.venn-key{ display:flex; flex-wrap:wrap; gap:.75rem 1.5rem; justify-content:center; margin-top:1.5rem }
+.venn-key p{ display:grid; gap:.3rem; justify-items:center; text-align:center; font-weight:700 }
+.prog-panel{ min-width:0 }
+.pp{ padding:1.4rem 1.5rem 1.5rem; background:var(--paper); border-radius:20px; display:grid; gap:.75rem; border-top:5px solid var(--ring, var(--ink)) }
+.prog-panel h3{ font-size:clamp(1.35rem, 1.2rem + .5vw, 1.65rem) }
+.prog-panel .who{ display:flex; flex-wrap:wrap; gap:.5rem }
+.prog-panel p{ color:var(--ink-2) }
+.prog-panel ul{ display:flex; flex-wrap:wrap; gap:.4rem }
+.prog-panel ul li{ padding:.25rem .7rem; border-radius:999px; background:var(--cream); font-size:.9rem; font-weight:700; color:var(--ink-2) }
+.marks{ margin-top:clamp(3rem, 2rem + 3vw, 4.5rem); padding-top:clamp(2rem, 1.5rem + 1.5vw, 2.75rem); border-top:1px solid var(--line-2) }
+.marks h3{ font-size:clamp(1.45rem, 1.2rem + .9vw, 2rem); margin-bottom:1.5rem }
+.marks ol{ display:grid; gap:1.25rem 1.5rem }
+@media (min-width:720px){ .marks ol{ grid-template-columns:repeat(2, minmax(0,1fr)) } }
+@media (min-width:1100px){ .marks ol{ grid-template-columns:repeat(5, minmax(0,1fr)) } }
+.marks li{ display:grid; grid-template-columns:auto minmax(0,1fr); gap:.85rem; align-items:start; align-content:start; color:var(--ink-2) }
+@media (min-width:1100px){ .marks li{ grid-template-columns:1fr; gap:.75rem } }
+.marks .n{ width:2.6rem; height:2.6rem; border-radius:50%; display:grid; place-items:center; box-shadow:inset 0 0 0 2px var(--abm); color:var(--abm); font-family:var(--f-display); font-weight:600; font-size:1.2rem; line-height:1 }
+.marks li.five .n{ background:var(--soc); box-shadow:none; color:#fff }
+
+/* ---------- where we work ---------- */
+.countries{ columns:1; column-gap:3rem }
+@media (min-width:860px){ .countries{ columns:2 } }
+.countries li{ break-inside:avoid; display:grid; grid-template-columns:minmax(0,11rem) minmax(0,1fr); gap:.3rem 1.5rem; padding-block:1rem; border-top:1px solid var(--line) }
+@media (max-width:520px){ .countries li{ grid-template-columns:1fr } }
+.countries h3{ font-size:1.3rem }
+.countries p{ color:var(--ink-2); font-size:1rem }
+.countries a{ color:var(--ink); text-decoration:underline; text-decoration-color:var(--line-2); text-decoration-thickness:1px; text-underline-offset:3px; transition:text-decoration-color var(--d1) var(--ease-out), color var(--d1) var(--ease-out) }
+.countries a:hover{ color:var(--abm); text-decoration-color:currentColor }
+
+/* ---------- news ---------- */
+.news{ background:var(--sand) }
+.news-grid{ display:grid; gap:2rem }
+@media (min-width:900px){ .news-grid{ grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); column-gap:3.5rem; align-items:start } }
+.news-side{ display:grid; gap:1.75rem; align-content:start }
+.story{ display:grid; grid-template-columns:minmax(0,38%) minmax(0,1fr); gap:1.1rem; align-items:start; min-width:0 }
+.story .sq{ aspect-ratio:3/2 }
+.story h3{ font-size:clamp(1.08rem, 1rem + .3vw, 1.25rem); line-height:1.22 }
+.story h3 a{ text-decoration:none }
+.story h3 a:hover{ text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:4px }
+.story time{ display:block; font-size:.86rem; font-weight:700; color:var(--ink-2); margin-bottom:.35rem; font-variant-numeric:tabular-nums }
+.story-lead{ grid-template-columns:1fr; gap:1.25rem }
+.story-lead .sq{ aspect-ratio:4/3; --sq:18% }
+.story-lead h3{ font-size:clamp(1.5rem, 1.2rem + 1.1vw, 2.15rem); line-height:1.1 }
+.story-lead p{ color:var(--ink-2); margin-top:.75rem; max-width:36rem }
+.story-cap{ font-size:.84rem; color:var(--ink-2); margin-top:.55rem }
+
+/* ---------- prayer (the one parallax band) ---------- */
+.prayer{ position:relative; overflow:clip; background:var(--night); color:#fff; isolation:isolate }
+.prayer::before,.prayer::after{ content:""; position:absolute; z-index:-1; border-radius:50%; pointer-events:none; aspect-ratio:1; transform:translateY(var(--py, 0px)) }
+.prayer::before{ width:min(1100px, 150vw); right:-38%; top:-30%; box-shadow:inset 0 0 0 1px var(--night-line) }
+.prayer::after{ width:min(760px, 110vw); right:-22%; top:-2%; box-shadow:inset 0 0 0 1px var(--night-line) }
+.prayer-grid{ display:grid; gap:2.5rem }
+@media (min-width:1000px){ .prayer-grid{ grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); column-gap:4.5rem; align-items:start } }
+.prayer h2{ color:#fff }
+.prayer-date{ margin-top:.6rem; color:var(--night-ink); font-weight:700 }
+.prayer-items{ display:grid; gap:1.4rem; margin-block:1.75rem 1.9rem }
+.prayer-items div{ padding-top:1.1rem; border-top:1px solid var(--night-line) }
+.prayer-items dt{ font-family:var(--f-display); font-weight:600; font-size:1.25rem; color:var(--leaf) }
+.prayer-items dd{ margin-top:.35rem; color:var(--night-ink) }
+.prayer-quote blockquote p{ font-family:var(--f-display); font-style:italic; font-weight:500; font-size:clamp(1.55rem, 1.15rem + 1.6vw, 2.5rem); line-height:1.22; color:#fff; text-wrap:pretty }
+.prayer-quote figcaption{ margin-top:1.1rem; color:var(--night-ink) }
+
+/* ---------- get involved ---------- */
+.involved-grid{ display:grid; gap:1.5rem }
+@media (min-width:900px){ .involved-grid{ grid-template-columns:repeat(3, minmax(0,1fr)) } }
+.inv{ display:flex; flex-direction:column; gap:.8rem; padding:clamp(1.4rem, 1.1rem + 1vw, 2rem); border-radius:22px; background:var(--cream); min-width:0 }
+.inv h3{ font-size:clamp(1.35rem, 1.2rem + .5vw, 1.65rem) }
+.inv p{ color:var(--ink-2) }
+.inv .link-arrow{ margin-top:auto; align-self:start }
+.inv-news{ background:var(--aid-tint) }
+.field{ display:grid; gap:.35rem }
+.field label{ font-weight:700; font-size:.95rem }
+.field input{ min-height:48px; padding:.6rem .85rem; border:2px solid var(--ink-3); border-radius:12px; background:var(--paper) }
+.field input:focus-visible{ outline:3px solid var(--aid-deep); outline-offset:2px; border-color:var(--aid-deep) }
+.form-msg{ font-weight:700; color:var(--aid-deep) }
+
+/* ---------- footer ---------- */
+.ftr{ background:var(--ink); color:#E9E4DB; font-size:.98rem }
+.ftr .inner{ padding-block:clamp(3rem, 2rem + 3vw, 4.5rem) 2rem; display:grid; gap:2.5rem }
+.ftr-grid{ display:grid; gap:2rem }
+@media (min-width:720px){ .ftr-grid{ grid-template-columns:repeat(2, minmax(0,1fr)) } }
+@media (min-width:1100px){ .ftr-grid{ grid-template-columns:1.2fr 1fr 1fr 1fr } }
+.ftr h2{ font-size:1.15rem; color:#fff; margin-bottom:.85rem; letter-spacing:0 }
+.ftr ul{ display:grid; gap:.5rem }
+.ftr a{ color:#fff; text-decoration:underline; text-decoration-color:rgba(255,255,255,.35); text-underline-offset:3px }
+.ftr a:hover{ text-decoration-color:#fff }
+.ftr-badges{ display:flex; gap:.75rem; margin-bottom:1rem }
+.ftr-badges img{ width:72px; height:72px }
+.ftr-tag{ font-family:var(--f-display); font-weight:600; font-size:1.3rem; color:#fff; line-height:1.2 }
+.ftr address{ font-style:normal; display:grid; gap:.35rem }
+.acfid{ display:inline-block; margin-top:1rem; background:var(--cream); border-radius:12px; padding:.6rem .8rem }
+.acfid img{ width:120px; height:auto }
+.ftr-ack{ padding-top:1.75rem; border-top:1px solid rgba(255,255,255,.18); display:grid; gap:1rem; color:#CFC9BF; font-size:.92rem; max-width:62rem }
+.ftr-ack .credit{ color:#BDB6AA }
+
+/* ---------- donate view ---------- */
+.page-head{ background:var(--cream) }
+.page-head .inner{ padding-block:clamp(2.5rem, 1.6rem + 3vw, 4.5rem) clamp(2rem, 1.5rem + 2vw, 3rem); display:grid; gap:1rem }
+.crumbs{ display:flex; gap:.5rem; font-size:.92rem; color:var(--ink-2) }
+.crumbs a{ color:var(--ink-2) }
+.page-head h1{ font-size:clamp(2.6rem, 1.7rem + 3.4vw, 4.4rem); line-height:1 }
+.page-head p{ font-size:clamp(1.1rem, 1rem + .4vw, 1.3rem); color:var(--ink-2); max-width:42rem }
+.donate-grid{ display:grid; gap:2.5rem; padding-block:clamp(2rem, 1.5rem + 2vw, 3.5rem) var(--sec-y) }
+@media (min-width:1000px){ .donate-grid{ grid-template-columns:minmax(0,1fr) minmax(0,.85fr); column-gap:4rem; align-items:start } }
+.give{ display:grid; gap:1.6rem; padding:clamp(1.25rem, 1rem + 1.5vw, 2.25rem); background:var(--paper); border-radius:24px; box-shadow:0 0 0 1px var(--line), 0 30px 60px -40px rgba(28,32,31,.35) }
+.give fieldset{ border:0; margin:0; padding:0; min-width:0 }
+.give legend,.give .lbl{ font-family:var(--f-display); font-weight:600; font-size:1.3rem; margin-bottom:.75rem; padding:0 }
+.opt-input{ position:absolute; opacity:0; width:1px; height:1px; margin:0 }
+.seg{ position:relative; display:grid; grid-template-columns:1fr 1fr; gap:6px; padding:6px; background:var(--cream); border-radius:999px }
+.seg-opt{ display:flex; align-items:center; justify-content:center; gap:.4rem; min-height:46px; border-radius:999px; font-weight:700; cursor:pointer; color:var(--ink-2); transition:background-color var(--d1) var(--ease-out), color var(--d1) var(--ease-out) }
+.opt-input:checked + .seg-opt{ background:var(--paper); color:var(--ink); box-shadow:0 2px 8px -2px rgba(28,32,31,.25) }
+.opt-input:focus-visible + .seg-opt,.opt-input:focus-visible + .amt,.opt-input:focus-visible + .fund-opt-l{ outline:3px solid var(--aid-deep); outline-offset:2px }
+.amt-grid{ position:relative; display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:.6rem }
+.amt{ display:flex; align-items:center; justify-content:center; min-height:54px; border-radius:14px; border:2px solid var(--line-2); font-weight:700; font-size:1.12rem; cursor:pointer; font-variant-numeric:tabular-nums; transition:border-color var(--d1) var(--ease-out), background-color var(--d1) var(--ease-out) }
+.amt:hover{ border-color:var(--aid) }
+.opt-input:checked + .amt{ border-color:var(--aid); background:var(--aid-tint); color:var(--aid-deep) }
+.amt-other{ display:grid; grid-template-columns:auto minmax(0,1fr); align-items:center; margin-top:.6rem; border:2px solid var(--line-2); border-radius:14px; overflow:hidden; transition:border-color var(--d1) var(--ease-out) }
+.amt-other:focus-within{ border-color:var(--aid-deep) }
+.amt-other span{ padding:0 .4rem 0 1rem; font-weight:700; color:var(--ink-2) }
+.amt-other input{ border:0; min-height:50px; padding:.5rem .8rem .5rem .2rem; width:100%; background:transparent; font-weight:700; font-size:1.1rem; outline:none; -moz-appearance:textfield }
+.amt-other input::-webkit-outer-spin-button,.amt-other input::-webkit-inner-spin-button{ -webkit-appearance:none; margin:0 }
+.amt-other input::placeholder{ color:var(--ink-3); font-weight:400 }
+.fund-card{ display:grid; grid-template-columns:56px minmax(0,1fr); gap:.9rem; align-items:center; padding:.9rem 1rem; border-radius:18px; background:var(--cream) }
+.fund-card img{ width:56px; height:56px; border-radius:50%; background:var(--paper) }
+.fund-name{ font-family:var(--f-display); font-weight:600; font-size:1.2rem; line-height:1.15 }
+.fund-org{ font-size:.92rem; color:var(--ink-2); margin-top:.15rem }
+.fund-card .chip{ margin-top:.45rem }
+.funds{ margin-top:.75rem }
+.funds summary{ display:inline-flex; align-items:center; gap:.45rem; min-height:44px; cursor:pointer; font-weight:700; color:var(--aid-deep); list-style:none; text-decoration:underline; text-underline-offset:3px }
+.funds summary::-webkit-details-marker{ display:none }
+.funds summary .ico{ width:1em; height:1em; transition:transform var(--d1) var(--ease-out) }
+.funds[open] summary .ico{ transform:rotate(90deg) }
+.funds fieldset{ display:grid; gap:.5rem; margin-top:.5rem }
+.funds-group{ font-weight:700; font-size:.85rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-2); margin-top:.6rem }
+.fund-opt{ position:relative }
+.fund-opt-l{ display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:.75rem; align-items:center; padding:.75rem .9rem; border:2px solid var(--line); border-radius:14px; cursor:pointer; transition:border-color var(--d1) var(--ease-out), background-color var(--d1) var(--ease-out) }
+.fund-opt-l:hover{ border-color:var(--line-2) }
+.fund-opt-l .dot{ width:1.1rem; height:1.1rem; border-radius:50%; box-shadow:inset 0 0 0 2px var(--ink-3) }
+.opt-input:checked + .fund-opt-l{ border-color:var(--ink); background:var(--cream) }
+.opt-input:checked + .fund-opt-l .dot{ box-shadow:inset 0 0 0 5px var(--ink) }
+.fund-opt-l b{ display:block; font-weight:700 }
+.fund-opt-l small{ display:block; color:var(--ink-2); font-size:.88rem; margin-top:.1rem }
+.fund-opt-l .org{ width:12px; height:12px; border-radius:50%; background:var(--aid) }
+.fund-opt-l .org.abm{ background:var(--abm) }
+.give-summary{ padding:1rem 1.1rem; border-radius:16px; background:var(--aid-tint); color:var(--ink); font-size:1rem }
+.give-summary.abm{ background:var(--abm-tint) }
+.give-summary strong{ font-weight:700 }
+.handover:empty{ display:none }
+.handover{ display:grid; gap:.6rem; padding:1.1rem 1.2rem; border-radius:16px; border:2px dashed var(--line-2); background:var(--paper); color:var(--ink-2); font-size:.98rem }
+.handover strong{ color:var(--ink) }
+.give-note{ font-size:.92rem; color:var(--ink-2) }
+.give-aside{ display:grid; gap:2rem }
+.thanks .sq{ aspect-ratio:4/3 }
+.thanks blockquote{ margin-top:1.1rem; font-family:var(--f-display); font-style:italic; font-weight:500; font-size:clamp(1.3rem, 1.1rem + .7vw, 1.65rem); line-height:1.25 }
+.thanks figcaption{ margin-top:.6rem; color:var(--ink-2); font-size:.95rem }
+.two-orgs{ display:grid; gap:1rem; padding:1.4rem; border-radius:22px; background:var(--cream) }
+.two-orgs h2{ font-size:1.45rem }
+.two-orgs li{ display:grid; grid-template-columns:56px minmax(0,1fr); gap:.9rem; align-items:center }
+.two-orgs img{ width:56px; height:56px }
+.two-orgs b{ display:block }
+.two-orgs span{ color:var(--ink-2); font-size:.96rem }
+.ways{ background:var(--cream) }
+.ways-grid{ display:grid; gap:1.5rem }
+@media (min-width:860px){ .ways-grid{ grid-template-columns:repeat(3, minmax(0,1fr)) } }
+.way{ padding:1.4rem; border-radius:20px; background:var(--paper); display:grid; gap:.6rem; align-content:start }
+.way h3{ font-size:1.35rem }
+.way dl{ display:grid; grid-template-columns:auto minmax(0,1fr); gap:.3rem .9rem; font-size:.98rem }
+.way dt{ font-weight:700 }
+.way dd{ color:var(--ink-2); font-variant-numeric:tabular-nums; overflow-wrap:anywhere }
+.way p{ color:var(--ink-2); font-size:.98rem }
+.fine{ margin-top:2rem; display:grid; gap:.6rem; font-size:.92rem; color:var(--ink-2); max-width:60rem }
+
+/* ---------- appeal view ---------- */
+.soc-hero{ position:relative; background:var(--night); color:#fff; overflow:clip }
+.soc-hero picture img{ width:100%; height:auto; aspect-ratio:4/3; object-fit:cover }
+.soc-hero .inner{ position:relative; display:grid; gap:1.1rem; padding-block:2rem 2.75rem }
+.soc-hero h1 img{ width:clamp(230px, 16vw + 150px, 400px); height:auto }
+.soc-sub{ font-family:var(--f-display); font-weight:600; font-size:clamp(1.8rem, 1.2rem + 2.6vw, 3.4rem); line-height:1.04; max-width:15ch }
+.soc-meta{ display:flex; flex-wrap:wrap; gap:.6rem 1rem; align-items:center; color:var(--night-ink); font-size:.95rem }
+.soc-meta .code{ font-variant-numeric:tabular-nums }
+@media (min-width:900px){
+  .soc-hero{ min-height:clamp(520px, 44vw, 700px); display:grid; align-items:center }
+  .soc-hero picture{ position:absolute; inset:0 }
+  .soc-hero picture img{ height:100%; aspect-ratio:auto; object-position:right center }
+  .soc-hero::after{ content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(15,54,71,.9) 0%, rgba(15,54,71,.55) 34%, rgba(15,54,71,0) 55%) }
+  .soc-hero .wrap{ position:relative; z-index:1; width:100% }
+  .soc-hero .inner{ padding-block:4rem }
+  .soc-hero .copy{ max-width:34rem; display:grid; gap:1.2rem }
+}
+.soc-layout{ display:grid; gap:2.5rem; padding-block:clamp(2.5rem, 1.8rem + 2.5vw, 4.5rem) var(--sec-y) }
+@media (min-width:1000px){ .soc-layout{ grid-template-columns:minmax(0,1fr) 360px; column-gap:clamp(3rem, 1rem + 4vw, 5.5rem) } .soc-lead{ grid-column:1; grid-row:1 } .soc-rest{ grid-column:1; grid-row:2 } .soc-aside{ grid-column:2; grid-row:1 / span 2; align-self:start; position:sticky; top:calc(var(--hdr-h) + 24px) } }
+.soc-main{ display:grid; gap:clamp(2.5rem, 2rem + 2vw, 3.75rem); min-width:0; max-width:46rem }
+.soc-intro{ font-family:var(--f-display); font-weight:600; font-size:clamp(1.45rem, 1.15rem + 1.2vw, 2.1rem); line-height:1.2; color:var(--ink) }
+.prose{ display:grid; gap:1rem; color:var(--ink-2); max-width:40rem }
+.prose strong{ color:var(--ink) }
+.place{ display:grid; gap:1.1rem }
+.place h2{ font-size:clamp(1.6rem, 1.3rem + 1.1vw, 2.2rem) }
+.fig .sq{ aspect-ratio:4/3 }
+.fig figcaption{ margin-top:.6rem; font-size:.9rem; color:var(--ink-2) }
+.pair{ display:grid; gap:1.25rem }
+@media (min-width:640px){ .pair{ grid-template-columns:repeat(2, minmax(0,1fr)) } }
+.fig .sq{ --sq:18% }
+.place-row{ display:grid; gap:1.25rem; align-items:center }
+@media (min-width:640px){ .place-row{ grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:1.75rem } }
+.place-copy{ display:grid; gap:1rem }
+.place-note{ padding:clamp(1.25rem, 1rem + 1vw, 1.75rem); border-radius:20px; background:var(--cream); gap:.75rem }
+.pull{ font-family:var(--f-display); font-weight:600; font-size:clamp(1.6rem, 1.25rem + 1.4vw, 2.4rem); line-height:1.14; color:var(--soc); padding-left:1.25rem; border-left:4px solid var(--leaf) }
+.laudato{ display:grid; gap:.8rem; padding:clamp(1.4rem, 1.1rem + 1.2vw, 2.25rem); background:var(--cream); border-radius:22px }
+.laudato blockquote p{ font-family:var(--f-display); font-style:italic; font-weight:500; font-size:clamp(1.15rem, 1.05rem + .45vw, 1.4rem); line-height:1.35 }
+.laudato figcaption{ color:var(--ink-2); font-size:.95rem }
+.impact h2{ font-size:clamp(1.6rem, 1.3rem + 1.1vw, 2.2rem); margin-bottom:1.5rem }
+.impact ul{ display:grid; gap:1.75rem }
+@media (min-width:640px){ .impact ul{ grid-template-columns:repeat(3, minmax(0,1fr)); gap:1.25rem } }
+.impact li{ display:grid; gap:.85rem; align-content:start }
+.impact img{ width:100%; height:auto; aspect-ratio:493/452 }
+.impact p{ color:var(--ink); font-weight:700; font-size:1.02rem; line-height:1.4 }
+.soc-prayer{ padding:clamp(1.6rem, 1.2rem + 1.8vw, 2.75rem); border-radius:24px; background:var(--night); color:#fff; display:grid; gap:1.1rem }
+.soc-prayer h2{ color:var(--leaf); font-size:clamp(1.5rem, 1.25rem + 1vw, 2rem) }
+.soc-prayer .lines{ display:grid; gap:1rem; font-family:var(--f-display); font-style:italic; font-weight:500; font-size:clamp(1.15rem, 1.05rem + .5vw, 1.4rem); line-height:1.4 }
+.soc-prayer .amen{ font-family:var(--f-display); font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--leaf) }
+.close-call{ display:grid; gap:1rem }
+.close-call h2{ font-size:clamp(1.8rem, 1.4rem + 1.5vw, 2.6rem) }
+.give-panel{ display:grid; gap:1.25rem }
+.goal{ display:grid; gap:.2rem; padding-bottom:1.1rem; border-bottom:1px solid var(--line) }
+.goal p{ color:var(--ink-2); font-size:.95rem }
+.goal .num{ font-family:var(--f-display); font-weight:600; font-size:2.5rem; line-height:1; color:var(--soc); font-variant-numeric:tabular-nums }
+.res-grid{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1rem }
+@media (min-width:720px){ .res-grid{ grid-template-columns:repeat(4, minmax(0,1fr)) } }
+.res a{ display:grid; gap:.6rem; text-decoration:none; font-weight:700 }
+.res .sq{ aspect-ratio:1; border-radius:18px }
+.res span{ display:inline }
+.res span .ico{ display:inline-block; vertical-align:-.12em; margin-left:.3rem }
+.res a:hover span{ color:var(--aid-deep); text-decoration:underline; text-underline-offset:3px }
+.ancp{ display:grid; gap:1rem; align-items:center; margin-top:1.25rem }
+@media (min-width:720px){ .ancp{ grid-template-columns:minmax(0,1fr) 300px } }
+.ancp img{ width:300px; max-width:100% }
+
+/* ---------- motion: reveal from a visible resting state ---------- */
+.rv{ transition:opacity var(--d2) var(--ease-out), transform var(--d2) var(--ease-out); transition-delay:calc(var(--k,0) * var(--stagger)) }
+.rv.pre{ opacity:0; transform:translateY(18px); transition:none }
+.rv-img{ clip-path:circle(100% at 50% 55%); transition:clip-path var(--d3) var(--ease-out); transition-delay:calc(var(--k,0) * var(--stagger)) }
+.rv-img.pre{ clip-path:circle(14% at 50% 55%); transition:none }
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation:none!important; transition:none!important }
+  .venn{ --p:1!important }
+}
+</style>
+</head>
+<body>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M8 16 16 8M9.5 8H16v6.5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<aside class="strip" aria-label="About this concept">
+  <div class="wrap"><div class="inner">
+    <p><span class="strip-long">A concept by Singh Studio for ABM and AID, made from their own words and photographs. It isn’t the live site.</span><span class="strip-short">Concept by Singh Studio, not the live site.</span></p>
+    <p class="strip-links"><a href="review/">Website review</a><button type="button" id="changesOpen" aria-haspopup="dialog">What’s different</button></p>
+  </div></div>
+</aside>
+
+<header class="hdr" id="hdr">
+  <div class="wrap"><div class="inner">
+    <a class="brand" href="#top" aria-label="Anglican Board of Mission and Anglicans in Development, home"><img src="img/logos.svg" width="762" height="362" alt=""></a>
+    <nav class="nav" aria-label="Main">
+      <ul>
+        <li><a href="#work">What we do</a></li>
+        <li><a href="#where">Where we work</a></li>
+        <li><a href="#appeals">Appeals</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#prayer">Prayer</a></li>
+        <li><a href="#involved">Get involved</a></li>
+      </ul>
+    </nav>
+    <div class="hdr-tools">
+      <a class="hdr-phone" href="tel:1300302663">1300&nbsp;302&nbsp;663</a>
+      <a class="btn btn-teal hdr-donate" href="#donate">Donate</a>
+      <button class="menu-btn" type="button" id="menuBtn" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu"><svg class="ico" aria-hidden="true"><use href="#i-menu"/></svg><span>Menu</span></button>
+    </div>
+  </div></div>
+</header>
+
+<dialog class="drawer" id="menu" aria-label="Menu">
+  <div class="drawer-top">
+    <img src="img/logos.svg" width="762" height="362" alt="" loading="lazy">
+    <button class="icon-btn" type="button" id="menuClose"><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg><span class="sr-only">Close menu</span></button>
+  </div>
+  <nav class="drawer-nav" aria-label="Menu">
+    <a href="#work">What we do <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="#where">Where we work <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="#appeals">Appeals <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="#news">News <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="#prayer">Prayer <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <a href="#involved">Get involved <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </nav>
+  <div class="drawer-foot">
+    <a class="btn btn-teal btn-block" href="#donate">Donate</a>
+    <p>Call us on <a href="tel:1300302663">1300&nbsp;302&nbsp;663</a>, Monday to Friday, 9am to 5pm AEST.</p>
+  </div>
+</dialog>
+
+<dialog class="sheet" id="changes" aria-labelledby="changes-h">
+  <div class="sheet-body">
+    <div class="sheet-top">
+      <h2 id="changes-h">What’s different in this concept</h2>
+      <button class="icon-btn" type="button" id="changesClose"><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg><span class="sr-only">Close</span></button>
+    </div>
+    <ol>
+      <li>Donate sits in the header at every screen size, so on a phone it’s always one tap away. On the current site it’s the last item in the phone menu.</li>
+      <li>There’s one donate page instead of a choice between ABM and AID. You pick an amount and the fund is already filled in (the AID General Fund, or the appeal you came from), with its tax status shown beside it, and every Donate button opens the Blackbaud adaptive form that the appeal pages already use.</li>
+      <li>The homepage leads with the current appeal and September’s news, in place of the “Celebrating 175 Years” heading and the older slides.</li>
+      <li>ABM’s own badges do the explaining. The two circles show which work is ABM’s, which is AID’s, which they share, and what that means for tax.</li>
+      <li>Zoom works, the menu opens from a keyboard and every colour passes contrast, including the Donate button, which keeps the teal from the AID badge and passes at 4.7 to 1 (the current button is 2.99 to 1).</li>
+      <li>On a phone the homepage weighs about 0.5 MB instead of 6.9 MB, and Lighthouse scores it 94 for performance and 100 for accessibility, where the current homepage scores 54 and 62.</li>
+    </ol>
+    <p class="sheet-foot">The appeal, news, prayer and program text and every photo are ABM’s own, taken from abmission.org in October 2026. Links to appeals, stories and partner pages go to the live site.</p>
+  </div>
+</dialog>
+
+<main id="main">
+
+<!-- ============ HOME ============ -->
+<div data-view="home" id="top">
+
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap"><div class="inner">
+    <div class="hero-copy">
+      <p class="ld" style="--k:0"><img class="wordmark" src="img/wordmark-515.webp" width="515" height="273" alt="Season of Creation"></p>
+      <h1 class="ld" style="--k:1" id="hero-h">Working to heal a weary world</h1>
+      <p class="hero-lede ld" style="--k:2">Our world is in crisis. Help us protect, care for and renew life on our planet through the Season of Creation Appeal.</p>
+      <div class="hero-actions ld" style="--k:3">
+        <a class="btn btn-leaf" href="#donate" data-fund="soc">Give to the appeal <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-line" href="#season-of-creation">Read the appeal</a>
+      </div>
+      <p class="hero-meta ld" style="--k:4"><span class="chip chip-night">Tax-deductible</span> <span>Our goal is to raise $40,000</span></p>
+    </div>
+    <div class="hero-badge">
+      <div class="photo"><img src="img/hero-sq-640.webp" srcset="img/hero-sq-640.webp 640w, img/hero-sq-1100.webp 1100w" sizes="(min-width: 900px) 38vw, min(84vw, 360px)" width="640" height="640" alt="Cliffs and turquoise ocean. Photo: Stephen Daughtry, ABM AID" fetchpriority="high"></div>
+      <svg class="hero-ring" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
+        <defs><path id="ring-path" d="M300 300m-279 0a279 279 0 1 1 558 0a279 279 0 1 1-558 0"/></defs>
+        <g><text><textPath href="#ring-path" textLength="1748" lengthAdjust="spacing">SEASON OF CREATION 2026 <tspan class="dot">●</tspan> PROTECT, CARE FOR AND RENEW LIFE ON OUR PLANET <tspan class="dot">●</tspan> SEASON OF CREATION 2026 <tspan class="dot">●</tspan> PROTECT, CARE FOR AND RENEW LIFE ON OUR PLANET <tspan class="dot">●</tspan></textPath></text></g>
+      </svg>
+    </div>
+  </div></div>
+</section>
+
+<section class="appeals sec" id="appeals" aria-labelledby="appeals-h">
+  <div class="wrap"><div class="inner">
+    <div class="sec-head row">
+      <h2 id="appeals-h">Current appeals</h2>
+      <a class="link-arrow" href="https://www.abmission.org/appeals">All appeals <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="appeals-grid">
+      <article class="appeal rv" style="--k:0">
+        <div class="appeal-media"><div class="sq rv-img" style="--k:0"><img src="img/ap-nepal-640.webp" width="640" height="480" loading="lazy" decoding="async" alt="A village in Nepal beside a river. Photo: Sushanta Rokka, Unsplash"></div><img class="appeal-badge" src="img/p-er.svg" width="64" height="64" alt="" loading="lazy"></div>
+        <h3><a href="https://www.abmission.org/appeals/appeals-emergency/nepal-flash-flood-2026/">Nepal Flash Flood Emergency Appeal</a></h3>
+        <p class="appeal-text">You can bring urgently needed help to families suffering from Nepal’s flash flood.</p>
+        <div class="appeal-foot"><span class="chip chip-aid">Tax-deductible</span><a class="link-arrow" href="#donate" data-fund="nepal">Give <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> to the Nepal appeal</span></a></div>
+      </article>
+      <article class="appeal rv" style="--k:1">
+        <div class="appeal-media"><div class="sq rv-img" style="--k:1"><img src="img/ap-gaza-640.webp" width="640" height="480" loading="lazy" decoding="async" alt="A midwife tends to a newborn baby at St Luke’s Hospital in the West Bank. Photo © Diocese of Jerusalem"></div><img class="appeal-badge" src="img/p-er.svg" width="64" height="64" alt="" loading="lazy"></div>
+        <h3><a href="https://www.abmission.org/appeals/appeals-emergency/gaza-west-bank/">Gaza &amp; West Bank Emergency Appeal</a></h3>
+        <p class="appeal-text">You can help bring medical relief to families in Gaza and the West Bank who are living through ongoing violence and displacement.</p>
+        <div class="appeal-foot"><span class="chip chip-aid">Tax-deductible</span><a class="link-arrow" href="#donate" data-fund="gaza">Give <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> to the Gaza and West Bank appeal</span></a></div>
+      </article>
+      <article class="appeal rv" style="--k:2">
+        <div class="appeal-media"><div class="sq rv-img" style="--k:2"><img src="img/ap-myanmar-640.webp" width="640" height="480" loading="lazy" decoding="async" alt="A man with the piglets he is raising in Myanmar. Piglet raising is a new livelihood"></div><img class="appeal-badge" src="img/p-er.svg" width="64" height="64" alt="" loading="lazy"></div>
+        <h3><a href="https://www.abmission.org/appeals/appeals-emergency/myanmar-emergency-appeal/">Myanmar Emergency Appeal</a></h3>
+        <p class="appeal-text">You can be the Light of Christ as you support vulnerable displaced people during the protracted crisis in Myanmar.</p>
+        <div class="appeal-foot"><span class="chip chip-aid">Tax-deductible</span><a class="link-arrow" href="#donate" data-fund="myanmar">Give <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> to the Myanmar appeal</span></a></div>
+      </article>
+      <article class="appeal rv" style="--k:3">
+        <div class="appeal-media"><div class="sq rv-img" style="--k:3"><img src="img/ap-martyrs-640.webp" width="640" height="480" loading="lazy" decoding="async" alt="Four smiling adult literacy students in Papua New Guinea"></div><img class="appeal-badge" src="img/p-sc.svg" width="64" height="64" alt="" loading="lazy"></div>
+        <h3><a href="https://www.abmission.org/appeals/appeals-major/martyrs2026/">Martyrs Gift 2026</a></h3>
+        <p class="appeal-text">The New Guinea Martyrs chose to remain with the people they loved. Honour their legacy by supporting education and leadership programs for our neighbours in Papua New Guinea.</p>
+        <div class="appeal-foot"><span class="chip chip-aid">Tax-deductible</span><a class="link-arrow" href="#donate" data-fund="martyrs">Give <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg><span class="sr-only"> to the Martyrs Gift</span></a></div>
+      </article>
+    </div>
+  </div></div>
+</section>
+
+<section class="work sec" id="work" aria-labelledby="work-h">
+  <div class="wrap"><div class="inner">
+    <div class="work-grid">
+      <div class="work-intro">
+        <h2 id="work-h">Working for Love, Hope &amp; Justice</h2>
+        <p class="lede">Anglican Board of Mission is the national mission agency for the Anglican Church. It is the channel through which Australian Anglicans participate in mission, both here and overseas.</p>
+        <p>Anglicans in Development is wholly owned by ABM, and operates ABM’s Sustainable Communities program, working with church partners to deliver grassroots, community-driven development, and disaster preparedness and response.</p>
+
+      </div>
+      <div class="venn-wrap">
+        <div class="venn" id="venn" role="group" aria-label="ABM and AID programs">
+          <div class="circle c-abm"><img class="org-badge" src="img/abm-badge.svg" width="362" height="362" alt="Anglican Board of Mission" loading="lazy">
+            <button class="prog p-c2c" type="button" data-prog="c2c" aria-pressed="true" aria-controls="progPanel"><img src="img/p-c2c.svg" width="362" height="362" alt="" loading="lazy"><span>Church to Church</span></button></div>
+          <div class="circle c-aid"><img class="org-badge" src="img/aid-badge.svg" width="362" height="362" alt="Anglicans in Development" loading="lazy">
+            <button class="prog p-sc" type="button" data-prog="sc" aria-pressed="false" aria-controls="progPanel"><img src="img/p-sc.svg" width="362" height="362" alt="" loading="lazy"><span>Sustainable Communities</span></button>
+            <button class="prog p-er" type="button" data-prog="er" aria-pressed="false" aria-controls="progPanel"><img src="img/p-er.svg" width="400" height="400" alt="" loading="lazy"><span>Emergency Response</span></button></div>
+          <button class="prog p-rec" type="button" data-prog="rec" aria-pressed="false" aria-controls="progPanel"><img src="img/p-rec.svg" width="362" height="362" alt="" loading="lazy"><span>Reconciliation</span></button>
+        </div>
+        <div class="venn-key">
+          <p>Anglican Board of Mission <span class="chip chip-abm">Gifts are not tax-deductible</span></p>
+          <p>Anglicans in Development <span class="chip chip-aid">Gifts of $2 or more are tax-deductible</span></p>
+        </div>
+      </div>
+      <div class="prog-panel" id="progPanel" aria-live="polite">
+          <div class="pp" data-panel="c2c" style="--ring:var(--c2c)"><h3>Church to Church</h3><p class="who"><span class="chip chip-abm">Anglican Board of Mission</span></p><p>Our Church to Church work sits at the heart of ABM as it embraces particularly the first two Marks of Mission: witness to Christ’s saving, forgiving and reconciling love for all people, and build welcoming, transforming communities of faith.</p><p>While the Theological Education Program is at the forefront of this work, it is complemented by the Encounter Program.</p><a class="link-arrow" href="https://www.abmission.org/church-to-church/">Church to Church on abmission.org <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div><div class="pp" data-panel="rec" style="--ring:var(--rec)" hidden><h3>Reconciliation</h3><p class="who"><span class="chip chip-abm">Anglican Board of Mission</span><span class="chip chip-aid">Anglicans in Development</span></p><p>We believe that the task of working for reconciliation within Australia is integral to mission.</p><p>Through its Reconciliation Fund, ABM provides a mechanism for the National Aboriginal and Torres Strait Islander Anglican Council (NATSIAC) to prioritise and fund local ministry initiatives by, for and with Aboriginal and Torres Strait Islander peoples.</p><p>Through its Aboriginal and Torres Strait Islander Leadership Fund, ABM AID supports institutions and initiatives which advance Indigenous education and self-determination, such as Nungalinya College in Darwin and Gawura School in Sydney.</p><a class="link-arrow" href="https://www.abmission.org/reconciliation/">Reconciliation on abmission.org <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div><div class="pp" data-panel="sc" style="--ring:var(--sc)" hidden><h3>Sustainable Communities</h3><p class="who"><span class="chip chip-aid">Anglicans in Development</span></p><p>Jesus came that we might have abundant life, and ABM AID believes that that life extends to the whole person living in community.</p><p>ABM AID’s Sustainable Communities work is done in collaboration with Anglican Church Partners across the Pacific, Africa, the Middle East, South East Asia and Sri Lanka, to help deliver grassroots community-driven development.</p><ul aria-label="Programs"><li>Education</li><li>Emergency Response</li><li>Environment, Climate and WASH</li><li>Gender</li><li>Livelihoods</li></ul><a class="link-arrow" href="https://www.abmission.org/sustainable-communities/">Sustainable Communities on abmission.org <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div><div class="pp" data-panel="er" style="--ring:var(--ink)" hidden><h3>Emergency Response</h3><p class="who"><span class="chip chip-aid">Anglicans in Development</span></p><p>Support ABM AID’s partners to quickly and effectively bring relief and hope when emergencies occur.</p><p>ABM Anglicans in Development is a member of Church Agencies Network Disaster Operations (CAN DO), an Australian disaster response consortium.</p><a class="link-arrow" href="#appeals">Current emergency appeals <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+        </div>
+    </div>
+    <div class="marks">
+      <h3>The Five Marks of Mission</h3>
+      <ol>
+        <li class="rv" style="--k:0"><span class="n" aria-hidden="true">1</span><p><span class="sr-only">1. </span>Witness to Christ’s saving, forgiving and reconciling love for all people</p></li>
+        <li class="rv" style="--k:1"><span class="n" aria-hidden="true">2</span><p><span class="sr-only">2. </span>Build welcoming, transforming communities of faith</p></li>
+        <li class="rv" style="--k:2"><span class="n" aria-hidden="true">3</span><p><span class="sr-only">3. </span>Stand in solidarity with the poor and needy</p></li>
+        <li class="rv" style="--k:3"><span class="n" aria-hidden="true">4</span><p><span class="sr-only">4. </span>Challenge violence, injustice and oppression, and work for peace and reconciliation</p></li>
+        <li class="rv five" style="--k:4"><span class="n" aria-hidden="true">5</span><p><span class="sr-only">5. </span>Protect, care for and renew life on our planet</p></li>
+      </ol>
+    </div>
+  </div></div>
+</section>
+
+<section class="sec" id="where" aria-labelledby="where-h">
+  <div class="wrap"><div class="inner">
+    <div class="sec-head">
+      <h2 id="where-h">Where we work</h2>
+      <p>We want to see people everywhere experience the wholeness of life God offers in Jesus Christ, and to this end we support our partners as they participate in God’s mission.</p>
+    </div>
+    <ul class="countries">
+      <li><h3>Australia</h3><p><a href="https://www.abmission.org/programs/reconciliationfund">Reconciliation Fund</a>, <a href="https://www.abmission.org/programs/leadership">Aboriginal and Torres Strait Islander Leadership</a> and the <a href="https://www.abmission.org/programs/endowmentfund/">Bishop Arthur Malcolm Endowment Fund</a></p></li>
+      <li><h3>Holy Land</h3><p><a href="https://www.abmission.org/partners/jerusalem/">Diocese of Jerusalem</a></p></li>
+      <li><h3>Kenya</h3><p><a href="https://www.abmission.org/partners/kenya">Anglican Church of Kenya</a></p></li>
+      <li><h3>Myanmar</h3><p><a href="https://www.abmission.org/partners/myanmar">Church of the Province of Myanmar</a></p></li>
+      <li><h3>Papua New Guinea</h3><p><a href="https://www.abmission.org/partners/acpng">Anglican Church of Papua New Guinea</a> and <a href="https://www.abmission.org/partners/newton">Bishop Newton School of Theology</a></p></li>
+      <li><h3>Solomon Islands</h3><p><a href="https://www.abmission.org/partners/melanesia">Anglican Church of Melanesia</a></p></li>
+      <li><h3>Sri Lanka</h3><p><a href="https://www.abmission.org/partners/srilanka">Church of Ceylon</a></p></li>
+      <li><h3>The Philippines</h3><p><a href="https://www.abmission.org/partners/ecp">Episcopal Church in the Philippines</a> and <a href="https://www.abmission.org/partners/ifi">Philippine Independent Church</a></p></li>
+      <li><h3>Vanuatu</h3><p><a href="https://www.abmission.org/partners/melanesia">Anglican Church of Melanesia</a></p></li>
+      <li><h3>Zambia</h3><p><a href="https://www.abmission.org/partners/stjohns">St John’s Anglican Seminary Zambia</a> and <a href="https://www.abmission.org/partners/zambia">Zambia Anglican Council</a></p></li>
+      <li><h3>Global</h3><p><a href="https://www.abmission.org/programs/encounter">Encounter Program</a></p></li>
+    </ul>
+  </div></div>
+</section>
+
+<section class="news sec" id="news" aria-labelledby="news-h">
+  <div class="wrap"><div class="inner">
+    <div class="sec-head row">
+      <h2 id="news-h">Latest news</h2>
+      <a class="link-arrow" href="https://www.abmission.org/news/">All news <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="news-grid">
+      <article class="story story-lead rv">
+        <figure>
+          <div class="sq rv-img"><img src="img/news-pilgrims-640.webp" srcset="img/news-pilgrims-640.webp 640w, img/news-pilgrims-1100.webp 1100w" sizes="(min-width: 900px) 52vw, 92vw" width="1100" height="825" loading="lazy" decoding="async" alt="ABM pilgrims with the Kolomosu Youth dancers from the Diocese of Ysabel"></div>
+          <figcaption class="story-cap">ABM pilgrims enjoyed the graceful traditional dancing of the Kolomosu Youth from the Diocese of Ysabel. © ABM/Meagan Schwarz</figcaption>
+        </figure>
+        <div>
+          <time datetime="2026-09-18">18 September 2026</time>
+          <h3><a href="https://www.abmission.org/news/pilgrimage-solomon-islands-2026">From “Come and Do” to “Come and See”: why ABM pilgrimages are changing for the better</a></h3>
+          <p>What is a pilgrimage? 13 Australian Anglicans found out first-hand during ABM’s pilgrimage to the Solomon Islands in July 2026, and came to a deeper understanding of how God is at work through the Anglican Church of Melanesia.</p>
+        </div>
+      </article>
+      <div class="news-side">
+      <article class="story rv" style="--k:1">
+        <div class="sq rv-img" style="--k:1"><img src="img/news-vimrod-640.webp" width="640" height="427" loading="lazy" decoding="async" alt="Rosalina and members of her community-based group in Cebu, the Philippines"></div>
+        <div><time datetime="2026-09-17">17 September 2026</time><h3><a href="https://www.abmission.org/news/vimrod-evaluation-article">More food, more capital, better prepared: evaluation finds hundreds of people positively impacted by program in the Philippines</a></h3></div>
+      </article>
+      <article class="story rv" style="--k:2">
+        <div class="sq rv-img" style="--k:2"><img src="img/news-zambia-640.webp" width="640" height="427" loading="lazy" decoding="async" alt="Kelvin and Bethsheba, a married couple in Zambia"></div>
+        <div><time datetime="2026-09-17">17 September 2026</time><h3><a href="https://www.abmission.org/news/zambia-program-evaluation">“This project has transformed lives”: Zambia evaluation finds less conflict, more equality between men and women</a></h3></div>
+      </article>
+      <article class="story rv" style="--k:3">
+        <div class="sq rv-img" style="--k:3"><img src="img/news-ray-640.webp" width="640" height="427" loading="lazy" decoding="async" alt="Ray writing the numbers one to ten in Bislama in Sola"></div>
+        <div><time datetime="2026-07-16">16 July 2026</time><h3><a href="https://www.abmission.org/news/how-did-ray-with-no-formal-education-become-so-respected-in-wasaka">How did Ray, with no formal education, become so respected in Wasaka?</a></h3></div>
+      </article>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<section class="prayer sec" id="prayer" aria-labelledby="prayer-h">
+  <div class="wrap"><div class="inner prayer-grid">
+    <div>
+      <h2 id="prayer-h">Prayer of the day</h2>
+      <p class="prayer-date"><time datetime="2026-10-20">Tuesday 20 October</time></p>
+      <dl class="prayer-items">
+        <div><dt>ABM Partner of the Day</dt><dd>Please pray for the Episcopal Church of South Sudan; the Church’s Health Commission, the Education Commission, and the Development and Relief Agency, SUDRA.</dd></div>
+        <div><dt>Australian Cycle of Prayer</dt><dd>Please pray for the Diocese of the Riverina: Bishop Donald Kirk, the clergy and people.</dd></div>
+      </dl>
+      <a class="link-arrow on-night" href="https://www.abmission.org/resources/missional-prayers/">Missional prayers <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    <figure class="prayer-quote rv">
+      <blockquote><p>God of all, bless the Anglican Board of Mission as it serves the Church in Australia and our partner churches overseas. Inspire its work and its vision that all may come to know your justice, your peace and your love; through Jesus Christ our Lord. Amen.</p></blockquote>
+      <figcaption>A Prayer Book for Australia, p&nbsp;214</figcaption>
+    </figure>
+  </div></div>
+</section>
+
+<section class="sec" id="involved" aria-labelledby="involved-h">
+  <div class="wrap"><div class="inner">
+    <div class="sec-head"><h2 id="involved-h">Get involved</h2></div>
+    <div class="involved-grid">
+      <article class="inv rv" style="--k:0">
+        <h3>Go on a pilgrimage</h3>
+        <p>ABM’s Pilgrimage program is an opportunity for ABM supporters to “come and see” what God is doing through their support of our partners. It is a chance to experience what it means to be church in a different culture and context.</p>
+        <a class="link-arrow" href="https://www.abmission.org/get-involved/go-on-a-pilgrimage/">Pilgrimages <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="inv rv" style="--k:1">
+        <h3>A gift in your Will</h3>
+        <p>By including ABM and AID in your Will, you can leave a lasting legacy that extends far beyond your immediate circle, enriches communities and strengthens churches for generations to come.</p>
+        <p>For a confidential conversation, call Lyn Moorfoot, Head of Fundraising, on 1300&nbsp;302&nbsp;663.</p>
+        <a class="link-arrow" href="https://www.abmission.org/get-involved/leave-a-bequest/">Gifts in Wills <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="inv inv-news rv" style="--k:2">
+        <h3>Email news</h3>
+        <p>The latest news from us, our Partners and around the Anglican Communion, with our appeals and quarterly pew reflections.</p>
+        <form class="news-form" id="newsForm" novalidate>
+          <div class="field"><label for="nf-name">First name</label><input id="nf-name" name="name" type="text" autocomplete="given-name"></div>
+          <div class="field" style="margin-top:.75rem"><label for="nf-email">Email address</label><input id="nf-email" name="email" type="email" autocomplete="email" inputmode="email"></div>
+          <button class="btn btn-teal" type="submit" style="margin-top:1rem">Subscribe</button>
+          <p class="form-msg" id="nf-msg" role="status" style="margin-top:.75rem"></p>
+        </form>
+      </article>
+    </div>
+  </div></div>
+</section>
+
+</div>
+
+<!-- ============ DONATE ============ -->
+<div data-view="donate" id="donate">
+  <section class="page-head" aria-labelledby="donate-h">
+    <div class="wrap"><div class="inner">
+      <p class="crumbs"><a href="#top">Home</a><span aria-hidden="true">/</span><span>Donate</span></p>
+      <h1 id="donate-h" tabindex="-1">Donate</h1>
+      <p>Thank you for choosing to support the work of ABM and AID through your generous donation. Your gift is very much appreciated by us and the partners we work with.</p>
+    </div></div>
+  </section>
+  <div class="wrap"><div class="inner donate-grid">
+    <form class="give" id="giveDonate" data-give="d" novalidate aria-label="Make a donation">
+      <fieldset><legend>How often</legend><div class="seg"><input class="opt-input" type="radio" name="d-freq" id="d-once" value="once" checked><label class="seg-opt" for="d-once">One-time</label><input class="opt-input" type="radio" name="d-freq" id="d-monthly" value="monthly"><label class="seg-opt" for="d-monthly">Monthly</label></div></fieldset><fieldset><legend>Amount</legend><div class="amt-grid"><input class="opt-input" type="radio" name="d-amt" id="d-a60" value="60"><label class="amt" for="d-a60">$60</label><input class="opt-input" type="radio" name="d-amt" id="d-a150" value="150" checked><label class="amt" for="d-a150">$150</label><input class="opt-input" type="radio" name="d-amt" id="d-a300" value="300"><label class="amt" for="d-a300">$300</label><input class="opt-input" type="radio" name="d-amt" id="d-a600" value="600"><label class="amt" for="d-a600">$600</label></div><label class="amt-other" for="d-other"><span>Other amount A$</span><input id="d-other" type="text" inputmode="numeric" autocomplete="off" placeholder="Enter amount"></label></fieldset><div class="fund"><p class="lbl">Your gift goes to</p><div class="fund-card" id="d-card"><img src="img/aid-badge.svg" width="362" height="362" alt="" loading="lazy"><div><p class="fund-name">AID General Fund</p><p class="fund-org">Anglicans in Development</p><span class="chip chip-aid">Tax-deductible</span></div></div><details class="funds" id="d-funds"><summary><svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg>Choose a different fund or appeal</summary><fieldset><legend class="sr-only">Fund or appeal</legend><p class="funds-group">General funds</p><div class="fund-opt"><input class="opt-input" type="radio" name="d-fund" id="d-f-aid-general" value="aid-general" checked><label class="fund-opt-l" for="d-f-aid-general"><span class="dot" aria-hidden="true"></span><span><b>AID General Fund</b><small>Tax-deductible</small></span><span class="org" aria-hidden="true"></span></label></div><div class="fund-opt"><input class="opt-input" type="radio" name="d-fund" id="d-f-abm-general" value="abm-general"><label class="fund-opt-l" for="d-f-abm-general"><span class="dot" aria-hidden="true"></span><span><b>ABM General Fund</b><small>Not tax-deductible</small></span><span class="org abm" aria-hidden="true"></span></label></div><p class="funds-group">Appeals</p><div class="fund-opt"><input class="opt-input" type="radio" name="d-fund" id="d-f-soc" value="soc"><label class="fund-opt-l" for="d-f-soc"><span class="dot" aria-hidden="true"></span><span><b>Season of Creation 2026</b><small>Tax-deductible · code XG011</small></span><span class="org" aria-hidden="true"></span></label></div><div class="fund-opt"><input class="opt-input" type="radio" name="d-fund" id="d-f-nepal" value="nepal"><label class="fund-opt-l" for="d-f-nepal"><span class="dot" aria-hidden="true"></span><span><b>Nepal Flash Flood Emergency Appeal</b><small>Tax-deductible · code NP001</small></span><span class="org" aria-hidden="true"></span></label></div><div class="fund-opt"><input class="opt-input" type="radio" name="d-fund" id="d-f-gaza" value="gaza"><label class="fund-opt-l" for="d-f-gaza"><span class="dot" aria-hidden="true"></span><span><b>Gaza &amp; West Bank Emergency Appeal</b><small>Tax-deductible · code PS002EX</small></span><span class="org" aria-hidden="true"></span></label></div><div class="fund-opt"><input class="opt-input" type="radio" name="d-fund" id="d-f-myanmar" value="myanmar"><label class="fund-opt-l" for="d-f-myanmar"><span class="dot" aria-hidden="true"></span><span><b>Myanmar Emergency Appeal</b><small>Tax-deductible · code MM014</small></span><span class="org" aria-hidden="true"></span></label></div><div class="fund-opt"><input class="opt-input" type="radio" name="d-fund" id="d-f-martyrs" value="martyrs"><label class="fund-opt-l" for="d-f-martyrs"><span class="dot" aria-hidden="true"></span><span><b>Martyrs Gift 2026</b><small>Tax-deductible · code XG011</small></span><span class="org" aria-hidden="true"></span></label></div></fieldset></details></div><p class="give-summary" id="d-sum" aria-live="polite"><strong>A$150 one-time gift</strong> to the AID General Fund, received by Anglicans in Development Ltd. Gifts of $2 or more are tax-deductible.</p><button class="btn btn-teal btn-block" type="submit"><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg>Continue to secure payment</button><div class="handover" id="d-hand" role="status"></div><p class="give-note">All donations are in Australian dollars (AUD). Need help? Call us on 1300&nbsp;302&nbsp;663.</p>
+    </form>
+    <aside class="give-aside" aria-label="About giving">
+      <figure class="thanks">
+        <div class="sq"><img src="img/donate-thanks-480.webp" srcset="img/donate-thanks-480.webp 480w, img/donate-thanks-800.webp 800w" sizes="(min-width: 1000px) 34vw, 92vw" width="800" height="600" loading="lazy" decoding="async" alt="A woman, man and boy from the Philippines hold out their arms in front of a planted field"></div>
+        <blockquote><p>Together, your giving raised over $100,000 for our end-of-financial-year appeals, an extraordinary amount.</p></blockquote>
+        <figcaption>From <a class="link-arrow" href="https://www.abmission.org/news/thankyouforallthesupport">Thank You for All Your Support</a>, 11 August 2026</figcaption>
+      </figure>
+      <section class="two-orgs" aria-labelledby="two-h">
+        <h2 id="two-h">Two organisations, one donate page</h2>
+        <ul style="display:grid;gap:1rem">
+          <li><img src="img/aid-badge.svg" width="362" height="362" alt="" loading="lazy"><p><b>Anglicans in Development (AID)</b><span>Donations ($2 and over) made to AID are tax-deductible.</span></p></li>
+          <li><img src="img/abm-badge.svg" width="362" height="362" alt="" loading="lazy"><p><b>Anglican Board of Mission (ABM)</b><span>Donations made to ABM are not tax-deductible.</span></p></li>
+        </ul>
+      </section>
+    </aside>
+  </div></div>
+  <section class="ways sec" aria-labelledby="ways-d-h">
+    <div class="wrap"><div class="inner">
+      <div class="sec-head"><h2 id="ways-d-h">Other ways to give</h2><p>When possible, please include the campaign, program or partner name.</p></div>
+      <div class="ways-grid" id="waysD" aria-live="polite">
+        <article class="way"><h3>Bank transfer</h3><dl id="d-bank"><dt>Account name</dt><dd>Anglicans in Development Ltd</dd><dt>BSB</dt><dd>032 135</dd><dt>Account</dt><dd>691271</dd><dt>Reference</dt><dd>Your name and Donor ID (if known)</dd></dl></article><article class="way"><h3>Phone or email</h3><dl><dt>Phone</dt><dd>1300&nbsp;302&nbsp;663</dd><dt>International</dt><dd>+61&nbsp;2&nbsp;9264&nbsp;1021</dd><dt>Email</dt><dd>info@abmission.org.au</dd></dl><p>Please give your name, Donor ID (if known), address, phone and email.</p></article><article class="way"><h3>Cheque or money order</h3><dl><dt>Made out to</dt><dd id="d-payee">Anglicans in Development</dd><dt>Post to</dt><dd>Anglican Board of Mission, Locked Bag Q4005, Queen Victoria Building NSW 1230, Australia</dd></dl></article>
+      </div>
+      <div class="fine">
+        <p>All donations are in Australian dollars (AUD). Donations ($2 and over) made to AID are tax-deductible. Donations made to ABM are not tax-deductible.</p>
+        <p>ABM and AID ask you to <a href="https://acfid.asn.au/wp-content/uploads/2023/02/Overseas-Emergencies-and-Public-Donations.pdf">donate responsibly</a>.</p>
+      </div>
+    </div></div>
+  </section>
+</div>
+
+<!-- ============ APPEAL: SEASON OF CREATION 2026 ============ -->
+<div data-view="season-of-creation" id="season-of-creation">
+  <section class="soc-hero" aria-labelledby="soc-h">
+    <picture>
+      <source media="(min-width: 900px)" srcset="img/soc-wide-1000.webp 1000w, img/soc-wide-1600.webp 1600w, img/soc-wide-2200.webp 2200w" sizes="100vw" width="2200" height="1398">
+      <img src="img/soc-crop-800.webp" srcset="img/soc-crop-480.webp 480w, img/soc-crop-800.webp 800w" sizes="100vw" width="800" height="600" alt="Cliffs and turquoise ocean. Photo © Stephen Daughtry, ABM AID" loading="lazy" fetchpriority="high">
+    </picture>
+    <div class="wrap"><div class="inner"><div class="copy">
+      <h1 id="soc-h" tabindex="-1"><img src="img/wordmark-515.webp" width="515" height="273" alt="Season of Creation 2026" loading="lazy"></h1>
+      <p class="soc-sub">Working to heal a weary world</p>
+      <p class="soc-meta"><span class="chip chip-night">Tax-deductible</span> <span class="code">Donation code XG011</span></p>
+      <div class="hero-actions"><a class="btn btn-leaf" href="#soc-give">Donate now <svg class="ico" aria-hidden="true"><use href="#i-down"/></svg></a><a class="btn btn-line" href="#resources">Parish resources</a></div>
+    </div></div></div>
+  </section>
+
+  <div class="wrap"><div class="inner soc-layout">
+    <div class="soc-main soc-lead">
+      <div class="prose">
+        <p class="soc-intro">Many of us find great joy through our encounters with the natural world. The beauty of Creation reminds us of the beauty of the Creator, and of the great gift we hold in trust.</p>
+        <p>Each year we celebrate this gift and our responsibility for its care during the Season of Creation.</p>
+        <p>This year, we see God’s world crying out in pain. Glaciers collapsing. Warming oceans. Species extinction. The call to heed the Fifth Mark of Mission, “Protect, care for and renew life on our planet”, has never sounded louder.</p>
+        <p>But despite the dire circumstances facing our planet, the work of our Anglican partners around the world offers hope. From the Solomon Islands to Kenya, from Vanuatu to the Philippines, you support programs that protect God’s creation and equip people to face the climate crisis head on.</p>
+      </div>
+    </div>
+
+    <aside class="soc-aside" id="soc-give" aria-label="Give to this appeal">
+      <form class="give give-panel" id="giveAppeal" data-give="a" data-fixed="soc" novalidate aria-label="Give to the Season of Creation appeal">
+        <div class="goal">
+          <p>With your help, our goal is to raise</p>
+          <p class="num">$40,000</p>
+          <p>Donation code XG011 · Tax-deductible</p>
+        </div>
+        <fieldset><legend>How often</legend><div class="seg"><input class="opt-input" type="radio" name="a-freq" id="a-once" value="once" checked><label class="seg-opt" for="a-once">One-time</label><input class="opt-input" type="radio" name="a-freq" id="a-monthly" value="monthly"><label class="seg-opt" for="a-monthly">Monthly</label></div></fieldset><fieldset><legend>Amount</legend><div class="amt-grid"><input class="opt-input" type="radio" name="a-amt" id="a-a60" value="60"><label class="amt" for="a-a60">$60</label><input class="opt-input" type="radio" name="a-amt" id="a-a150" value="150" checked><label class="amt" for="a-a150">$150</label><input class="opt-input" type="radio" name="a-amt" id="a-a300" value="300"><label class="amt" for="a-a300">$300</label><input class="opt-input" type="radio" name="a-amt" id="a-a600" value="600"><label class="amt" for="a-a600">$600</label></div><label class="amt-other" for="a-other"><span>Other amount A$</span><input id="a-other" type="text" inputmode="numeric" autocomplete="off" placeholder="Enter amount"></label></fieldset><p class="give-summary" id="a-sum" aria-live="polite"><strong>A$150 one-time gift</strong> to the Season of Creation 2026 appeal, received by Anglicans in Development Ltd. Gifts of $2 or more are tax-deductible.</p><button class="btn btn-teal btn-block" type="submit"><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg>Continue to secure payment</button><div class="handover" id="a-hand" role="status"></div><p class="give-note">All donations are in Australian dollars (AUD). Need help? Call us on 1300&nbsp;302&nbsp;663.</p>
+      </form>
+    </aside>
+
+    <div class="soc-main soc-rest">
+
+      <section class="place" aria-labelledby="sols-h">
+        <h2 id="sols-h">Solomon Islands</h2>
+        <div class="pair">
+          <figure class="fig"><div class="sq rv-img"><img src="img/soc-constance-480.webp" srcset="img/soc-constance-480.webp 480w, img/soc-constance-800.webp 800w" sizes="(min-width: 1000px) 22rem, (min-width: 640px) 46vw, 92vw" width="800" height="600" loading="lazy" decoding="async" alt="Constance standing in a garden of staked climbing plants"></div><figcaption>In the Solomon Islands, Constance and her classmates learn skills in sustainable agriculture. Credit: Meagan Schwarz, ABM AID. Used with permission.</figcaption></figure>
+          <figure class="fig"><div class="sq rv-img" style="--k:1"><img src="img/soc-freda-480.webp" srcset="img/soc-freda-480.webp 480w, img/soc-freda-800.webp 800w" sizes="(min-width: 1000px) 22rem, (min-width: 640px) 46vw, 92vw" width="800" height="600" loading="lazy" decoding="async" alt="Freda from the Anglican Church of Melanesia shows visitors how temperature is recorded"></div><figcaption>ACOM’s Freda explaining how collecting climate data (temperature, rainfall and shoreline measurements) is helping communities prepare for and respond to changes in the climate. © ABM/Meagan Schwarz</figcaption></figure>
+        </div>
+        <div class="prose"><p>In the Solomon Islands, the Anglican Church of Melanesia teaches young people like Constance skills in sustainable farming. It also runs environmental observatories, recording rainfall, temperature and sea level rise, gathering the data needed to understand how the climate is changing.</p></div>
+      </section>
+
+      <section class="place place-row" aria-labelledby="kenya-h">
+        <figure class="fig"><div class="sq rv-img"><img src="img/soc-annah-480.webp" srcset="img/soc-annah-480.webp 480w, img/soc-annah-800.webp 800w" sizes="(min-width: 1000px) 22rem, (min-width: 640px) 46vw, 92vw" width="800" height="600" loading="lazy" decoding="async" alt="Annah holding an armful of leafy vegetables on her farm"></div><figcaption>In Kenya, Annah harvests vegetables from her farm. © ADSE. Used with permission.</figcaption></figure>
+        <div class="place-copy">
+          <h2 id="kenya-h">Kenya</h2>
+          <div class="prose"><p>In Kenya, our partner Anglican Development Services Eastern trains communities in climate-smart agriculture, methods that improve yields and lessen harmful environmental impact.</p></div>
+        </div>
+      </section>
+
+      <section class="place place-note" aria-labelledby="vanuatu-h">
+        <h2 id="vanuatu-h">Vanuatu</h2>
+        <div class="prose"><p>In Vanuatu, the church is mobilising people to respond in times of natural disaster. Youth volunteers lead training and simulations in Disaster Risk Reduction, and ready emergency supplies, so that people are prepared when an earthquake or cyclone strikes.</p></div>
+      </section>
+
+      <p class="pull">Love for all God’s creatures, human, plant and animal, is reflected in the work of our partners.</p>
+
+      <figure class="laudato">
+        <blockquote><p>A true ecological approach always becomes a social approach: it must integrate questions of justice in debates on the environment, so as to hear both the cry of the earth and the cry of the poor… Everything is connected.</p></blockquote>
+        <figcaption>Pope Francis, <a class="link-arrow" href="https://www.vatican.va/content/francesco/en/encyclicals/documents/papa-francesco_20150524_enciclica-laudato-si.html">On Care for Our Common Home (Laudato Si’)</a>, nos. 49 and 91</figcaption>
+      </figure>
+
+      <section class="impact" aria-labelledby="impact-h">
+        <h2 id="impact-h">Your gift helps care for Creation</h2>
+        <ul>
+          <li class="rv" style="--k:0"><img src="img/impact-1-493.webp" width="493" height="452" loading="lazy" decoding="async" alt="A farmer kneels beside a cocoa tree heavy with pods"><p>You help run training in sustainable agriculture, giving people a way to make a living in harmony with the earth.</p></li>
+          <li class="rv" style="--k:1"><img src="img/impact-2-493.webp" width="493" height="452" loading="lazy" decoding="async" alt="A woman harvests a crop by hand"><p>You build up the knowledge and skills of local people so they know how to care for the environment.</p></li>
+          <li class="rv" style="--k:2"><img src="img/impact-3-493.webp" width="493" height="452" loading="lazy" decoding="async" alt="People unload cartons of bottled water from a ship at a wharf"><p>You help communities prepare for natural disasters, so they are ready to respond.</p></li>
+        </ul>
+      </section>
+
+      <section class="soc-prayer" aria-labelledby="socp-h">
+        <h2 id="socp-h">Season of Creation prayer</h2>
+        <div class="lines">
+          <p>God our Creator, we thank you for the magnificence of your creation, and acknowledge that you have entrusted its care to us.</p>
+          <p>As we celebrate the Season of Creation, help us to remember the preciousness of the world, and how everything in it exists in a delicate balance.</p>
+          <p>By your Holy Spirit, help us to support that natural balance, being good stewards of the home we hold in trust.</p>
+          <p>Energise us to protect vulnerable communities and species throughout the world, so that the environment and all we who live in it may flourish one alongside another.</p>
+          <p>We ask this in Jesus’ name.</p>
+        </div>
+        <p class="amen">Amen</p>
+      </section>
+
+      <section class="close-call" aria-labelledby="stand-h">
+        <h2 id="stand-h">Stand up for the sanctity of life on earth</h2>
+        <div class="prose">
+          <p>Let us remember that a world in pain is not a world without hope. Every act of care, every community choosing to live more harmoniously with the earth can become the seed of something new.</p>
+          <p>Thank you for joining us this Season of Creation as we heed the call to care for God’s earth together.</p>
+        </div>
+      </section>
+
+      <section id="resources" aria-labelledby="res-h">
+        <h2 id="res-h" style="font-size:clamp(1.6rem, 1.3rem + 1.1vw, 2.2rem);margin-bottom:1.25rem">Resources for your parish</h2>
+        <ul class="res-grid">
+          <li class="res"><a href="https://www.abmission.org/wp-content/uploads/2026/09/TA2026-Prayer-individual-A5-FA-General-scaled.jpg"><div class="sq"><img src="img/res-prayer-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></div><span>Prayer card <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></span></a></li>
+          <li class="res"><a href="https://www.abmission.org/wp-content/uploads/2026/09/SC2026-Flyer-Postcard-A5-FA-General.jpg"><div class="sq"><img src="img/res-postcard-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></div><span>Postcard flyer <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></span></a></li>
+          <li class="res"><a href="https://www.abmission.org/wp-content/uploads/2026/09/SC2026-Flyer-Simple-A5-General-FA.jpg"><div class="sq"><img src="img/res-simple-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></div><span>Simple flyer <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></span></a></li>
+          <li class="res"><a href="https://www.abmission.org/wp-content/uploads/2026/09/SC2026-DonationForm-A4-FA-General-1.pdf"><div class="sq"><img src="img/res-form-320.webp" width="320" height="320" loading="lazy" decoding="async" alt=""></div><span>Donation form (PDF) <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></span></a></li>
+        </ul>
+      </section>
+    </div>
+
+  </div></div>
+
+  <section class="ways sec" aria-labelledby="ways-a-h">
+    <div class="wrap"><div class="inner">
+      <div class="sec-head"><h2 id="ways-a-h">Other ways to give</h2></div>
+      <div class="ways-grid">
+        <article class="way"><h3>Bank transfer</h3><dl><dt>Bank</dt><dd>Westpac Town Hall Branch, Park St, Sydney NSW</dd><dt>Account name</dt><dd>Anglicans in Development Ltd</dd><dt>BSB</dt><dd>032 135</dd><dt>Account</dt><dd>691271</dd><dt>Reference</dt><dd>CREATION26 and your surname</dd></dl><p>Once you’ve made the deposit, please email info@abmission.org.au with the amount, “Season of Creation 2026”, who the receipt should be made out to, and your address and phone number.</p></article><article class="way"><h3>Phone</h3><dl><dt>Call</dt><dd>1300&nbsp;302&nbsp;663</dd><dt>Hours</dt><dd>Monday to Friday, 9am to 5pm AEST</dd></dl></article><article class="way"><h3>Cheque or money order</h3><dl><dt>Made out to</dt><dd>Anglicans in Development</dd><dt>Post to</dt><dd>Anglican Board of Mission, Locked Bag Q4005, Queen Victoria Building NSW 1230, Australia</dd></dl></article>
+      </div>
+      <div class="fine">
+        <p>This is a tax-deductible project. All donations are in Australian dollars (AUD) and all gifts of $2 or more are tax-deductible. Gifts are received by the trustee for Anglicans in Development Ltd, ABN 86 647 293 481. Gifts will be applied to the support of projects selected. In the unlikely event of projects being oversubscribed or not proceeding to completion, donations will be applied to similar projects. Please <a href="https://acfid.asn.au/wp-content/uploads/2023/02/Overseas-Emergencies-and-Public-Donations.pdf">donate responsibly</a>.</p>
+        <div class="ancp">
+          <p>ABM Anglicans in Development programs in Kenya, Vanuatu, Zambia and The Philippines acknowledge funding from the Australian Government through the Australian NGO Cooperation Program (ANCP).</p>
+          <img src="img/logos-strip-600.webp" width="600" height="101" loading="lazy" decoding="async" alt="Australian Aid, ACFID member and Season of Creation logos">
+        </div>
+      </div>
+    </div></div>
+  </section>
+</div>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap"><div class="inner">
+    <div class="ftr-grid">
+      <div>
+        <div class="ftr-badges"><img src="img/abm-badge-white.svg" width="362" height="362" alt="Anglican Board of Mission" loading="lazy"><img src="img/aid-badge-white.svg" width="362" height="362" alt="Anglicans in Development" loading="lazy"></div>
+        <p class="ftr-tag">Working for Love, Hope &amp; Justice</p>
+        <span class="acfid"><img src="img/acfid-240.webp" width="240" height="98" alt="ACFID member" loading="lazy"></span>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <address>
+          <span>Local call: <a href="tel:1300302663">1300&nbsp;302&nbsp;663</a></span>
+          <span>International: <a href="tel:+61292641021">+61&nbsp;2&nbsp;9264&nbsp;1021</a></span>
+          <span>Enquiries: <a href="mailto:info@abmission.org.au">info@abmission.org.au</a></span>
+          <span>Locked Bag Q4005, Queen Victoria Building NSW 1230</span>
+        </address>
+      </div>
+      <nav aria-label="Quick links">
+        <h2>Quick links</h2>
+        <ul>
+          <li><a href="#donate">Donate</a></li>
+          <li><a href="https://www.abmission.org/appeals">Appeals</a></li>
+          <li><a href="https://www.abmission.org/feedback-and-complaints">Feedback and complaints</a></li>
+          <li><a href="https://www.abmission.org/privacy-policy">Privacy policy</a></li>
+          <li><a href="https://www.abmission.org/terms-of-service">Terms of service</a></li>
+          <li><a href="https://www.abmission.org/accessibility">Accessibility</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Follow us</h2>
+        <ul>
+          <li><a href="https://www.facebook.com/ABMission">Facebook</a></li>
+          <li><a href="https://www.instagram.com/abmission_au/">Instagram</a></li>
+          <li><a href="https://twitter.com/ABM_Mission">X (Twitter)</a></li>
+          <li><a href="https://www.youtube.com/user/AnglicanBoardMission">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-ack">
+      <p>ABM acknowledges and pays respect to the past, present and future Traditional Custodians and Elders of this nation and the continuation of cultural, spiritual and educational practices of Aboriginal and Torres Strait Islander peoples. Aboriginal and Torres Strait Islander peoples should be aware that this website may contain images or names of people who have passed away.</p>
+      <p>© 2026 Anglican Board of Mission Australia, ABN 18 097 944 717. Anglicans in Development, ABN 86 647 293 481.</p>
+      <p class="credit">Website concept by Singh Studio, October 2026. Not the live site.</p>
+    </div>
+  </div></div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+  var d = document, root = d.documentElement;
+  root.classList.add('js');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(s, c) { return (c || d).querySelector(s); }
+  function $$(s, c) { return Array.prototype.slice.call((c || d).querySelectorAll(s)); }
+
+  // links to the live site open beside the concept
+  $$('a[href^="http"]').forEach(function (a) { a.target = '_blank'; a.rel = 'noopener'; });
+
+  // ---------- views: home, donate, the appeal ----------
+  var VIEWS = ['donate', 'season-of-creation'];
+  var current = 'home';
+  function show(name) {
+    if (name === 'home') root.removeAttribute('data-v'); else root.setAttribute('data-v', name);
+    current = name;
+    if (name !== 'home') $$('.nav a').forEach(function (a) { a.removeAttribute('aria-current'); });
+    observeAll();
+  }
+  function route(fromLink) {
+    var h = decodeURIComponent(location.hash.slice(1));
+    if (VIEWS.indexOf(h) > -1) {
+      var changed = current !== h;
+      show(h);
+      if (changed || fromLink) {
+        window.scrollTo(0, 0);
+        var h1 = $('#' + h + ' h1');
+        if (h1 && fromLink) h1.focus({ preventScroll: true });
+      }
+      return;
+    }
+    var was = current;
+    if (was !== 'home') show('home');
+    var t = h && h !== 'top' ? d.getElementById(h) : null;
+    if (t) { requestAnimationFrame(function () { t.scrollIntoView({ block: 'start' }); }); }
+    else if (was !== 'home' || h === 'top') window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', function () { route(true); });
+
+  // "Give" links choose the fund before the donate page opens
+  d.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href="#donate"]');
+    if (!a) return;
+    var fund = a.getAttribute('data-fund') || (current === 'season-of-creation' ? 'soc' : null);
+    if (fund && giveD) giveD.setFund(fund);
+  });
+
+  // ---------- header ----------
+  var hdr = $('#hdr');
+  // ---------- menu drawer and concept notes (native dialogs: focus, Esc and inert page for free) ----------
+  function wireDialog(dlg, openBtn, closeBtn) {
+    if (!dlg || !dlg.showModal) return;
+    openBtn.addEventListener('click', function () { dlg.showModal(); openBtn.setAttribute('aria-expanded', 'true'); });
+    closeBtn.addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('close', function () { openBtn.setAttribute('aria-expanded', 'false'); openBtn.focus(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+    $$('a', dlg).forEach(function (a) { a.addEventListener('click', function () { dlg.close(); }); });
+  }
+  wireDialog($('#menu'), $('#menuBtn'), $('#menuClose'));
+  wireDialog($('#changes'), $('#changesOpen'), $('#changesClose'));
+
+  // ---------- what we do: the program badges ----------
+  var progs = $$('.prog');
+  progs.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var key = b.getAttribute('data-prog');
+      progs.forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+      $$('#progPanel .pp').forEach(function (p) { p.hidden = p.getAttribute('data-panel') !== key; });
+    });
+  });
+
+  // ---------- give forms ----------
+  var FUNDS = {
+    'aid-general': { name: 'the AID General Fund', org: 'aid', title: 'AID General Fund' },
+    'abm-general': { name: 'the ABM General Fund', org: 'abm', title: 'ABM General Fund' },
+    soc: { name: 'the Season of Creation 2026 appeal', org: 'aid', title: 'Season of Creation 2026', code: 'XG011' },
+    nepal: { name: 'the Nepal Flash Flood Emergency Appeal', org: 'aid', title: 'Nepal Flash Flood Emergency Appeal', code: 'NP001' },
+    gaza: { name: 'the Gaza & West Bank Emergency Appeal', org: 'aid', title: 'Gaza & West Bank Emergency Appeal', code: 'PS002EX' },
+    myanmar: { name: 'the Myanmar Emergency Appeal', org: 'aid', title: 'Myanmar Emergency Appeal', code: 'MM014' },
+    martyrs: { name: 'the Martyrs Gift 2026', org: 'aid', title: 'Martyrs Gift 2026', code: 'XG011' }
+  };
+  var ORG = {
+    aid: { long: 'Anglicans in Development', ltd: 'Anglicans in Development Ltd', badge: 'img/aid-badge.svg', chip: 'chip-aid', tax: 'Tax-deductible',
+      line: 'Gifts of $2 or more are tax-deductible.', bank: ['Anglicans in Development Ltd', '032 135', '691271'] },
+    abm: { long: 'Anglican Board of Mission', ltd: 'the Anglican Board of Mission', badge: 'img/abm-badge.svg', chip: 'chip-abm', tax: 'Not tax-deductible',
+      line: 'Donations made to ABM are not tax-deductible.', bank: ['Anglican Board of Mission Ltd', '032 008', '130754'] }
+  };
+  var LIVE_FORM = 'https://www.abmission.org/appeals/appeals-major/creation2026/?bbFormId=a4a5036c-e494-4a4b-bd7a-b5668887dfc7';
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+
+  function Give(form) {
+    var p = form.getAttribute('data-give'), fixed = form.getAttribute('data-fixed');
+    var other = $('#' + p + '-other'), sum = $('#' + p + '-sum'), hand = $('#' + p + '-hand');
+    function amount() {
+      var v = other.value.replace(/[^0-9]/g, '');
+      if (other.value.trim()) return v ? parseInt(v, 10) : 0;
+      var r = $('input[name="' + p + '-amt"]:checked', form);
+      return r ? parseInt(r.value, 10) : 0;
+    }
+    function fundKey() { return fixed || ($('input[name="' + p + '-fund"]:checked', form) || {}).value || 'aid-general'; }
+    function render() {
+      var f = FUNDS[fundKey()], o = ORG[f.org], a = amount();
+      var monthly = ($('input[name="' + p + '-freq"]:checked', form) || {}).value === 'monthly';
+      var gift = a > 0 ? 'A$' + a.toLocaleString('en-AU') + (monthly ? ' every month' : ' one-time gift') : 'Your gift';
+      sum.innerHTML = '<strong>' + gift + '</strong> to ' + esc(f.name) + (f.code ? ' (donation code ' + f.code + ')' : '') +
+        ', received by ' + o.ltd + '. ' + o.line;
+      sum.classList.toggle('abm', f.org === 'abm');
+      hand.innerHTML = '';
+      var card = $('#' + p + '-card');
+      if (card) {
+        card.querySelector('img').src = o.badge;
+        card.querySelector('.fund-name').textContent = f.title;
+        card.querySelector('.fund-org').textContent = o.long;
+        var chip = card.querySelector('.chip');
+        chip.className = 'chip ' + o.chip; chip.textContent = o.tax;
+        var bank = $('#d-bank');
+        if (bank) {
+          var dd = bank.querySelectorAll('dd');
+          dd[0].textContent = o.bank[0]; dd[1].textContent = o.bank[1]; dd[2].textContent = o.bank[2];
+          $('#d-payee').textContent = o.long;
+        }
+      }
+    }
+    form.addEventListener('change', function (e) {
+      if (e.target.name === p + '-amt') other.value = '';
+      render();
+    });
+    other.addEventListener('input', function () {
+      if (other.value.trim()) $$('input[name="' + p + '-amt"]', form).forEach(function (r) { r.checked = false; });
+      render();
+    });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = FUNDS[fundKey()];
+      if (amount() < 1) {
+        hand.innerHTML = '<strong>Choose an amount, or enter one in whole dollars.</strong>';
+        other.focus();
+        return;
+      }
+      hand.innerHTML = '<strong>This is a concept, so it stops here.</strong> On the live site this button opens Blackbaud’s secure donation form for ' +
+        esc(f.name) + '. It’s the same adaptive form ABM’s appeal pages already use. ' +
+        '<a class="link-arrow" href="' + LIVE_FORM + '" target="_blank" rel="noopener">See it on the Season of Creation appeal <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a>';
+    });
+    render();
+    return {
+      setFund: function (key) {
+        var r = $('#' + p + '-f-' + key);
+        if (!r) return;
+        r.checked = true;
+        render();
+      }
+    };
+  }
+  var gd = $('#giveDonate'), giveD = gd ? Give(gd) : null;
+  var ga = $('#giveAppeal'); if (ga) Give(ga);
+
+  var nf = $('#newsForm');
+  if (nf) nf.addEventListener('submit', function (e) {
+    e.preventDefault();
+    $('#nf-msg').textContent = 'Thank you. This is a concept, so nothing was sent.';
+  });
+
+  // ---------- motion ----------
+  // Reveals start from a visible resting state: an element only takes its "before" state while it is
+  // still below the fold and about to arrive, so anything not scrolled to stays fully visible.
+  var items = [], near = null, inview = null;
+  function observeAll() {
+    if (reduce || !('IntersectionObserver' in window)) return;
+    items.forEach(function (el) { near.unobserve(el); inview.unobserve(el); });
+    items = $$('.rv, .rv-img').filter(function (el) { return el.offsetParent !== null || el.getClientRects().length; });
+    items.forEach(function (el) { near.observe(el); inview.observe(el); });
+  }
+  if (!reduce && 'IntersectionObserver' in window) {
+    near = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (en.isIntersecting && en.boundingClientRect.top > window.innerHeight && !en.target.dataset.seen) en.target.classList.add('pre');
+      });
+    }, { rootMargin: '0px 0px 35% 0px' });
+    inview = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.dataset.seen = '1';
+        en.target.classList.remove('pre');
+      });
+    }, { rootMargin: '0px 0px -6% 0px' });
+    d.addEventListener('visibilitychange', function () { if (d.hidden) $$('.pre').forEach(function (el) { el.classList.remove('pre'); }); });
+  }
+
+  // scroll-linked: the ABM and AID circles come together, the prayer band's rings drift
+  var venn = $('#venn'), prayer = $('#prayer');
+  function ease(t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  var ticking = false;
+  function onScroll() {
+    hdr.classList.toggle('scrolled', window.scrollY > 8);
+    if (reduce || current !== 'home') return;
+    var vh = window.innerHeight;
+    if (venn) {
+      var r = venn.getBoundingClientRect();
+      var t = Math.min(1, Math.max(0, (vh - r.top) / (vh * .8)));
+      venn.style.setProperty('--p', ease(t).toFixed(3));
+    }
+    if (prayer) {
+      var q = prayer.getBoundingClientRect();
+      if (q.bottom > 0 && q.top < vh) prayer.style.setProperty('--py', ((q.top - vh / 2) * -0.12).toFixed(1) + 'px');
+    }
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; onScroll(); }); }
+  }, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+
+  route(false);
+  observeAll();
+  onScroll();
+})();
+
+</script>
+</body>
+</html>

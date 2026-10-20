@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>ABM Website Review</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" href="data:,">
+<meta name="description" content="A review of abmission.org for the Anglican Board of Mission and Anglicans in Development, by Singh Studio, October 2026.">
+<link rel="preload" as="font" type="font/woff2" href="fonts/zilla-600-latin.woff2" crossorigin data-standalone>
+<link rel="preload" as="font" type="font/woff2" href="fonts/lato-400-latin.woff2" crossorigin data-standalone>
+<style>
+@font-face{font-family:'Zilla Slab';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/zilla-600-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Zilla Slab';font-style:italic;font-weight:500;font-display:swap;src:url(fonts/zilla-500i-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/lato-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/lato-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
+/* Layout: a document with a sticky contents column on wide screens. Same tokens as the concept: ABM red, the AID badge teal, their cream and dark teal, with a status scale (fix first / fix soon / tidy up) kept apart from the brand colours. */
+:root{
+  --paper:#FFFFFF; --cream:#F7F1E7; --sand:#EBE0CF;
+  --ink:#1C201F; --ink-2:#3B4240; --ink-3:#59605E; --line:#E3D9C9; --line-2:#CDBFA9;
+  --abm:#9E1718; --aid:#127F91; --aid-deep:#0D6573; --aid-tint:#E2EFF0; --night:#134357; --night-ink:#D7E4E8; --leaf:#99D451;
+  --bad:#B3261E; --bad-bg:#FCE8E6; --mid:#8A4B00; --mid-bg:#FFF1D6; --good:#1E6B34; --good-bg:#E2F3E5;
+  --bar-blank:#B3261E; --bar-ok:#00A0B0;
+  --f-display:"Zilla Slab","Rockwell","Roboto Slab",Georgia,serif;
+  --f-body:"Lato","Helvetica Neue",Arial,system-ui,sans-serif;
+  --ease-out:cubic-bezier(.2,.7,.2,1); --d1:.22s; --d2:.6s;
+  --pad-x:16px; --measure:1200px;
+  color-scheme:light;
+}
+@media (min-width:720px){ :root{ --pad-x:32px } }
+@media (min-width:1100px){ :root{ --pad-x:48px } }
+*,*::before,*::after{ box-sizing:border-box }
+[hidden]{ display:none!important }
+body{ margin:0; background:var(--paper); color:var(--ink); font-family:var(--f-body); font-size:clamp(1.0625rem, 1rem + .25vw, 1.125rem); line-height:1.55; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:clip }
+img{ max-width:100%; height:auto; display:block }
+a{ color:var(--aid-deep); text-decoration-thickness:1px; text-underline-offset:3px }
+a:hover{ text-decoration-thickness:2px }
+h1,h2,h3,h4{ font-family:var(--f-display); font-weight:600; line-height:1.1; letter-spacing:-.01em; margin:0; color:var(--ink); text-wrap:balance }
+h2{ font-size:clamp(1.85rem, 1.35rem + 1.8vw, 2.6rem) }
+h3{ font-size:clamp(1.3rem, 1.15rem + .5vw, 1.55rem) }
+h4{ font-size:clamp(1.15rem, 1.08rem + .3vw, 1.3rem); line-height:1.2 }
+p,figure,ul,ol{ margin:0 }
+ul,ol{ padding:0; list-style:none }
+:focus-visible{ outline:3px solid var(--aid-deep); outline-offset:3px; border-radius:4px }
+.cover :focus-visible{ outline-color:var(--ink) }
+[id]{ scroll-margin-top:24px }
+.sr-only{ position:absolute!important; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; margin:-1px; padding:0; border:0 }
+.skip{ position:absolute; left:max(16px, env(safe-area-inset-left,0px)); top:-80px; z-index:100; background:var(--ink); color:#fff; padding:.7rem 1rem; font-weight:700; text-decoration:none; border-radius:0 0 8px 8px }
+.skip:focus{ top:env(safe-area-inset-top,0px) }
+.wrap{ padding-left:max(var(--pad-x), env(safe-area-inset-left,0px)); padding-right:max(var(--pad-x), env(safe-area-inset-right,0px)) }
+.inner{ max-width:var(--measure); margin-inline:auto }
+.ico{ width:1em; height:1em; flex:none; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round }
+
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:.55rem; min-height:48px; padding:.7rem 1.35rem; border-radius:999px; font-weight:700; text-decoration:none; border:2px solid transparent; transition:background-color var(--d1) var(--ease-out), color var(--d1) var(--ease-out), border-color var(--d1) var(--ease-out) }
+.btn .ico{ transition:transform var(--d1) var(--ease-out) }
+.btn:hover .ico{ transform:translateX(3px) }
+.btn-teal{ background:var(--aid); color:#fff }
+.btn-teal:hover{ background:var(--aid-deep) }
+.btn-line{ border-color:var(--ink); color:var(--ink) }
+.btn-line:hover{ background:var(--ink); color:#fff }
+
+/* header bar and cover */
+.bar{ background:var(--paper); border-bottom:1px solid var(--line) }
+.bar .inner{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.75rem 1.5rem; padding-block:.85rem }
+.bar img{ height:52px; width:auto }
+.bar p{ font-size:.92rem; font-weight:700; color:var(--ink-2) }
+.cover{ background:var(--cream) }
+.cover .inner{ display:grid; gap:2.5rem; padding-block:clamp(2.5rem, 1.5rem + 4vw, 5rem) }
+@media (min-width:1000px){ .cover .inner{ grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); column-gap:4rem; align-items:center } }
+.meta{ font-size:.95rem; font-weight:700; color:var(--ink-2) }
+.cover h1{ font-size:clamp(2.6rem, 1.6rem + 3.8vw, 4.6rem); line-height:1; margin-top:.8rem }
+.dek{ font-size:clamp(1.12rem, 1.02rem + .45vw, 1.32rem); color:var(--ink-2); margin-top:1.1rem; max-width:34rem }
+.cta-row{ display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.75rem }
+.compare{ display:grid; gap:1.5rem; grid-template-columns:repeat(2, minmax(0,1fr)) }
+.compare figure{ display:grid; gap:.75rem; align-content:start }
+.phones{ display:grid; grid-template-columns:1fr 1fr; gap:.6rem }
+.phone{ border-radius:18px; overflow:hidden; box-shadow:0 0 0 1px var(--line-2), 0 16px 32px -24px rgba(28,32,31,.5); background:var(--paper) }
+.compare figcaption{ font-weight:700; font-size:.98rem; line-height:1.35 }
+.compare figcaption span{ display:block; font-weight:400; color:var(--ink-2); font-size:.93rem; margin-top:.2rem }
+@media (max-width:560px){ .compare{ grid-template-columns:1fr } }
+
+/* document: contents beside the text on wide screens */
+.doc .inner{ display:grid; gap:2rem; padding-block:clamp(2.5rem, 1.6rem + 3vw, 4.5rem) clamp(3rem, 2rem + 4vw, 6rem) }
+@media (min-width:1000px){ .doc .inner{ grid-template-columns:230px minmax(0,1fr); column-gap:clamp(2.5rem, 1rem + 4vw, 5rem) } }
+.toc{ align-self:start }
+@media (min-width:1000px){ .toc{ position:sticky; top:24px } }
+.toc p{ font-family:var(--f-display); font-weight:600; font-size:1.15rem; margin-bottom:.5rem }
+.toc ol{ display:grid; gap:.1rem; counter-reset:t }
+@media (max-width:999px){ .toc ol{ grid-template-columns:repeat(auto-fill, minmax(min(100%, 210px), 1fr)) } }
+.toc a{ counter-increment:t; display:flex; gap:.6rem; align-items:baseline; padding:.4rem .5rem; border-radius:10px; text-decoration:none; color:var(--ink-2); font-weight:700; font-size:.97rem; line-height:1.3 }
+.toc a::before{ content:counter(t); font-family:var(--f-display); font-weight:600; color:var(--abm); min-width:1.2em }
+.toc a:hover{ background:var(--cream); color:var(--ink) }
+.toc a[aria-current="true"]{ background:var(--cream); color:var(--ink) }
+.content{ display:grid; gap:clamp(3.5rem, 2.5rem + 3vw, 5rem); min-width:0; max-width:50rem }
+.content > section{ display:grid; gap:1.4rem; min-width:0 }
+.sec-title{ display:flex; align-items:center; gap:.9rem }
+.sec-title .n{ width:2.6rem; height:2.6rem; flex:none; border-radius:50%; display:grid; place-items:center; box-shadow:inset 0 0 0 2px var(--abm); color:var(--abm); font-family:var(--f-display); font-weight:600; font-size:1.2rem; line-height:1 }
+.prose{ display:grid; gap:1rem; color:var(--ink-2); max-width:42rem }
+.prose strong{ color:var(--ink) }
+.note{ font-size:.94rem; color:var(--ink-2) }
+
+.three{ display:grid; gap:1rem }
+@media (min-width:760px){ .three{ grid-template-columns:repeat(3, minmax(0,1fr)) } }
+.three article{ display:grid; gap:.6rem; align-content:start; padding:1.3rem 1.3rem 1.4rem; border-radius:18px; background:var(--cream); border-top:5px solid var(--c) }
+.three p{ color:var(--ink-2); font-size:1rem }
+
+/* charts */
+.chart{ display:grid; gap:.8rem; padding:1.3rem 1.4rem 1.4rem; border-radius:18px; border:1px solid var(--line) }
+.chart h3{ font-size:1.15rem }
+.stack{ display:flex; gap:2px; height:44px; border-radius:6px; overflow:hidden }
+.seg{ display:flex; align-items:center; padding-inline:.75rem; color:#fff; font-weight:700; font-size:.95rem; white-space:nowrap; min-width:max-content }
+.seg-blank{ background:repeating-linear-gradient(135deg, var(--bar-blank) 0 9px, #9C1F18 9px 12px) }
+.seg-ok{ background:var(--bar-ok); color:var(--ink) }
+.legend{ display:flex; flex-wrap:wrap; gap:.4rem 1.25rem; font-size:.92rem; color:var(--ink-2) }
+.legend span{ display:inline-flex; align-items:center; gap:.45rem }
+.legend i{ width:.9rem; height:.9rem; border-radius:3px; display:inline-block }
+.legend .k-blank{ background:repeating-linear-gradient(135deg, var(--bar-blank) 0 3px, #9C1F18 3px 4px) }
+.legend .k-ok{ background:var(--bar-ok) }
+.bars{ display:grid; gap:.7rem }
+.barrow{ display:grid; grid-template-columns:5.5rem minmax(0,1fr); gap:.75rem; align-items:center }
+.barrow b{ font-size:.95rem }
+.track{ position:relative; height:30px }
+.fill{ position:absolute; left:0; top:0; bottom:0; width:var(--w); min-width:4px; border-radius:0 4px 4px 0; background:var(--aid) }
+.fill + span{ position:absolute; top:50%; transform:translateY(-50%); left:calc(var(--w) + .6rem); font-weight:700; font-size:.95rem; white-space:nowrap; font-variant-numeric:tabular-nums }
+.barrow.today .fill + span{ left:auto; right:.6rem; color:#fff }
+.table-wrap{ overflow-x:auto; border:1px solid var(--line); border-radius:16px }
+table{ border-collapse:collapse; width:100%; min-width:640px; font-size:.95rem }
+th,td{ padding:.65rem .8rem; text-align:left; vertical-align:middle; border-bottom:1px solid var(--line) }
+thead th{ font-weight:700; color:var(--ink-2); background:var(--cream); font-size:.88rem }
+tbody tr:last-child th,tbody tr:last-child td{ border-bottom:0 }
+tbody th{ font-weight:700 }
+td.num{ font-variant-numeric:tabular-nums; white-space:nowrap }
+tr.concept th,tr.concept td{ background:#FBFAF7 }
+.s{ display:inline-grid; place-items:center; min-width:2.6rem; padding:.18rem .5rem; border-radius:999px; font-weight:700; font-variant-numeric:tabular-nums }
+.s.bad{ background:var(--bad-bg); color:var(--bad) }
+.s.mid{ background:var(--mid-bg); color:var(--mid) }
+.s.good{ background:var(--good-bg); color:var(--good) }
+
+/* worth keeping */
+.keep{ display:grid; gap:1rem }
+@media (min-width:760px){ .keep{ grid-template-columns:repeat(2, minmax(0,1fr)) } }
+.keep article{ display:grid; gap:.5rem; align-content:start; padding:1.2rem 1.3rem 1.3rem; border-radius:18px; background:var(--cream) }
+@media (min-width:760px){ .badges-card{ grid-column:1 / -1 } }
+.badge-row{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.4rem }
+.badge-row img{ width:clamp(38px, 10.5vw, 64px); height:auto }
+.keep p{ color:var(--ink-2); font-size:1rem }
+
+/* findings */
+.group{ display:grid; gap:1.1rem; padding-top:1.4rem; border-top:1px solid var(--line-2) }
+.finding{ display:grid; gap:.6rem; padding:1.2rem 1.3rem 1.3rem; border-radius:16px; background:var(--paper); box-shadow:0 0 0 1px var(--line) }
+.finding p{ color:var(--ink-2) }
+.finding .fix{ color:var(--ink) }
+.finding .fix b{ font-weight:700 }
+.tag{ justify-self:start; display:inline-flex; align-items:center; gap:.4rem; padding:.2rem .65rem; border-radius:999px; font-size:.82rem; font-weight:700; letter-spacing:.02em }
+.tag::before{ content:""; width:.55rem; height:.55rem; border-radius:50%; background:currentColor }
+.tag.first{ background:var(--bad-bg); color:var(--bad) }
+.tag.soon{ background:var(--mid-bg); color:var(--mid) }
+.tag.tidy{ background:var(--good-bg); color:var(--good) }
+.tags-key{ display:flex; flex-wrap:wrap; gap:.5rem }
+.shot{ display:grid; gap:.6rem }
+.shot img{ border-radius:12px; box-shadow:0 0 0 1px var(--line-2) }
+.shot figcaption{ font-size:.92rem; color:var(--ink-2) }
+
+/* audiences, menus, gallery */
+.who th[scope="row"]{ white-space:normal }
+.menus{ display:grid; gap:1rem }
+@media (min-width:760px){ .menus{ grid-template-columns:repeat(2, minmax(0,1fr)) } }
+.menu-card{ display:grid; gap:.8rem; align-content:start; padding:1.2rem 1.3rem 1.3rem; border-radius:18px; background:var(--cream) }
+.menu-card h3{ font-size:1.2rem }
+.chips{ display:flex; flex-wrap:wrap; gap:.4rem }
+.chips li{ padding:.3rem .75rem; border-radius:999px; background:var(--paper); font-weight:700; font-size:.92rem; box-shadow:0 0 0 1px var(--line-2) }
+.chips li.donate{ background:var(--aid); color:#fff; box-shadow:none }
+.menu-card p{ font-size:.94rem; color:var(--ink-2) }
+.moves{ display:grid; gap:.75rem }
+.moves li{ padding-left:1.4rem; position:relative; color:var(--ink-2) }
+.moves li::before{ content:""; position:absolute; left:0; top:.55em; width:.6rem; height:.6rem; border-radius:50%; box-shadow:inset 0 0 0 2px var(--aid) }
+.moves b{ color:var(--ink) }
+.gallery{ display:grid; gap:1.75rem 1.5rem }
+@media (min-width:760px){ .gallery{ grid-template-columns:repeat(2, minmax(0,1fr)) } }
+.gallery figure{ display:grid; gap:.7rem; align-content:start }
+.gallery img{ border-radius:12px; box-shadow:0 0 0 1px var(--line-2) }
+.gallery figcaption{ font-size:.95rem; color:var(--ink-2) }
+.gallery figcaption b{ color:var(--ink) }
+.gallery .tall{ display:grid; grid-template-columns:minmax(0,190px) minmax(0,1fr); gap:1rem; align-items:center }
+@media (min-width:760px){ .gallery .tall{ grid-column:1 / -1 } }
+.gallery .tall img{ border-radius:16px }
+
+/* plan */
+.phases{ display:grid; gap:1rem }
+.phase{ display:grid; gap:.7rem; padding:1.3rem 1.4rem 1.4rem; border-radius:18px; background:var(--cream); border-left:5px solid var(--c) }
+.phase h3{ display:flex; gap:.7rem; align-items:baseline }
+.phase h3 .n{ color:var(--abm) }
+.phase .when{ font-weight:700; color:var(--ink-2); font-size:.95rem }
+.phase ul{ display:grid; gap:.4rem }
+.phase li{ padding-left:1.2rem; position:relative; color:var(--ink-2) }
+.phase li::before{ content:""; position:absolute; left:0; top:.6em; width:.45rem; height:.45rem; border-radius:50%; background:var(--c) }
+.phase .aim{ color:var(--ink); font-weight:700 }
+.steps{ display:grid; gap:1rem; counter-reset:s }
+.steps li{ counter-increment:s; position:relative; padding-left:3rem; color:var(--ink-2) }
+.steps li::before{ content:counter(s); position:absolute; left:0; top:-.1rem; width:2.1rem; height:2.1rem; border-radius:50%; display:grid; place-items:center; background:var(--cream); color:var(--abm); font-family:var(--f-display); font-weight:600 }
+.signoff{ display:grid; gap:.2rem; padding-top:1.5rem; border-top:1px solid var(--line) }
+.signoff p:first-child{ font-family:var(--f-display); font-weight:600; font-size:1.3rem }
+.foot{ background:var(--night); color:var(--night-ink) }
+.foot .inner{ display:grid; gap:.6rem; padding-block:2rem 2.5rem; font-size:.93rem; max-width:var(--measure) }
+.foot a{ color:#fff }
+@media (prefers-reduced-motion: reduce){ *,*::before,*::after{ transition:none!important; animation:none!important } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to the review</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol><symbol id="i-out" viewBox="0 0 24 24"><path d="M8 16 16 8M9.5 8H16v6.5"/></symbol></svg>
+
+<header class="bar"><div class="wrap"><div class="inner">
+  <img src="img/logos.svg" width="762" height="362" alt="Anglican Board of Mission and Anglicans in Development">
+  <p>Website review · Singh Studio · October 2026</p>
+</div></div></header>
+
+<div class="cover"><div class="wrap"><div class="inner">
+  <div>
+    <p class="meta">Prepared for ABM and AID by Kris Singh, Singh Studio, 20 October 2026</p>
+    <h1>A review of abmission.org</h1>
+    <p class="dek">I went through the site on a laptop and on a phone, checked every page in the sitemap for a working donation form, and built a concept from your own words and photographs. This is what I found and what I’d keep, with a plan that starts with the donate forms, because those can’t wait.</p>
+    <div class="cta-row">
+      <a class="btn btn-teal" href="../">Open the concept <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-line" href="#plan">Skip to the plan</a>
+    </div>
+  </div>
+  <div class="compare">
+    <figure>
+      <div class="phones">
+        <div class="phone"><img src="img/before-phone-first.webp" width="600" height="1298" alt="The current homepage on a phone: Contact and the phone number, the two logos, a search icon and menu button, then the Season of Creation slide"></div>
+        <div class="phone"><img src="img/before-phone-menu.webp" width="600" height="1298" alt="The current phone menu: Home, What We Do, Where We Work, Appeals, Get Involved, About, Resources, News and, last, Donate"></div>
+      </div>
+      <figcaption>Today, on a phone<span>Donate is the last item in the menu, and zoom is switched off.</span></figcaption>
+    </figure>
+    <figure>
+      <div class="phones">
+        <div class="phone"><img src="img/after-phone-first.webp" width="600" height="1298" alt="The concept homepage on a phone: the logos, a Donate button and a Menu button above the Season of Creation appeal"></div>
+        <div class="phone"><img src="img/after-phone-menu.webp" width="600" height="1298" alt="The concept phone menu: What we do, Where we work, Appeals, News, Prayer and Get involved, with a Donate button and the phone number"></div>
+      </div>
+      <figcaption>The concept<span>Donate is in the header on every screen, one tap from anywhere.</span></figcaption>
+    </figure>
+  </div>
+</div></div></div>
+
+<div class="doc"><div class="wrap"><div class="inner">
+  <nav class="toc" aria-label="Contents">
+    <p>Contents</p>
+    <ol>
+      <li><a href="#short">The short version</a></li>
+      <li><a href="#forms">The donate forms</a></li>
+      <li><a href="#perf">How it performs</a></li>
+      <li><a href="#keep">Worth keeping</a></li>
+      <li><a href="#found">What I found</a></li>
+      <li><a href="#who">Who the site is for</a></li>
+      <li><a href="#structure">A clearer structure</a></li>
+      <li><a href="#concept">The concept</a></li>
+      <li><a href="#plan">The plan</a></li>
+      <li><a href="#next">Next steps</a></li>
+    </ol>
+  </nav>
+
+  <main class="content" id="main">
+
+    <section id="short" aria-labelledby="short-t">
+      <div class="sec-title"><span class="n" aria-hidden="true">1</span><h2 id="short-t">The short version</h2></div>
+      <div class="three">
+        <article style="--c:var(--aid)">
+          <h3>What’s working</h3>
+          <p>The appeals are well made. Each one has a real story, a goal, a donation code, a prayer and a set of resources for parishes, and since Advent 2025 they’ve used Blackbaud’s newer donation form, which works well on a phone. The news is current, with nine stories since June, and the photographs are captioned and credited.</p>
+        </article>
+        <article style="--c:var(--bad)">
+          <h3>What needs attention first</h3>
+          <p>On 20 October the donation form on 63 pages didn’t appear, including both general donate pages and nearly every program and partner page. On a phone Donate is hard to find and zoom is switched off, and in Google’s slow-connection test the homepage takes about 40 seconds to show its main image.</p>
+        </article>
+        <article style="--c:var(--abm)">
+          <h3>What I’d do</h3>
+          <p>Move every Donate button onto Blackbaud’s newer form straight away, then give the current site a short tidy-up for phones, accessibility and a fresh homepage. After that I’d rebuild the templates on WordPress without the Divi page builder, keeping Blackbaud and your content, along the lines of the concept.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="forms" aria-labelledby="forms-t">
+      <div class="sec-title"><span class="n" aria-hidden="true">2</span><h2 id="forms-t">The donate forms</h2></div>
+      <div class="prose">
+        <p>Blackbaud offers two ways to put a donation form on a website. The appeal pages you’ve made since Advent 2025 use the newer one, the adaptive form, and they work. Most of the rest of the site uses the older one, Online Express, which loads a script from Blackbaud’s servers. On 20 October that script was sending browsers to a Blackbaud error page, so the forms never appear. The pages still say “The donation form will appear below. Please allow time for it to open”, and then nothing happens.</p>
+        <p>The Internet Archive’s copies show the script still loading normally on 16 October, so this looks like a recent change at Blackbaud’s end and nothing your team did. It does mean that, for now, anyone who presses Donate in the main menu, or gives to a program or partner, finds an empty page.</p>
+      </div>
+      <div class="chart" role="group" aria-labelledby="forms-chart-t">
+        <h3 id="forms-chart-t">Pages with a donation form, 20 October 2026</h3>
+        <div class="stack" aria-hidden="true">
+          <div class="seg seg-blank" style="flex:63" title="63 pages: the form doesn’t appear">63 blank</div>
+          <div class="seg seg-ok" style="flex:11" title="11 pages: the adaptive form works">11</div>
+        </div>
+        <p class="legend"><span><i class="k-blank"></i>Older form, blank on 20 October (63 pages)</span><span><i class="k-ok"></i>Adaptive form, working (11 pages)</span></p>
+      </div>
+      <div class="prose">
+        <p>The 63 pages with a blank form are:</p>
+        <ul class="moves">
+          <li><b>both general donate pages</b>, for the ABM General Fund and the AID General Fund;</li>
+          <li><b>Church to Church and Sustainable Communities;</b></li>
+          <li><b>11 of the 12 program pages</b>, from Theological Education and the Encounter Program to the Reconciliation Fund and the Bishop Arthur Malcolm Endowment Fund;</li>
+          <li><b>11 of the 12 partner pages</b>, from the Diocese of Jerusalem to the Zambia Anglican Council;</li>
+          <li><b>the 175th anniversary page</b>, a 2024 donate page, five event pages and 30 older appeals.</li>
+        </ul>
+      </div>
+      <figure class="shot">
+        <img src="img/before-donate.webp" width="1200" height="844" loading="lazy" decoding="async" alt="The Donate Online to AID page on a laptop: a heading, a thank-you message, the line ‘The donation form will appear below. Please allow time for it to open.’ and then blank space where the form should be">
+        <figcaption>The AID donate page on 20 October. The form never arrives, even after 20 seconds.</figcaption>
+      </figure>
+      <div class="finding">
+        <span class="tag first">Fix first</span>
+        <h3>What I’d do this week</h3>
+        <p>Point every Donate button at an adaptive form. Your Blackbaud account already has one for each appeal, so I’d expect most of the work to be setting up forms for the general funds, and for the programs and partners you want to keep taking gifts for, then swapping the old embed code on those pages. It may also be worth asking Blackbaud whether the older forms are being retired. This is worth doing whether or not anything else in this review goes ahead.</p>
+      </div>
+    </section>
+
+    <section id="perf" aria-labelledby="perf-t">
+      <div class="sec-title"><span class="n" aria-hidden="true">3</span><h2 id="perf-t">How the site performs today</h2></div>
+      <div class="prose">
+        <p>I ran Google’s Lighthouse test on the homepage on 20 October 2026, and the same test on the concept. Scores are out of 100: under 50 is poor and 90 or more is good. The phone test simulates a mid-range phone on a slow 4G connection, which is closer to how many supporters will see the site than a laptop in an office.</p>
+      </div>
+      <div class="table-wrap" role="region" aria-labelledby="perf-cap" tabindex="0">
+        <table>
+          <caption id="perf-cap" class="sr-only">Lighthouse scores, 20 October 2026</caption>
+          <thead><tr><th scope="col">Page</th><th scope="col">Device</th><th scope="col">Speed</th><th scope="col">Accessibility</th><th scope="col">Best practice</th><th scope="col">SEO</th><th scope="col">Largest item appears</th><th scope="col">Download</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Homepage today</th><td>Phone</td><td><span class="s mid">54</span></td><td><span class="s mid">62</span></td><td><span class="s good">96</span></td><td><span class="s mid">85</span></td><td class="num">39.6 s</td><td class="num">6.9 MB</td></tr>
+            <tr><th scope="row">Homepage today</th><td>Laptop</td><td><span class="s mid">65</span></td><td><span class="s mid">73</span></td><td><span class="s good">96</span></td><td><span class="s mid">85</span></td><td class="num">8.0 s</td><td class="num">8.1 MB</td></tr>
+            <tr class="concept"><th scope="row">Concept homepage</th><td>Phone</td><td><span class="s good">94</span></td><td><span class="s good">100</span></td><td><span class="s good">100</span></td><td><span class="s mid">63*</span></td><td class="num">3.1 s</td><td class="num">0.5 MB</td></tr>
+            <tr class="concept"><th scope="row">Concept donate page</th><td>Phone</td><td><span class="s good">95</span></td><td><span class="s good">100</span></td><td><span class="s good">100</span></td><td><span class="s mid">63*</span></td><td class="num">2.9 s</td><td class="num">0.4 MB</td></tr>
+            <tr class="concept"><th scope="row">Concept appeal page</th><td>Phone</td><td><span class="s good">92</span></td><td><span class="s good">100</span></td><td><span class="s good">100</span></td><td><span class="s mid">63*</span></td><td class="num">3.2 s</td><td class="num">0.65 MB</td></tr>
+            <tr class="concept"><th scope="row">Concept homepage</th><td>Laptop</td><td><span class="s good">100</span></td><td><span class="s good">100</span></td><td><span class="s good">100</span></td><td><span class="s mid">63*</span></td><td class="num">0.6 s</td><td class="num">0.8 MB</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">* The concept is deliberately hidden from search engines, which is the only reason its SEO score is lower. It was measured on a local test server without compression, so on proper hosting it would be a little faster again.</p>
+      <div class="chart" role="group" aria-labelledby="dl-t">
+        <h3 id="dl-t">Homepage download on a phone</h3>
+        <div class="bars">
+          <div class="barrow today"><b>Today</b><div class="track" style="--w:100%"><div class="fill" title="6.9 MB"></div><span>6.9 MB</span></div></div>
+          <div class="barrow"><b>Concept</b><div class="track" style="--w:7.5%"><div class="fill" title="0.5 MB"></div><span>0.5 MB</span></div></div>
+        </div>
+        <p class="note">The concept’s 0.5 MB includes all its photographs. The current homepage slider’s 11 images come to 3.4 MB on their own.</p>
+      </div>
+    </section>
+
+    <section id="keep" aria-labelledby="keep-t">
+      <div class="sec-title"><span class="n" aria-hidden="true">4</span><h2 id="keep-t">What’s worth keeping</h2></div>
+      <div class="keep">
+        <article class="badges-card"><h3>The badges</h3><p>ABM and AID each have a round badge, and so do Church to Church, Sustainable Communities, Reconciliation and Emergency Response. Together they show who does what more clearly than a paragraph can, and the concept uses them as its system.</p>
+          <ul class="badge-row" aria-label="The six badges">
+            <li><img src="img/abm-badge.svg" width="362" height="362" alt="Anglican Board of Mission" loading="lazy"></li>
+            <li><img src="img/aid-badge.svg" width="362" height="362" alt="Anglicans in Development" loading="lazy"></li>
+            <li><img src="img/p-c2c.svg" width="362" height="362" alt="Church to Church" loading="lazy"></li>
+            <li><img src="img/p-sc.svg" width="362" height="362" alt="Sustainable Communities" loading="lazy"></li>
+            <li><img src="img/p-rec.svg" width="362" height="362" alt="Reconciliation" loading="lazy"></li>
+            <li><img src="img/p-er.svg" width="400" height="400" alt="Emergency Response" loading="lazy"></li>
+          </ul>
+        </article>
+        <article><h3>The appeals</h3><p>Each appeal has a real story, a goal, a donation code, a prayer and downloadable resources for parishes. They’re the best-made pages on the site, and their donation form works.</p></article>
+        <article><h3>Prayer of the day</h3><p>A partner and a diocese to pray for each day is a real strength, and it deserves more room than a homepage tile.</p></article>
+        <article><h3>The news and photography</h3><p>The stories are current, and the photographs are captioned and credited, often “used with permission”. That’s good practice, and it makes the photographs safe to reuse across the site.</p></article>
+      </div>
+    </section>
+
+    <section id="found" aria-labelledby="found-t">
+      <div class="sec-title"><span class="n" aria-hidden="true">5</span><h2 id="found-t">What I found</h2></div>
+      <div class="prose">
+        <p>Apart from the forms, I’ve grouped these by the part of someone’s visit they affect and marked how soon I’d deal with each one. “Fix first” means it’s costing you supporters or gifts now, “fix soon” means it’s holding the site back, and “tidy up” covers smaller things that add up.</p>
+      </div>
+      <p class="tags-key" aria-hidden="true"><span class="tag first">Fix first</span><span class="tag soon">Fix soon</span><span class="tag tidy">Tidy up</span></p>
+
+      <div class="group">
+        <h3>Giving</h3>
+        <article class="finding">
+          <span class="tag first">Fix first</span>
+          <h4>Donors have to choose a fund before they can give</h4>
+          <p>The main Donate page asks people to choose between the ABM General Fund, which isn’t tax-deductible, and the AID General Fund, which is, before they see a form. It’s an important difference, but most donors won’t know which to pick, and a choice before the form is a place where some people stop.</p>
+          <p class="fix"><b>Fix:</b> one donate page where the fund is already filled in (the AID General Fund, or the appeal someone came from) and can be changed, with the tax status shown as they choose. The concept has a working version.</p>
+        </article>
+      </div>
+
+      <div class="group">
+        <h3>Phones</h3>
+        <article class="finding">
+          <span class="tag first">Fix first</span>
+          <h4>Donate isn’t in the phone header</h4>
+          <p>On a phone the header has Contact, the phone number, the logos, search and the menu button. Donate is the last item in the menu.</p>
+          <p class="fix"><b>Fix:</b> keep Donate in the header at every screen size, as the concept does (compare the phones at the top of this review).</p>
+        </article>
+        <article class="finding">
+          <span class="tag first">Fix first</span>
+          <h4>Zoom is switched off</h4>
+          <p>The site tells phones not to let people pinch to zoom (maximum-scale=1.0, user-scalable=0). For anyone whose eyesight isn’t perfect that’s a real barrier, and it fails the accessibility guidelines.</p>
+          <p class="fix"><b>Fix:</b> a one-line change.</p>
+        </article>
+        <article class="finding">
+          <span class="tag soon">Fix soon</span>
+          <h4>The phone menu can’t be opened from a keyboard</h4>
+          <p>The menu button is built from a plain box and an icon instead of a button, so someone using a keyboard or a switch device can’t open it.</p>
+          <p class="fix"><b>Fix:</b> a real button that opens and closes the menu, as in the concept.</p>
+        </article>
+      </div>
+
+      <div class="group">
+        <h3>Speed</h3>
+        <article class="finding">
+          <span class="tag soon">Fix soon</span>
+          <h4>The homepage is 6.9 MB on a phone</h4>
+          <p>Most of it is the slider, whose 11 images (3.4 MB together) all download as soon as the page opens, though most people only see the first slide. In Google’s slow-4G test the main image takes 39.6 seconds to appear.</p>
+          <p class="fix"><b>Fix:</b> lead with the current appeal and size images for the screen they’re shown on.</p>
+        </article>
+        <article class="finding">
+          <span class="tag tidy">Tidy up</span>
+          <h4>Files aren’t cached</h4>
+          <p>Lighthouse found 68 files sent without caching instructions, so returning visitors download them all again.</p>
+          <p class="fix"><b>Fix:</b> a few lines of server settings.</p>
+        </article>
+      </div>
+
+      <div class="group">
+        <h3>Accessibility</h3>
+        <article class="finding">
+          <span class="tag soon">Fix soon</span>
+          <h4>Contrast on buttons and panels</h4>
+          <p>The header Donate button is white on light teal at a contrast of 2.99 to 1, under the 4.5 to 1 minimum. The 175th anniversary “Learn More” button is 2.24 to 1, and the Five Marks of Mission panel is 1.86 to 1.</p>
+          <p class="fix"><b>Fix:</b> the concept keeps the teal from the AID badge for Donate, which passes at 4.7 to 1, and every other colour passes too.</p>
+        </article>
+        <article class="finding">
+          <span class="tag soon">Fix soon</span>
+          <h4>Links and buttons without names</h4>
+          <p>The logo, the slider arrows and the three What We Do icons are links with no text a screen reader can read out, and the search button has no name either. The slider’s dots are 7 pixels across, too small to tap.</p>
+          <p class="fix"><b>Fix:</b> a label on every link and button, and larger tap targets.</p>
+        </article>
+      </div>
+
+      <div class="group">
+        <h3>Keeping it current</h3>
+        <article class="finding">
+          <span class="tag soon">Fix soon</span>
+          <h4>The homepage heading is out of date</h4>
+          <p>The only main heading on the homepage is “Celebrating 175 Years”, which still describes 29 October 2025 as an anniversary to look forward to. Further along the slider, Lent 2026 pre-orders and the 2025 edition of Love, Hope and Justice in Action are still being promoted. The news itself is current.</p>
+          <p class="fix"><b>Fix:</b> lead with the current appeal and the latest news, as the concept does.</p>
+        </article>
+        <figure class="shot">
+          <img src="img/before-home-175.webp" width="1200" height="750" loading="lazy" decoding="async" alt="The homepage section headed Celebrating 175 Years, with a gold background, a Learn More button and a photograph of the six founding bishops">
+          <figcaption>The homepage’s main heading on 20 October 2026.</figcaption>
+        </figure>
+        <article class="finding">
+          <span class="tag tidy">Tidy up</span>
+          <h4>WordPress needs updating</h4>
+          <p>The site runs WordPress 6.8.11, and the current release is 7.1.3.</p>
+          <p class="fix"><b>Fix:</b> update WordPress, the theme and the plugins, with a full backup first.</p>
+        </article>
+        <article class="finding">
+          <span class="tag tidy">Tidy up</span>
+          <h4>The news feed is empty</h4>
+          <p>The site’s RSS feed (abmission.org/feed/) has no items, so anything that picks up your news automatically gets nothing.</p>
+          <p class="fix"><b>Fix:</b> include news stories in the feed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="who" aria-labelledby="who-t">
+      <div class="sec-title"><span class="n" aria-hidden="true">6</span><h2 id="who-t">Who the site is for</h2></div>
+      <div class="prose"><p>Before any design, it helps to be clear about who comes to the site and what they’re trying to do. This is my starting list. You’ll know better than I do, and I’d want to check it with you.</p></div>
+      <div class="table-wrap who" role="region" aria-labelledby="who-cap" tabindex="0">
+        <table>
+          <caption id="who-cap" class="sr-only">Who the site is for</caption>
+          <thead><tr><th scope="col">Who</th><th scope="col">What they come to do</th><th scope="col">What the site should make easy</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Supporters and donors</th><td>Give to an appeal or a fund, and know whether it’s tax-deductible</td><td>One donate page that works on a phone, with the tax status clear</td></tr>
+            <tr><th scope="row">Parishes and clergy</th><td>Find appeal packs, studies, seasonal resources and prayers</td><td>Each appeal’s resources on its page, and a library that’s easy to search</td></tr>
+            <tr><th scope="row">People who pray for the work</th><td>Find today’s partner and diocese to pray for</td><td>Prayer of the day, easy to find and to share</td></tr>
+            <tr><th scope="row">People thinking about a gift in their Will</th><td>Understand the options and talk to someone</td><td>A clear page and a named contact</td></tr>
+            <tr><th scope="row">Pilgrims</th><td>Find out about the next pilgrimage</td><td>Stories from past pilgrimages and a way to register interest</td></tr>
+            <tr><th scope="row">Partners and the wider Communion</th><td>See their work told well</td><td>Current stories, organised by country and program</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="structure" aria-labelledby="structure-t">
+      <div class="sec-title"><span class="n" aria-hidden="true">7</span><h2 id="structure-t">A clearer structure</h2></div>
+      <div class="menus">
+        <div class="menu-card">
+          <h3>The menu today</h3>
+          <ul class="chips"><li>Home</li><li>What We Do</li><li>Where We Work</li><li>Appeals</li><li>Get Involved</li><li>About</li><li>Resources</li><li>News</li><li>Donate</li></ul>
+          <p>Donate sits in the header on laptops. On a phone it’s the last item in the menu.</p>
+        </div>
+        <div class="menu-card">
+          <h3>The menu I’d suggest</h3>
+          <ul class="chips"><li>What we do</li><li>Where we work</li><li>Appeals</li><li>News</li><li>Prayer</li><li>Get involved</li><li class="donate">Donate</li></ul>
+          <p>Donate stays visible on every screen size.</p>
+        </div>
+      </div>
+      <ul class="moves">
+        <li><b>About and its 16 pages</b> become part of What we do, which explains ABM and AID together, with governance, reports and policies gathered on one page.</li>
+        <li><b>Resources</b> moves under Prayer and Get involved, with Prayer of the day and the missional prayers at the front.</li>
+        <li><b>Program and partner pages</b> stay under What we do and Where we work, each with a Donate button that works.</li>
+        <li><b>The 175th anniversary pages</b> become part of ABM’s history, with redirects so old links keep working.</li>
+      </ul>
+    </section>
+
+    <section id="concept" aria-labelledby="concept-t">
+      <div class="sec-title"><span class="n" aria-hidden="true">8</span><h2 id="concept-t">The concept</h2></div>
+      <div class="prose">
+        <p>I’ve built a working concept from your own words and photographs: a homepage, a donate page and the Season of Creation appeal. It’s a starting point for a conversation and not a finished design.</p>
+        <p>The colours are your red and the teal from the AID badge, and the round badges do the explaining. The headings use Zilla Slab, a free slab serif in the same spirit as Rockwell, and Lato stays for the text.</p>
+      </div>
+      <div class="gallery">
+        <figure>
+          <img src="img/after-desk-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="The concept homepage on a laptop: the Season of Creation lettering, the heading Working to heal a weary world, two buttons, and a round photograph of cliffs and sea with lettering around its rim">
+          <figcaption><b>First screen.</b> The current appeal in a round photograph like your badges, with Donate in the header.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/after-desk-work.webp" width="1200" height="750" loading="lazy" decoding="async" alt="The concept’s What we do section: ABM’s red circle and AID’s teal circle overlapping, with the Church to Church, Reconciliation, Sustainable Communities and Emergency Response badges, and the Reconciliation panel open beside them">
+          <figcaption><b>What we do.</b> ABM’s circle and AID’s circle come together as you scroll, with each program’s badge where it belongs. Choose a badge to read about it.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/after-desk-donate.webp" width="1200" height="750" loading="lazy" decoding="async" alt="The concept donate page: one-time or monthly, amounts of $60, $150, $300 and $600, the AID General Fund already chosen with a tax-deductible tag, and a summary of the gift">
+          <figcaption><b>One donate page.</b> The fund is filled in and can be changed, and the tax status, bank details and cheque payee follow it. <a href="../#donate">Open the donate page</a></figcaption>
+        </figure>
+        <figure>
+          <img src="img/after-desk-appeal.webp" width="1200" height="750" loading="lazy" decoding="async" alt="The concept’s Season of Creation appeal page: the lettering and heading over the photograph of cliffs and sea, with Donate now and Parish resources buttons">
+          <figcaption><b>An appeal page.</b> Season of Creation 2026, with everything from the current page and the give panel beside the story. <a href="../#season-of-creation">Open the appeal</a></figcaption>
+        </figure>
+        <figure>
+          <img src="img/after-desk-appeal-story.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Further down the appeal: three photographs with their impact statements, the Season of Creation prayer, and the give panel staying beside the story">
+          <figcaption><b>Real text.</b> The impact statements and the prayer card are text, not pictures of text, so they can be read aloud, searched and updated.</figcaption>
+        </figure>
+        <figure class="tall">
+          <img src="img/after-phone-donate.webp" width="600" height="1298" loading="lazy" decoding="async" alt="The concept donate form on a phone, with Donate and Menu in the header">
+          <figcaption><b>On a phone</b> the form is the first thing on the donate page, and Donate and Menu stay at the top as you scroll. Try the concept on your phone as well as a laptop.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="plan" aria-labelledby="plan-t">
+      <div class="sec-title"><span class="n" aria-hidden="true">9</span><h2 id="plan-t">The plan</h2></div>
+      <div class="prose">
+        <p>I’d do this in four steps, so the giving problem is fixed first and you see a difference quickly. My recommendation is to keep WordPress and Blackbaud. Your team already uses them and the content is already there. What I’d replace is the Divi page builder, which is where most of the weight comes from and what makes pages fiddly to keep consistent.</p>
+      </div>
+      <div class="phases">
+        <article class="phase" style="--c:var(--bad)">
+          <h3><span class="n">1.</span> Fix the donate forms</h3>
+          <p class="when">Now</p>
+          <ul>
+            <li>Adaptive forms for the general funds, and for the programs and partners you want to keep taking gifts for</li>
+            <li>Every Donate button pointing at a working form, with the old embed code removed</li>
+            <li>A check of every page with a form once it’s done</li>
+          </ul>
+          <p class="aim">Aim: no blank forms anywhere.</p>
+        </article>
+        <article class="phase" style="--c:var(--aid)">
+          <h3><span class="n">2.</span> Tidy up the current site</h3>
+          <p class="when">Next, at a fixed price</p>
+          <ul>
+            <li>WordPress, the theme and the plugins brought up to date</li>
+            <li>Donate in the phone header, zoom back on and a menu that works from a keyboard</li>
+            <li>Contrast and labels fixed on buttons and links</li>
+            <li>A homepage that leads with the current appeal and the latest news, with images sized for the screen</li>
+            <li>Caching switched on and the news feed fixed</li>
+          </ul>
+          <p class="aim">Aim: the homepage under 4 MB, accessibility above 90, and nothing out of date on the first screen.</p>
+        </article>
+        <article class="phase" style="--c:var(--abm)">
+          <h3><span class="n">3.</span> Rebuild the templates</h3>
+          <p class="when">When you’re ready</p>
+          <ul>
+            <li>A short discovery with your team to check the audiences and what they come to do</li>
+            <li>A lightweight WordPress theme in place of Divi, built around the badges, with templates for the homepage, appeals, programs, partners, news, prayer, resources and giving</li>
+            <li>One donate page with the fund filled in, using Blackbaud’s adaptive forms</li>
+            <li>An appeal template with the goal, donation code, prayer and parish resources in their own fields, so a new appeal takes minutes to set up</li>
+            <li>Accessibility and speed checks before launch, and training for whoever edits the site</li>
+          </ul>
+          <p class="aim">Aim: pages under 1 MB, accessibility scores of 100, and the same content and Blackbaud setup you have now.</p>
+        </article>
+        <article class="phase" style="--c:var(--night)">
+          <h3><span class="n">4.</span> Keep it current</h3>
+          <p class="when">Ongoing, if it helps</p>
+          <ul>
+            <li>The homepage updated with each new appeal and the latest news</li>
+            <li>New appeal pages set up from your copy and photographs</li>
+            <li>A monthly check that every donation form loads and every link works</li>
+          </ul>
+          <p class="aim">Aim: a site that stays current without it falling to whoever has a spare hour.</p>
+        </article>
+      </div>
+      <p class="note">I haven’t put prices in this review. I’m happy to cost the forms and the tidy-up on their own, or the whole thing a step at a time.</p>
+    </section>
+
+    <section id="next" aria-labelledby="next-t">
+      <div class="sec-title"><span class="n" aria-hidden="true">10</span><h2 id="next-t">Next steps</h2></div>
+      <ol class="steps">
+        <li>Check the donate forms this week. If they’re still blank, getting the Donate buttons onto adaptive forms before the Christmas appeals matters more than anything else here.</li>
+        <li>Open <a href="../">the concept</a>, ideally on your phone, and click around, including <a href="../#donate">the donate page</a> and <a href="../#season-of-creation">the Season of Creation appeal</a>.</li>
+        <li>Let me know what’s useful and what isn’t. Please do pick it apart. It’s a starting point, and I’m sure there’s context I’m missing.</li>
+        <li>If it helps, I can start with the forms and the tidy-up on their own.</li>
+      </ol>
+      <div class="signoff">
+        <p>Kris Singh</p>
+        <p>Singh Studio · <a href="mailto:kris@singhstudio.co.nz">kris@singhstudio.co.nz</a> · <a href="https://singhstudio.co.nz">singhstudio.co.nz</a></p>
+      </div>
+    </section>
+  </main>
+</div></div></div>
+
+<footer class="foot"><div class="wrap"><div class="inner">
+  <p>Tested on 20 October 2026. Scores are from Google Lighthouse 12.8, using its simulated mid-range phone on slow 4G and its desktop setting. Every page in the site’s sitemap (619 pages) was checked for which donation form it uses, and the two general donate pages were opened in a browser and left for 20 seconds.</p>
+  <p>The concept and this review use ABM’s and AID’s published words, photographs and logos only to illustrate the ideas here.</p>
+</div></div></footer>
+
+<script>
+(function () {
+  document.querySelectorAll('a[href^="http"]').forEach(function (a) { a.target = '_blank'; a.rel = 'noopener'; });
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var secs = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+  function mark() {
+    var line = window.innerHeight * 0.3, cur = -1;
+    secs.forEach(function (el, i) { if (el && el.getBoundingClientRect().top < line) cur = i; });
+    links.forEach(function (a, i) { if (i === cur) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
+  }
+  window.addEventListener('scroll', mark, { passive: true });
+  window.addEventListener('resize', mark, { passive: true });
+  mark();
+})();
+</script>
+</body>
+</html>
