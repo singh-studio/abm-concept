@@ -187,6 +187,16 @@ tr.concept th,tr.concept td{ background:#FBFAF7 }
 @media (min-width:760px){ .gallery .tall{ grid-column:1 / -1 } }
 .gallery .tall img{ border-radius:16px }
 
+/* the future look */
+.future-lead{ display:grid; gap:0; margin:.5rem 0 1.75rem; border-radius:18px; overflow:hidden; background:#0B2733; box-shadow:0 0 0 1px var(--line-2) }
+.future-lead img{ width:100% }
+.future-lead figcaption{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem 1.5rem; padding:1.1rem 1.3rem 1.25rem; color:#D5E3E7; font-size:.97rem }
+.future-lead figcaption b{ color:#fff }
+.future-lead .btn{ flex:none }
+.gallery .duo{ grid-template-columns:minmax(0,380px) minmax(0,1fr) }
+@media (max-width:599px){ .gallery .duo{ grid-template-columns:1fr } }
+.gallery .duo .phones img{ border-radius:0; box-shadow:none }
+
 /* plan */
 .phases{ display:grid; gap:1rem }
 .phase{ display:grid; gap:.7rem; padding:1.3rem 1.4rem 1.4rem; border-radius:18px; background:var(--cream); border-left:5px solid var(--c) }
@@ -221,9 +231,10 @@ tr.concept th,tr.concept td{ background:#FBFAF7 }
   <div>
     <p class="meta">Prepared for ABM and AID by Kris Singh, Singh Studio, 20 October 2026</p>
     <h1>A review of abmission.org</h1>
-    <p class="dek">I went through the site on a laptop and on a phone, checked every page in the sitemap for a working donation form, and built a concept from your own words and photographs. This is what I found and what I’d keep, with a plan that starts with the donate forms, because those can’t wait.</p>
+    <p class="dek">I went through the site on a laptop and on a phone, checked every page in the sitemap for a working donation form, and built two concepts from your own words and photographs, one close to the site you have and one that looks further ahead. This is what I found and what I’d keep, with a plan that starts with the donate forms, because those can’t wait.</p>
     <div class="cta-row">
       <a class="btn btn-teal" href="../">Open the concept <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-line" href="#future">See the future look</a>
       <a class="btn btn-line" href="#plan">Skip to the plan</a>
     </div>
   </div>
@@ -257,6 +268,7 @@ tr.concept th,tr.concept td{ background:#FBFAF7 }
       <li><a href="#who">Who the site is for</a></li>
       <li><a href="#structure">A clearer structure</a></li>
       <li><a href="#concept">The concept</a></li>
+      <li><a href="#future">A future look</a></li>
       <li><a href="#plan">The plan</a></li>
       <li><a href="#next">Next steps</a></li>
     </ol>
@@ -320,7 +332,7 @@ tr.concept th,tr.concept td{ background:#FBFAF7 }
     <section id="perf" aria-labelledby="perf-t">
       <div class="sec-title"><span class="n" aria-hidden="true">3</span><h2 id="perf-t">How the site performs today</h2></div>
       <div class="prose">
-        <p>I ran Google’s Lighthouse test on the homepage on 20 October 2026, and the same test on the concept. Scores are out of 100: under 50 is poor and 90 or more is good. The phone test simulates a mid-range phone on a slow 4G connection, which is closer to how many supporters will see the site than a laptop in an office.</p>
+        <p>I ran Google’s Lighthouse test on the homepage on 20 October 2026, and the same test on both concepts. Scores are out of 100: under 50 is poor and 90 or more is good. The phone test simulates a mid-range phone on a slow 4G connection, which is closer to how many supporters will see the site than a laptop in an office.</p>
       </div>
       <div class="table-wrap" role="region" aria-labelledby="perf-cap" tabindex="0">
         <table>
@@ -333,10 +345,12 @@ tr.concept th,tr.concept td{ background:#FBFAF7 }
             <tr class="concept"><th scope="row">Concept donate page</th><td>Phone</td><td><span class="s good">95</span></td><td><span class="s good">100</span></td><td><span class="s good">100</span></td><td><span class="s mid">63*</span></td><td class="num">2.9 s</td><td class="num">0.4 MB</td></tr>
             <tr class="concept"><th scope="row">Concept appeal page</th><td>Phone</td><td><span class="s good">92</span></td><td><span class="s good">100</span></td><td><span class="s good">100</span></td><td><span class="s mid">63*</span></td><td class="num">3.2 s</td><td class="num">0.65 MB</td></tr>
             <tr class="concept"><th scope="row">Concept homepage</th><td>Laptop</td><td><span class="s good">100</span></td><td><span class="s good">100</span></td><td><span class="s good">100</span></td><td><span class="s mid">63*</span></td><td class="num">0.6 s</td><td class="num">0.8 MB</td></tr>
+            <tr class="concept"><th scope="row">Future look homepage</th><td>Phone</td><td><span class="s good">95</span></td><td><span class="s good">100</span></td><td><span class="s good">100</span></td><td><span class="s mid">63*</span></td><td class="num">2.9 s</td><td class="num">0.4 MB</td></tr>
+            <tr class="concept"><th scope="row">Future look homepage</th><td>Laptop</td><td><span class="s good">100</span></td><td><span class="s good">100</span></td><td><span class="s good">100</span></td><td><span class="s mid">63*</span></td><td class="num">0.6 s</td><td class="num">0.6 MB</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="note">* The concept is deliberately hidden from search engines, which is the only reason its SEO score is lower. It was measured on a local test server without compression, so on proper hosting it would be a little faster again.</p>
+      <p class="note">* Both concepts are deliberately hidden from search engines, which is the only reason their SEO score is lower. They were measured on a local test server without compression, so on proper hosting they would be a little faster again.</p>
       <div class="chart" role="group" aria-labelledby="dl-t">
         <h3 id="dl-t">Homepage download on a phone</h3>
         <div class="bars">
@@ -539,8 +553,46 @@ tr.concept th,tr.concept td{ background:#FBFAF7 }
       </div>
     </section>
 
+    <section id="future" aria-labelledby="future-t">
+      <div class="sec-title"><span class="n" aria-hidden="true">9</span><h2 id="future-t">A future look</h2></div>
+      <div class="prose">
+        <p>The concept above deliberately stays close to the site you have, so it’s easy to see how a tidy-up and a rebuild of the same pages would turn out. I also wanted to show you what a rebuild could look like if the aim were a site that still feels current in five years’ time, so I made a second concept as a future look.</p>
+        <p>It keeps your logos, your red and teal and the round badges, and every word and photograph is still yours. What changes is how people find their way around. Instead of a menu organised like the organisation, it starts from what a supporter wants to do, and it follows the church year, which your appeals already do.</p>
+      </div>
+      <figure class="future-lead">
+        <img src="img/future-desk-hero.webp" width="1200" height="750" loading="lazy" decoding="async" alt="The future look on a laptop: a dark first screen with the heading Working to heal a weary world, Give to the appeal and Read the appeal buttons, and the cliffs and sea photograph in a round window with lettering around its rim">
+        <figcaption><span><b>First screen.</b> The current appeal sits in a round window like your badges, and the window opens up as you scroll.</span><a class="btn btn-teal" href="../future/">Open the future look <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></figcaption>
+      </figure>
+      <div class="gallery">
+        <figure>
+          <img src="img/future-desk-intents.webp" width="1200" height="750" loading="lazy" decoding="async" alt="Four round badges labelled Give, Pray, Go and Learn, with Give selected, above a quick gift panel and cards for the Nepal and Gaza emergency appeals">
+          <figcaption><b>Give, Pray, Go or Learn.</b> Four badges ask what you’d like to do, and each opens its own panel. Give starts with a quick gift and the open appeals, Pray has today’s Partner of the Day, Go has the pilgrimages and Learn has the Five Marks and your resources.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/future-desk-year.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A dark section headed A year of mission, with a row of appeal cards from Lent 2026 to the Season of Creation 2026, each with a round photograph ringed in a season colour, and the emergency appeals below">
+          <figcaption><b>A year of mission.</b> This year’s appeals in order, from Advent to the Season of Creation, each in the colour of its season. On a laptop the row moves sideways as you scroll down, and on a phone you swipe it.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/future-desk-where.webp" width="1200" height="750" loading="lazy" decoding="async" alt="A teal section headed Where we work, with a dotted map from Africa to the Pacific marked with partner countries, buttons for each country, and a card for the Philippines with a photograph of Rosalina’s group and a quote">
+          <figcaption><b>Where we work.</b> A map of your partners, from the Holy Land to Vanuatu, with a story, a program or an appeal for each country. The country buttons under the map work from a keyboard and with a screen reader.</figcaption>
+        </figure>
+        <figure>
+          <img src="img/future-desk-ask.webp" width="1200" height="750" loading="lazy" decoding="async" alt="An Ask panel over the page with six common questions, and the answer to Is my gift tax-deductible? shown below them">
+          <figcaption><b>Ask.</b> Common questions answered in your own words, such as whether a gift is tax-deductible or how to leave a gift in a Will, with a search of the site for anything else. Every answer is written in advance from your pages, so nothing is made up.</figcaption>
+        </figure>
+        <figure class="tall duo">
+          <div class="phones">
+            <div class="phone"><img src="img/future-phone-first.webp" width="600" height="1298" loading="lazy" decoding="async" alt="The future look on a phone: the logos, a search button, Donate and a menu button above the Season of Creation appeal in its round window"></div>
+            <div class="phone"><img src="img/future-phone-give.webp" width="600" height="1298" loading="lazy" decoding="async" alt="The give sheet on a phone, sliding up from the bottom with one-time or monthly, the amounts and the Season of Creation fund already chosen"></div>
+          </div>
+          <figcaption><b>On a phone</b> Donate stays at the top, and giving opens as a sheet from the bottom of the screen, already set to the appeal you were reading. The fund and its tax status travel with the gift, so there’s one donate form for everything.</figcaption>
+        </figure>
+      </div>
+      <p class="note">If you like the direction, this would replace the first concept as the design for step 3 of the plan rather than adding a step. It runs on the same WordPress and Blackbaud setup, and it scores 95 for speed and 100 for accessibility on Lighthouse’s simulated phone.</p>
+    </section>
+
     <section id="plan" aria-labelledby="plan-t">
-      <div class="sec-title"><span class="n" aria-hidden="true">9</span><h2 id="plan-t">The plan</h2></div>
+      <div class="sec-title"><span class="n" aria-hidden="true">10</span><h2 id="plan-t">The plan</h2></div>
       <div class="prose">
         <p>I’d do this in four steps, so the giving problem is fixed first and you see a difference quickly. My recommendation is to keep WordPress and Blackbaud. Your team already uses them and the content is already there. What I’d replace is the Divi page builder, which is where most of the weight comes from and what makes pages fiddly to keep consistent.</p>
       </div>
@@ -594,10 +646,10 @@ tr.concept th,tr.concept td{ background:#FBFAF7 }
     </section>
 
     <section id="next" aria-labelledby="next-t">
-      <div class="sec-title"><span class="n" aria-hidden="true">10</span><h2 id="next-t">Next steps</h2></div>
+      <div class="sec-title"><span class="n" aria-hidden="true">11</span><h2 id="next-t">Next steps</h2></div>
       <ol class="steps">
         <li>Check the donate forms this week. If they’re still blank, getting the Donate buttons onto adaptive forms before the Christmas appeals matters more than anything else here.</li>
-        <li>Open <a href="../">the concept</a>, ideally on your phone, and click around, including <a href="../#donate">the donate page</a> and <a href="../#season-of-creation">the Season of Creation appeal</a>.</li>
+        <li>Open <a href="../">the concept</a>, ideally on your phone, and click around, including <a href="../#donate">the donate page</a> and <a href="../#season-of-creation">the Season of Creation appeal</a>. Then try <a href="../future/">the future look</a>, which goes further.</li>
         <li>Let me know what’s useful and what isn’t. Please do pick it apart. It’s a starting point, and I’m sure there’s context I’m missing.</li>
         <li>If it helps, I can start with the forms and the tidy-up on their own.</li>
       </ol>

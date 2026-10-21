@@ -1,0 +1,1104 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>ABM Future Look</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="icon" href="data:,">
+<meta name="description" content="A second, forward-looking website concept for the Anglican Board of Mission and Anglicans in Development by Singh Studio, built from ABM’s own words and photographs.">
+<link rel="preload" as="font" type="font/woff2" href="fonts/rokkitt-var-latin.woff2" crossorigin data-standalone>
+<link rel="preload" as="font" type="font/woff2" href="fonts/lato-400-latin.woff2" crossorigin data-standalone>
+<link rel="preload" as="image" href="img/lens-640.webp" imagesrcset="img/lens-640.webp 640w, img/lens-1240.webp 1240w" imagesizes="(min-width: 900px) 52vmin, 60vw" fetchpriority="high">
+<style>
+@font-face{font-family:'Rokkitt';font-style:normal;font-weight:100 900;font-display:swap;src:url(fonts/rokkitt-var-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Lato';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/lato-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Lato';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/lato-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+
+/* Layout: an app-like, intent-first page. ABM's round badge becomes a lens on the current appeal that opens as you scroll; four intents replace the organisation-chart menu; the church year sets the rhythm, and its liturgical colours mark each appeal. */
+:root{
+  --night:#0B2733; --night-2:#123A4C; --night-ink:#D5E3E7; --night-line:rgba(213,227,231,.2);
+  --char:#121A1A; --char-2:#1B2525; --char-line:rgba(213,227,231,.14);
+  --ink:#1C201F; --ink-2:#3B4240; --ink-3:#59605E;
+  --paper:#FFFDF9; --cream:#F7F1E7; --sand:#EBE0CF; --line:#E3D9C9; --line-2:#CDBFA9;
+  --abm:#9E1718; --abm-deep:#7C1112; --abm-tint:#F7E7E4;
+  --aid:#127F91; --aid-deep:#0D6573; --aid-tint:#E2EFF0;
+  --gold:#E0A226; --leaf:#99D451; --leaf-deep:#4B7814;
+  --lit-violet:#8E6BC8; --lit-red:#E2574C; --lit-green:#8CC63F;
+  --season:var(--leaf);
+  --f-display:"Rokkitt","Rockwell","Roboto Slab",Georgia,serif;
+  --f-body:"Lato","Helvetica Neue",Arial,system-ui,sans-serif;
+  --ease-out:cubic-bezier(.2,.7,.2,1); --ease-io:cubic-bezier(.65,.05,.35,1);
+  --d1:.22s; --d2:.6s; --d3:1.1s; --stagger:70ms;
+  --pad-x:16px; --measure:1280px; --sec-y:clamp(4rem, 2.6rem + 4.6vw, 7.5rem); --r:28px;
+  color-scheme:light;
+}
+@media (min-width:720px){ :root{ --pad-x:28px } }
+@media (min-width:1100px){ :root{ --pad-x:44px } }
+
+*,*::before,*::after{ box-sizing:border-box }
+[hidden]{ display:none!important }
+html{ -webkit-text-size-adjust:100% }
+body{ margin:0; background:var(--paper); color:var(--ink); font-family:var(--f-body); font-size:clamp(1.0625rem, 1rem + .25vw, 1.125rem); line-height:1.5; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; overflow-x:clip }
+img,svg{ max-width:100%; display:block }
+img{ height:auto }
+a{ color:inherit }
+h1,h2,h3{ font-family:var(--f-display); font-weight:640; line-height:.98; letter-spacing:-.025em; margin:0; text-wrap:balance; hyphens:none }
+h2{ font-size:clamp(2.4rem, 1.5rem + 3.4vw, 4.6rem) }
+h3{ font-size:clamp(1.35rem, 1.2rem + .5vw, 1.65rem); line-height:1.05; letter-spacing:-.015em }
+p,figure,blockquote,dl,dd{ margin:0 }
+ul,ol{ margin:0; padding:0; list-style:none }
+button,input{ font:inherit; color:inherit }
+:focus-visible{ outline:3px solid var(--aid-deep); outline-offset:3px; border-radius:6px }
+.dark :focus-visible{ outline-color:var(--leaf) }
+.foot :focus-visible,.where :focus-visible,.tile-quick :focus-visible{ outline-color:#fff }
+[id]{ scroll-margin-top:96px }
+.sprite{ position:absolute; width:0; height:0; overflow:hidden }
+.sr-only{ position:absolute!important; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; margin:-1px; padding:0; border:0 }
+.skip{ position:absolute; left:max(16px, env(safe-area-inset-left,0px)); top:-80px; z-index:100; background:var(--ink); color:#fff; padding:.7rem 1rem; font-weight:700; text-decoration:none; border-radius:0 0 10px 10px }
+.skip:focus{ top:env(safe-area-inset-top,0px) }
+.ico{ width:1em; height:1em; flex:none; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round }
+.wrap{ padding-left:max(var(--pad-x), env(safe-area-inset-left,0px)); padding-right:max(var(--pad-x), env(safe-area-inset-right,0px)) }
+.inner{ max-width:var(--measure); margin-inline:auto }
+.grain{ position:relative; isolation:isolate }
+.grain::after{ content:""; position:absolute; inset:0; z-index:-1; pointer-events:none; background:url(img/grain.webp) 0 0/140px 140px; opacity:.07 }
+
+/* buttons */
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:.55rem; min-height:50px; padding:.75rem 1.4rem; border-radius:999px; border:2px solid transparent; font-weight:700; font-size:1rem; text-decoration:none; cursor:pointer; transition:background-color var(--d1) var(--ease-out), color var(--d1) var(--ease-out), border-color var(--d1) var(--ease-out), transform var(--d1) var(--ease-out) }
+.btn .ico{ width:1.05em; height:1.05em; transition:transform var(--d1) var(--ease-out) }
+.btn:hover .ico{ transform:translateX(3px) }
+.btn-leaf{ background:var(--leaf); color:var(--ink) }
+.btn-leaf:hover{ background:#B2E276 }
+.btn-teal{ background:var(--aid); color:#fff }
+.btn-teal:hover{ background:var(--aid-deep) }
+.btn-ghost{ border-color:currentColor; background:transparent }
+.dark .btn-ghost:hover{ background:var(--cream); border-color:var(--cream); color:var(--night) }
+.btn-ink{ background:var(--ink); color:#fff }
+.btn-ink:hover{ background:#000 }
+.btn-cream{ background:var(--cream); color:var(--ink) }
+.btn-cream:hover{ background:#fff }
+.btn-sm{ min-height:42px; padding:.5rem 1rem; font-size:.95rem }
+.link{ display:inline-flex; align-items:center; gap:.4rem; font-weight:700; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:4px }
+.link:hover{ text-decoration-thickness:2px }
+.link .ico{ width:.95em; height:.95em }
+
+/* concept strip and the floating bar */
+.strip{ background:var(--ink); color:#E8E3DA; font-size:.85rem; line-height:1.35 }
+.strip .inner{ display:flex; flex-wrap:wrap; gap:.25rem 1.1rem; justify-content:space-between; align-items:center; padding-block:.5rem }
+.strip a,.strip button{ background:transparent; border:0; padding:.3rem 0; min-height:32px; color:var(--leaf); font-weight:700; cursor:pointer; text-decoration:underline; text-underline-offset:3px }
+.strip-links{ display:flex; gap:.25rem 1.1rem; flex-wrap:wrap }
+.bar-wrap{ position:sticky; top:env(safe-area-inset-top,0px); z-index:50; height:0; padding-left:max(var(--pad-x), env(safe-area-inset-left,0px)); padding-right:max(var(--pad-x), env(safe-area-inset-right,0px)) }
+.bar{ display:flex; align-items:center; gap:.4rem; width:100%; max-width:var(--measure); margin:10px auto 0; height:62px; padding:0 8px 0 18px; border-radius:999px; background:var(--paper); box-shadow:0 1px 0 rgba(28,32,31,.06), 0 18px 40px -22px rgba(11,39,51,.55) }
+.brand{ display:block; border-radius:10px; margin-right:auto; flex:none }
+.brand img{ height:40px; width:auto }
+.bar-links{ display:none; gap:.2rem; margin-right:auto }
+.bar-links a{ padding:.5rem .8rem; border-radius:999px; font-family:var(--f-display); font-weight:600; font-size:1.12rem; text-decoration:none; color:var(--ink); transition:background-color var(--d1) var(--ease-out) }
+.bar-links a:hover{ background:var(--cream) }
+.bar-btn{ display:inline-flex; align-items:center; gap:.45rem; min-height:46px; padding:.45rem .95rem; border-radius:999px; border:0; background:transparent; font-weight:700; cursor:pointer; color:var(--ink); transition:background-color var(--d1) var(--ease-out) }
+.bar-btn:hover{ background:var(--cream) }
+.bar-btn .ico{ width:19px; height:19px }
+.bar .donate{ background:var(--aid); color:#fff; padding-inline:1.15rem }
+.bar .donate:hover{ background:var(--aid-deep) }
+.kbd{ font-size:.75rem; font-weight:700; color:var(--ink-3); border:1px solid var(--line-2); border-radius:6px; padding:.05rem .35rem; margin-left:.2rem }
+@media (min-width:1100px){ .bar-links{ display:flex } .brand{ margin-right:0 } }
+@media (max-width:520px){ .bar{ padding-left:12px; height:58px } .brand img{ height:34px } .ask-lbl,.menu-lbl,.kbd{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0) } .bar-btn{ padding-inline:.7rem } }
+
+/* ---------- the lens: the current appeal in a badge that opens as you scroll ---------- */
+.lens{ --p:0; position:relative; background:var(--night); color:#fff }
+.lens-stage{ --edge:max(var(--pad-x), calc((100% - var(--measure)) / 2)); position:relative; overflow:clip; padding:96px max(var(--edge), env(safe-area-inset-right,0px)) 3rem max(var(--edge), env(safe-area-inset-left,0px)); display:grid; gap:1.6rem; justify-items:start }
+.lens-glow{ position:absolute; inset:0; pointer-events:none; background:radial-gradient(60vmax 60vmax at 50% 34%, color-mix(in srgb, var(--season) 22%, transparent), transparent 62%) }
+.season{ position:relative; display:inline-flex; align-items:center; gap:.55rem; padding:.4rem .85rem; border-radius:999px; background:rgba(255,255,255,.08); box-shadow:inset 0 0 0 1px var(--night-line); font-weight:700; font-size:.9rem; color:var(--night-ink) }
+.season .dot{ width:.6rem; height:.6rem; border-radius:50%; background:var(--season); box-shadow:0 0 0 4px color-mix(in srgb, var(--season) 25%, transparent) }
+.disc-wrap{ position:relative; width:min(62vw, 300px); aspect-ratio:1; justify-self:center; margin-block:-.25rem }
+@media (min-width:600px){ .disc-wrap{ width:min(56vw, 440px) } }
+.disc{ position:absolute; inset:0; transform:scale(calc(.84 + .16 * var(--p))); transform-origin:50% 50%; will-change:transform }
+.disc .photo{ position:absolute; inset:9%; border-radius:50%; overflow:hidden; background:var(--night-2); box-shadow:0 30px 80px -30px rgba(0,0,0,.6) }
+.disc .photo img{ width:100%; height:100%; object-fit:cover; transform:scale(calc(1.14 - .14 * var(--p))) }
+.rim{ position:absolute; inset:0; width:100%; height:100%; overflow:visible }
+.rim text{ font-family:var(--f-display); font-weight:600; font-size:19px; letter-spacing:.12em; fill:var(--cream) }
+.rim circle{ fill:none; stroke:var(--night-line); stroke-width:1.5 }
+.rim .sep{ fill:var(--season) }
+.rim g{ transform-origin:300px 300px; animation:turn 80s linear infinite }
+@keyframes turn{ to{ transform:rotate(360deg) } }
+.lens-copy{ position:relative; display:grid; gap:1.2rem; max-width:44rem }
+.lens h1{ font-size:clamp(2.65rem, .8rem + 5vw, 6.4rem); line-height:.9; letter-spacing:-.035em; color:#fff; font-weight:calc(430 + 330 * var(--p)) }
+.lens h1 span{ display:block; transform:translateY(calc((1 - var(--p)) * var(--dy, 0em))) }
+.lens h1 .l1{ --dy:-.2em }
+.lens h1 .l2{ --dy:0em }
+.lens-lede{ font-size:clamp(1.12rem, 1rem + .5vw, 1.4rem); color:var(--night-ink); max-width:31ch; line-height:1.45 }
+.lens-actions{ display:flex; flex-wrap:wrap; gap:.75rem }
+.lens-meta{ display:flex; flex-wrap:wrap; gap:.5rem 1.25rem; font-size:.95rem; color:var(--night-ink) }
+.lens-meta b{ color:#fff; font-variant-numeric:tabular-nums }
+.cue{ display:none }
+@media (min-width:900px) and (min-height:620px){
+  .lens{ height:190svh }
+  .lens-stage{ position:sticky; top:0; height:100svh; min-height:620px; padding-top:110px; padding-bottom:2.5rem; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); align-items:center; justify-items:stretch }
+  .lens-glow{ background:radial-gradient(70vmin 70vmin at 76% 54%, color-mix(in srgb, var(--season) 24%, transparent), transparent 66%) }
+  .lens-copy{ grid-column:1; grid-row:1; align-self:center; z-index:2 }
+  .season{ position:absolute; left:max(var(--edge), env(safe-area-inset-left,0px)); top:100px }
+  .disc-wrap{ position:absolute; width:min(100vmin, 980px, 62vw); left:80%; top:54%; transform:translate(-50%,-50%); margin:0 }
+  .disc{ transform:scale(calc(.5 + .5 * var(--p))) }
+  .cue{ display:flex; position:absolute; left:50%; bottom:22px; transform:translateX(-50%); align-items:center; gap:.6rem; color:var(--night-ink); font-size:.82rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; opacity:calc(1 - var(--p) * 3) }
+  .cue i{ width:1px; height:30px; background:linear-gradient(var(--night-ink), transparent) }
+}
+@media (min-width:1500px){ .disc-wrap{ left:74% } }
+
+/* ---------- intents ---------- */
+.intents{ background:var(--cream); padding-block:var(--sec-y) }
+.sec-head{ display:grid; gap:1rem; margin-bottom:clamp(2rem, 1.5rem + 2vw, 3.25rem); max-width:52rem }
+.sec-head p{ font-size:clamp(1.08rem, 1rem + .35vw, 1.28rem); color:var(--ink-2); max-width:42rem }
+.dark .sec-head p{ color:var(--night-ink) }
+.intent-tabs{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:1.25rem .75rem }
+@media (min-width:760px){ .intent-tabs{ grid-template-columns:repeat(4, minmax(0,1fr)) } }
+.intent{ --c:var(--aid); --on:#fff; display:grid; justify-items:center; align-content:start; gap:.55rem; padding:.6rem .4rem .8rem; border:0; border-radius:26px; background:transparent; cursor:pointer; color:var(--ink); text-align:center; transition:background-color var(--d1) var(--ease-out) }
+.intent:hover{ background:rgba(255,255,255,.55) }
+.intent .disc-i{ position:relative; width:clamp(112px, 7vw + 70px, 156px); aspect-ratio:1; border-radius:50%; background:var(--paper); box-shadow:inset 0 0 0 2px var(--line-2); color:var(--ink); transition:background-color var(--d2) var(--ease-out), color var(--d2) var(--ease-out), box-shadow var(--d2) var(--ease-out), transform var(--d2) var(--ease-out) }
+.intent .disc-i svg.rim-i{ position:absolute; inset:0; width:100%; height:100% }
+.intent .rim-i text{ font-family:var(--f-display); font-weight:600; font-size:12.5px; letter-spacing:.2em; fill:currentColor; opacity:.72 }
+.intent .rim-i g{ transform-origin:100px 100px }
+.intent .glyph{ position:absolute; left:50%; top:50%; width:36%; height:36%; transform:translate(-50%,-50%); fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round }
+.intent:hover .disc-i{ transform:scale(1.04) }
+.intent[aria-selected="true"] .disc-i{ background:var(--c); color:var(--on); box-shadow:0 18px 40px -22px var(--c) }
+.intent[aria-selected="true"] .rim-i g{ animation:turn 30s linear infinite }
+.intent-label{ font-family:var(--f-display); font-weight:620; font-size:clamp(1.35rem, 1.2rem + .5vw, 1.7rem); line-height:1.05 }
+.intent-sub{ font-size:.94rem; color:var(--ink-2); max-width:22ch }
+.i-pray{ --c:var(--night) } .i-go{ --c:var(--abm) } .i-learn{ --c:var(--gold); --on:var(--ink) }
+.panels{ margin-top:clamp(2rem, 1.5rem + 2vw, 3rem) }
+.panel{ view-transition-name:intent-panel }
+::view-transition-old(intent-panel){ animation:vt-out .28s var(--ease-out) both }
+::view-transition-new(intent-panel){ animation:vt-in .42s var(--ease-out) both }
+@keyframes vt-out{ to{ opacity:0; transform:translateY(-8px) } }
+@keyframes vt-in{ from{ opacity:0; transform:translateY(12px) } }
+
+/* give: a bento of ways in */
+.bento{ display:grid; gap:1rem }
+@media (min-width:760px){ .bento{ grid-template-columns:repeat(2, minmax(0,1fr)) } .tile-quick,.tile-two{ grid-column:1 / -1 } }
+@media (min-width:1100px){ .bento{ grid-template-columns:repeat(4, minmax(0,1fr)); grid-template-areas:"quick quick a b" "c d two two" } .tile-quick{ grid-area:quick } .tile-two{ grid-area:two } .tile-two{ grid-template-columns:1fr; align-content:start } }
+.tile{ position:relative; display:flex; flex-direction:column; gap:.6rem; padding:1.1rem; border-radius:var(--r); background:var(--paper); box-shadow:0 0 0 1px var(--line); min-width:0 }
+.tile .ph{ border-radius:18px; overflow:hidden; aspect-ratio:4/3; background:var(--sand) }
+.tile .ph img{ width:100%; height:100%; object-fit:cover }
+.tile h3{ font-size:1.32rem; margin-top:.2rem }
+.tile p{ color:var(--ink-2); font-size:.97rem }
+.tile-foot{ margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:.5rem; flex-wrap:wrap; padding-top:.3rem }
+.chip{ display:inline-flex; align-items:center; gap:.4rem; padding:.22rem .65rem; border-radius:999px; font-size:.82rem; font-weight:700; line-height:1.25 }
+.chip::before{ content:""; width:.55rem; height:.55rem; border-radius:50%; background:currentColor }
+.chip-em{ background:var(--abm-tint); color:var(--abm) }
+.chip-aid{ background:var(--aid-tint); color:var(--aid-deep) }
+.chip-abm{ background:var(--abm-tint); color:var(--abm) }
+.tile-quick{ background:var(--aid); color:#fff; box-shadow:none; padding:clamp(1.3rem, 1rem + 1.5vw, 2.2rem); gap:1rem; justify-content:space-between }
+.tile-quick h3{ font-size:clamp(1.9rem, 1.4rem + 1.8vw, 2.9rem); color:#fff }
+.tile-quick p{ color:#fff; font-size:1.05rem; max-width:34ch }
+.qg{ display:grid; gap:.9rem; margin-top:.4rem }
+.opt{ position:absolute; opacity:0; width:1px; height:1px; margin:0 }
+.seg{ position:relative; display:grid; grid-template-columns:1fr 1fr; gap:5px; padding:5px; border-radius:999px; background:rgba(11,39,51,.24); max-width:320px }
+.seg label{ display:flex; align-items:center; justify-content:center; min-height:44px; border-radius:999px; font-weight:700; cursor:pointer; color:#fff }
+.opt:checked + label{ background:#fff; color:var(--aid-deep) }
+.amts{ position:relative; display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:.5rem; max-width:460px }
+.amts label{ display:flex; align-items:center; justify-content:center; min-height:52px; border-radius:16px; box-shadow:inset 0 0 0 2px rgba(255,255,255,.45); font-weight:700; font-size:1.1rem; cursor:pointer; font-variant-numeric:tabular-nums; transition:background-color var(--d1) var(--ease-out), box-shadow var(--d1) var(--ease-out) }
+.amts label:hover{ box-shadow:inset 0 0 0 2px #fff }
+.amts .opt:checked + label{ background:#fff; color:var(--aid-deep); box-shadow:none }
+.opt:focus-visible + label{ outline:3px solid #fff; outline-offset:2px }
+.qg-fund{ display:flex; align-items:center; gap:.6rem; font-size:.95rem; color:#fff }
+.qg-fund img{ width:34px; height:34px; border-radius:50%; background:#fff }
+.tile-two{ background:var(--sand); box-shadow:none; display:grid; gap:1rem 2rem; padding:clamp(1.2rem, 1rem + 1vw, 1.8rem) }
+@media (min-width:900px) and (max-width:1099px){ .tile-two{ grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr); align-items:start } }
+.tile-two h3{ font-size:1.5rem }
+.org{ display:grid; grid-template-columns:52px minmax(0,1fr); gap:.85rem; align-items:start }
+.org img{ width:52px; height:52px }
+.org b{ display:block; font-weight:700; margin-bottom:.15rem }
+.org span{ color:var(--ink-2); font-size:.95rem }
+
+/* pray, go, learn */
+.split{ display:grid; gap:1rem }
+@media (min-width:900px){ .split{ grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) } }
+.card{ border-radius:var(--r); overflow:hidden; background:var(--paper); box-shadow:0 0 0 1px var(--line) }
+.card-pad{ padding:clamp(1.25rem, 1rem + 1.2vw, 2rem); display:grid; gap:1rem; align-content:start }
+.card-night{ background:var(--night); color:#fff; box-shadow:none }
+.card-night .ph{ aspect-ratio:16/8; overflow:hidden }
+.card-night .ph img{ width:100%; height:100%; object-fit:cover }
+.pod{ font-family:var(--f-display); font-weight:600; font-size:1.05rem; color:var(--leaf); letter-spacing:.01em }
+.pod-date{ font-weight:700; color:var(--night-ink) }
+.pod-items{ display:grid; gap:1rem }
+.pod-items div{ padding-top:.9rem; border-top:1px solid var(--night-line) }
+.pod-items dt{ font-family:var(--f-display); font-weight:600; font-size:1.3rem; color:#fff }
+.pod-items dd{ color:var(--night-ink); margin-top:.25rem }
+.prayer-big{ font-family:var(--f-display); font-weight:420; font-size:clamp(1.55rem, 1.2rem + 1.4vw, 2.35rem); line-height:1.12; letter-spacing:-.01em }
+.src{ color:var(--ink-2); font-size:.95rem }
+.links{ display:flex; flex-wrap:wrap; gap:.5rem 1.4rem }
+.go-ph{ border-radius:var(--r); overflow:hidden; aspect-ratio:2.7/1; background:var(--sand) }
+.go-ph img{ width:100%; height:100%; object-fit:cover }
+.go-grid{ display:grid; gap:1.4rem; margin-top:1.4rem }
+@media (min-width:900px){ .go-grid{ grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:2.5rem } }
+.go-grid .lead{ font-family:var(--f-display); font-weight:560; font-size:clamp(1.5rem, 1.2rem + 1.1vw, 2.1rem); line-height:1.12 }
+.go-grid p{ color:var(--ink-2) }
+.quote{ padding:1.4rem 1.5rem; border-radius:22px; background:var(--paper); box-shadow:0 0 0 1px var(--line); display:grid; gap:.7rem }
+.quote p{ font-family:var(--f-display); font-weight:440; font-size:1.35rem; line-height:1.2; color:var(--ink) }
+.marks{ display:grid; gap:.9rem; counter-reset:m }
+.marks li{ counter-increment:m; display:grid; grid-template-columns:auto minmax(0,1fr); gap:1rem; align-items:center; padding:.85rem 1rem; border-radius:20px; background:var(--paper); box-shadow:0 0 0 1px var(--line); color:var(--ink-2) }
+.marks li::before{ content:counter(m); width:2.6rem; height:2.6rem; border-radius:50%; display:grid; place-items:center; background:var(--cream); color:var(--abm); font-family:var(--f-display); font-weight:650; font-size:1.25rem; line-height:1 }
+.marks li.five::before{ background:var(--leaf-deep); color:#fff }
+.res{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:.75rem }
+.res a{ display:flex; align-items:center; justify-content:space-between; gap:.5rem; padding:1rem 1.1rem; border-radius:20px; background:var(--paper); box-shadow:0 0 0 1px var(--line); text-decoration:none; transition:box-shadow var(--d1) var(--ease-out), transform var(--d1) var(--ease-out) }
+.res a:hover{ box-shadow:0 0 0 2px var(--gold); transform:translateY(-2px) }
+.res b{ font-family:var(--f-display); font-weight:620; font-size:1.2rem; line-height:1.1 }
+.res .ico{ width:18px; height:18px; color:var(--ink-3); flex:none }
+.res a.wide{ grid-column:1 / -1 }
+.res small{ display:block; margin-top:.3rem; font-family:var(--f-body); font-size:.94rem; font-weight:400; color:var(--ink-2) }
+
+/* ---------- a year of mission ---------- */
+.year{ background:var(--char); color:#fff }
+.year-pin{ padding-block:var(--sec-y) }
+.year .sec-head h2{ color:#fff }
+.track{ position:relative; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scroll-padding-inline:max(var(--pad-x), calc((100% - var(--measure)) / 2)); padding:.5rem max(var(--pad-x), env(safe-area-inset-left,0px), calc((100% - var(--measure)) / 2)) 1.25rem; scrollbar-width:thin; scrollbar-color:var(--char-line) transparent }
+.track:focus-visible{ outline-offset:-3px }
+.years{ display:flex; gap:1rem; width:max-content }
+.yr{ --lit:var(--lit-green); position:relative; scroll-snap-align:start; flex:none; width:min(80vw, 330px); display:flex; flex-direction:column; gap:.75rem; padding:1.25rem 1.25rem 1.1rem; border-radius:var(--r); background:var(--char-2); box-shadow:inset 0 0 0 1px var(--char-line) }
+.yr-top{ display:flex; align-items:flex-start; justify-content:space-between; gap:.5rem; margin-bottom:.15rem }
+.yr-ph{ width:96px; aspect-ratio:1; margin:6px; border-radius:50%; overflow:hidden; box-shadow:0 0 0 3px var(--char-2), 0 0 0 6px var(--lit) }
+.yr-ph img{ width:100%; height:100%; object-fit:cover }
+.yr-side{ display:grid; justify-items:end; gap:.55rem }
+.yr-n{ font-family:var(--f-display); font-weight:620; font-size:2rem; line-height:1; color:var(--lit); font-variant-numeric:tabular-nums }
+.now{ padding:.22rem .65rem; border-radius:999px; background:var(--leaf); color:var(--ink); font-size:.78rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase }
+.yr h3{ color:#fff; font-size:1.38rem }
+.yr p{ color:var(--night-ink); font-size:.98rem }
+.yr-foot{ margin-top:auto; padding-top:.75rem; border-top:1px solid var(--char-line); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:.5rem 1rem; font-size:.95rem; color:var(--night-ink) }
+.yr-foot b{ color:#fff; font-variant-numeric:tabular-nums }
+.yr-acts{ display:flex; align-items:center; gap:1rem }
+.yr .link{ color:var(--leaf) }
+.yr.is-now{ background:#1F3328; box-shadow:inset 0 0 0 2px var(--leaf) }
+.rail{ position:relative; height:2px; margin:.6rem max(var(--pad-x), env(safe-area-inset-left,0px), calc((100% - var(--measure)) / 2)) 0; background:var(--char-line); border-radius:2px }
+.rail i{ position:absolute; left:0; top:0; bottom:0; width:calc(var(--x, 0) * 100%); background:var(--leaf); border-radius:2px }
+.emergency{ display:flex; flex-wrap:wrap; gap:.6rem 1rem; align-items:center; margin-top:1.75rem }
+.emergency b{ font-weight:700; color:var(--night-ink); margin-right:.25rem }
+.em-chip{ display:inline-flex; align-items:center; gap:.5rem; min-height:44px; padding:.4rem .95rem; border-radius:999px; border:0; background:rgba(226,87,76,.14); color:#fff; font-weight:700; cursor:pointer; box-shadow:inset 0 0 0 1px rgba(226,87,76,.5); transition:background-color var(--d1) var(--ease-out) }
+.em-chip::before{ content:""; width:.55rem; height:.55rem; border-radius:50%; background:var(--lit-red) }
+.em-chip:hover{ background:rgba(226,87,76,.28) }
+.year.pinned{ height:var(--yh, auto) }
+.year.pinned .year-pin{ position:sticky; top:0; height:100svh; display:flex; flex-direction:column; justify-content:center; padding-block:5.25rem 1.5rem; overflow:hidden }
+.year.pinned .sec-head{ margin-bottom:1.6rem }
+.year.pinned .track{ overflow:visible; scroll-snap-type:none; padding-bottom:1rem }
+.year.pinned .years{ transform:translateX(calc(var(--x, 0) * var(--dx, 0px) * -1)); will-change:transform }
+.year.pinned .emergency{ margin-top:1.25rem }
+@media (min-width:1000px){ .yr{ width:340px } }
+
+/* ---------- where we work ---------- */
+.where{ background:var(--aid); color:#fff; padding-block:var(--sec-y) }
+.where .sec-head h2{ color:#fff }
+.where .sec-head p{ color:#fff }
+.where-grid{ display:grid; gap:1.5rem }
+@media (min-width:1000px){ .where-grid{ grid-template-columns:minmax(0,1.45fr) minmax(0,.8fr); align-items:start } }
+.map{ position:relative; width:100%; aspect-ratio:1000/522.9 }
+.map svg{ width:100%; height:100%; overflow:visible }
+.map path{ fill:none; stroke:var(--cream); stroke-width:3.4; stroke-linecap:round; opacity:.42 }
+.pins{ position:absolute; inset:0 }
+.pin{ position:absolute; width:30px; height:30px; margin:-15px 0 0 -15px; cursor:pointer; border-radius:50% }
+.pin::before{ content:""; position:absolute; inset:8px; border-radius:50%; background:var(--cream); box-shadow:0 0 0 3px rgba(255,255,255,.25); transition:transform var(--d2) var(--ease-out), background-color var(--d2) var(--ease-out) }
+.pin:hover::before{ transform:scale(1.3) }
+.pin.on::before{ background:var(--leaf); transform:scale(1.35); box-shadow:0 0 0 4px rgba(153,212,81,.35) }
+.pin.on::after{ content:""; position:absolute; inset:0; border-radius:50%; box-shadow:0 0 0 2px var(--leaf); animation:ping 2.4s var(--ease-out) infinite }
+@keyframes ping{ from{ transform:scale(.6); opacity:1 } to{ transform:scale(1.9); opacity:0 } }
+.pin-label{ position:absolute; left:50%; bottom:calc(100% + 4px); transform:translateX(-50%); white-space:nowrap; padding:.2rem .55rem; border-radius:8px; background:var(--ink); color:#fff; font-size:.8rem; font-weight:700; opacity:0; pointer-events:none; transition:opacity var(--d1) var(--ease-out) }
+.pin:hover .pin-label,.pin.on .pin-label{ opacity:1 }
+.places{ display:flex; flex-wrap:wrap; gap:.45rem; margin-top:1rem }
+.places button{ min-height:44px; padding:.35rem .9rem; border-radius:999px; border:0; background:rgba(11,39,51,.24); color:#fff; font-weight:700; font-size:.95rem; cursor:pointer; box-shadow:inset 0 0 0 1px rgba(255,255,255,.3); transition:background-color var(--d1) var(--ease-out) }
+.places button:hover{ background:rgba(11,39,51,.4) }
+.places button[aria-pressed="true"]{ background:var(--cream); color:var(--aid-deep); box-shadow:none }
+.place-card{ view-transition-name:place-card; border-radius:var(--r); background:var(--paper); color:var(--ink); overflow:hidden; box-shadow:0 30px 60px -36px rgba(0,0,0,.6) }
+.place-card .ph{ aspect-ratio:3/2; overflow:hidden; background:var(--sand) }
+.place-card .ph img{ width:100%; height:100%; object-fit:cover }
+.place-card .badge{ display:grid; place-items:center; padding:1.5rem; background:var(--cream) }
+.place-card .badge img{ width:120px; height:120px }
+.place-body{ padding:1.3rem 1.4rem 1.5rem; display:grid; gap:.75rem }
+.place-body h3{ font-size:1.9rem }
+.partners{ font-size:.95rem; color:var(--ink-2) }
+.partners a{ color:var(--ink); text-decoration-color:var(--line-2) }
+.place-body p{ color:var(--ink-2) }
+.quote-s{ padding:.9rem 1rem; border-radius:16px; background:var(--cream); display:grid; gap:.35rem }
+.place-body .quote-s p{ font-family:var(--f-display); font-weight:460; font-size:1.2rem; line-height:1.2; color:var(--ink) }
+.quote-s figcaption{ font-size:.9rem; color:var(--ink-2) }
+::view-transition-old(place-card){ animation:vt-out .25s var(--ease-out) both }
+::view-transition-new(place-card){ animation:vt-in .4s var(--ease-out) both }
+
+/* ---------- footer: the tagline, large ---------- */
+.foot{ background:var(--abm); color:var(--cream); padding-block:clamp(4rem, 3rem + 4vw, 7rem) 2rem }
+.tagline{ font-family:var(--f-display); font-weight:700; font-size:clamp(3.1rem, 1.2rem + 8.6vw, 10.5rem); line-height:.86; letter-spacing:-.04em; color:var(--cream); margin:0 }
+.tagline span:not(.sr-only){ display:block; transform:translateY(calc((1 - var(--q, 1)) * var(--dy, 0em))) }
+.tagline .t1{ --dy:-.12em } .tagline .t3{ --dy:.12em }
+.foot-grid{ display:grid; gap:2rem; margin-top:clamp(2.5rem, 2rem + 2vw, 4rem); padding-top:2rem; border-top:1px solid rgba(247,241,231,.28) }
+@media (min-width:760px){ .foot-grid{ grid-template-columns:auto repeat(3, minmax(0,1fr)) } }
+.foot-badges{ display:flex; gap:.7rem }
+.foot-badges img{ width:74px; height:74px }
+.foot h2{ font-size:1.25rem; color:#fff; margin-bottom:.7rem; letter-spacing:0 }
+.foot ul{ display:grid; gap:.45rem }
+.foot a{ color:#fff; text-decoration-color:rgba(255,255,255,.4); text-underline-offset:3px }
+.foot a:hover{ text-decoration-color:#fff }
+.foot address{ font-style:normal; display:grid; gap:.35rem }
+.foot-ack{ margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid rgba(247,241,231,.28); display:grid; gap:.9rem; font-size:.92rem; color:#F3E3DF }
+.foot-ack p{ max-width:64rem }
+
+/* ---------- sheets: give, ask, menu ---------- */
+dialog{ border:0; padding:0; color:var(--ink); background:var(--paper) }
+dialog::backdrop{ background:rgba(11,39,51,.55) }
+.sheet{ width:min(480px, 100%); max-width:100%; height:100%; max-height:100%; margin:0 0 0 auto; overflow-y:auto; padding:calc(env(safe-area-inset-top,0px) + 1.25rem) max(1.4rem, env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 1.5rem) max(1.4rem, env(safe-area-inset-left,0px)) }
+.sheet[open]{ animation:sheet-in var(--d2) var(--ease-out) }
+@keyframes sheet-in{ from{ transform:translateX(32px) } }
+@media (max-width:719px){
+  .sheet{ width:100%; height:auto; max-height:92svh; margin:auto 0 0; border-radius:26px 26px 0 0; padding-top:1rem }
+  .sheet::before{ content:""; display:block; width:44px; height:5px; border-radius:3px; background:var(--line-2); margin:0 auto .9rem }
+  .sheet[open]{ animation:sheet-up var(--d2) var(--ease-out) }
+  @keyframes sheet-up{ from{ transform:translateY(40px) } }
+}
+.sheet-top{ display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-bottom:1rem }
+.sheet-top h2{ font-size:2rem }
+.x{ width:46px; height:46px; display:grid; place-items:center; border-radius:50%; border:2px solid var(--ink); background:transparent; cursor:pointer; color:var(--ink); flex:none; transition:background-color var(--d1) var(--ease-out), color var(--d1) var(--ease-out) }
+.x:hover{ background:var(--ink); color:#fff }
+.x .ico{ width:20px; height:20px }
+.give{ display:grid; gap:1.3rem }
+.give fieldset{ border:0; margin:0; padding:0; min-width:0 }
+.give legend,.give .lbl{ font-family:var(--f-display); font-weight:620; font-size:1.3rem; margin-bottom:.6rem; padding:0 }
+.give .seg{ background:var(--cream); max-width:none }
+.give .seg label{ color:var(--ink-2) }
+.give .opt:checked + label{ background:var(--paper); color:var(--ink); box-shadow:0 2px 8px -2px rgba(28,32,31,.25) }
+.give .amts{ max-width:none }
+.give .amts label{ box-shadow:inset 0 0 0 2px var(--line-2); color:var(--ink) }
+.give .amts label:hover{ box-shadow:inset 0 0 0 2px var(--aid) }
+.give .amts .opt:checked + label{ background:var(--aid-tint); color:var(--aid-deep); box-shadow:inset 0 0 0 2px var(--aid) }
+.give .opt:focus-visible + label{ outline-color:var(--aid-deep) }
+.other{ display:grid; grid-template-columns:auto minmax(0,1fr); align-items:center; margin-top:.55rem; border-radius:16px; box-shadow:inset 0 0 0 2px var(--line-2); overflow:hidden }
+.other:focus-within{ box-shadow:inset 0 0 0 2px var(--aid-deep) }
+.other span{ padding:0 .4rem 0 1rem; font-weight:700; color:var(--ink-2) }
+.other input{ border:0; min-height:50px; padding:.5rem .8rem .5rem .2rem; width:100%; background:transparent; font-weight:700; font-size:1.1rem; outline:none }
+.other input::placeholder{ color:var(--ink-3); font-weight:400 }
+.fund-card{ display:grid; grid-template-columns:52px minmax(0,1fr); gap:.85rem; align-items:center; padding:.9rem 1rem; border-radius:18px; background:var(--cream) }
+.fund-card img{ width:52px; height:52px; border-radius:50%; background:#fff }
+.fund-name{ font-family:var(--f-display); font-weight:620; font-size:1.25rem; line-height:1.1 }
+.fund-org{ font-size:.92rem; color:var(--ink-2); margin-top:.15rem }
+.fund-card .chip{ margin-top:.4rem }
+.funds{ margin-top:.6rem }
+.funds summary{ display:inline-flex; align-items:center; gap:.45rem; min-height:44px; cursor:pointer; font-weight:700; color:var(--aid-deep); list-style:none; text-decoration:underline; text-underline-offset:3px }
+.funds summary::-webkit-details-marker{ display:none }
+.funds summary .ico{ transition:transform var(--d1) var(--ease-out) }
+.funds[open] summary .ico{ transform:rotate(90deg) }
+.funds fieldset{ display:grid; gap:.45rem; margin-top:.4rem }
+.funds-group{ font-weight:700; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-2); margin-top:.5rem }
+.fund-opt{ position:relative }
+.fund-opt-l{ display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:.7rem; align-items:center; padding:.7rem .85rem; border-radius:14px; box-shadow:inset 0 0 0 2px var(--line); cursor:pointer }
+.fund-opt-l .dot{ width:1.05rem; height:1.05rem; border-radius:50%; box-shadow:inset 0 0 0 2px var(--ink-3) }
+.opt:checked + .fund-opt-l{ box-shadow:inset 0 0 0 2px var(--ink); background:var(--cream) }
+.opt:checked + .fund-opt-l .dot{ box-shadow:inset 0 0 0 5px var(--ink) }
+.opt:focus-visible + .fund-opt-l{ outline:3px solid var(--aid-deep); outline-offset:2px }
+.fund-opt-l b{ display:block } .fund-opt-l small{ display:block; color:var(--ink-2); font-size:.86rem }
+.fund-opt-l .o{ width:12px; height:12px; border-radius:50%; background:var(--aid) } .fund-opt-l .o.abm{ background:var(--abm) }
+.give-summary{ padding:1rem 1.1rem; border-radius:16px; background:var(--aid-tint); font-size:1rem }
+.give-summary.abm{ background:var(--abm-tint) }
+.handover:empty{ display:none }
+.handover{ display:grid; gap:.55rem; padding:1rem 1.1rem; border-radius:16px; box-shadow:inset 0 0 0 2px var(--line-2); color:var(--ink-2); font-size:.97rem }
+.handover strong{ color:var(--ink) }
+.handover a{ color:var(--aid-deep) }
+.give-note{ font-size:.9rem; color:var(--ink-2) }
+.btn-block{ width:100% }
+
+.ask{ width:min(680px, calc(100% - 24px)); max-height:min(80svh, 720px); margin:10vh auto auto; border-radius:26px; overflow:hidden; flex-direction:column }
+.ask[open]{ display:flex; animation:ask-in var(--d2) var(--ease-out) }
+@keyframes ask-in{ from{ transform:translateY(-10px) scale(.98) } }
+.ask-form{ display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:.6rem; padding:.85rem .85rem .85rem 1.2rem; border-bottom:1px solid var(--line) }
+.ask-form .ico{ width:22px; height:22px; color:var(--ink-3) }
+.ask-form input{ border:0; outline:none; background:transparent; font-size:1.2rem; min-height:48px; width:100% }
+.ask-body{ overflow-y:auto; padding:1rem 1.2rem 1.25rem; display:grid; gap:1rem }
+.ask-list{ display:grid; gap:.35rem }
+.ask-list button{ display:flex; align-items:center; justify-content:space-between; gap:1rem; width:100%; text-align:left; min-height:48px; padding:.6rem .85rem; border-radius:14px; border:0; background:transparent; cursor:pointer; font-weight:700; color:var(--ink) }
+.ask-list button:hover,.ask-list button:focus-visible{ background:var(--cream) }
+.ask-list button .ico{ width:16px; height:16px; color:var(--ink-3) }
+.ask-answer:empty{ display:none }
+.ask-answer{ display:grid; gap:.7rem; padding:1.1rem 1.2rem; border-radius:18px; background:var(--cream) }
+.ask-answer h3{ font-size:1.35rem }
+.ask-answer p{ color:var(--ink-2) }
+.ask-answer dl{ display:grid; grid-template-columns:auto minmax(0,1fr); gap:.25rem .9rem; font-size:.97rem }
+.ask-answer dt{ font-weight:700 } .ask-answer dd{ color:var(--ink-2); font-variant-numeric:tabular-nums }
+.ask-foot{ font-size:.9rem; color:var(--ink-2) }
+.ask-foot a{ color:var(--aid-deep); font-weight:700 }
+
+.menu{ width:100%; height:100%; max-width:100%; max-height:100%; margin:0; background:var(--night); color:#fff; padding:calc(env(safe-area-inset-top,0px) + 1rem) max(var(--pad-x), env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 2rem) max(var(--pad-x), env(safe-area-inset-left,0px)); overflow-y:auto }
+.menu[open]{ animation:menu-in var(--d2) var(--ease-out) }
+@keyframes menu-in{ from{ transform:translateY(-14px) } }
+.menu-top{ display:flex; justify-content:space-between; align-items:center; max-width:var(--measure); margin:0 auto 1.5rem }
+.menu-top img{ height:40px; width:auto }
+.menu .x{ border-color:#fff; color:#fff }
+.menu .x:hover{ background:#fff; color:var(--night) }
+.menu-grid{ max-width:var(--measure); margin:0 auto; display:grid; gap:2rem }
+@media (min-width:900px){ .menu-grid{ grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); align-items:start } }
+.menu-big a{ display:flex; align-items:baseline; justify-content:space-between; gap:1rem; padding:.55rem 0; border-bottom:1px solid var(--night-line); font-family:var(--f-display); font-weight:620; font-size:clamp(2.1rem, 1.4rem + 3vw, 3.6rem); line-height:1.05; text-decoration:none; color:#fff }
+.menu-big a span{ font-family:var(--f-body); font-size:.95rem; font-weight:700; color:var(--night-ink) }
+.menu-big a:hover{ color:var(--leaf) }
+.menu-small{ display:grid; gap:.5rem; justify-items:start }
+.menu-small a{ color:#fff; font-weight:700; text-underline-offset:4px }
+.menu-small p{ color:var(--night-ink) }
+
+/* ---------- reveals: from a visible resting state ---------- */
+.rv{ transition:opacity var(--d2) var(--ease-out), transform var(--d2) var(--ease-out); transition-delay:calc(var(--k, 0) * var(--stagger)) }
+.rv.pre{ opacity:0; transform:translateY(18px); transition:none }
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation:none!important; transition:none!important }
+  .lens{ --p:1!important; height:auto!important }
+  .lens-stage{ position:relative!important }
+  ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){ animation:none!important }
+}
+</style>
+</head>
+<body>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M8 16 16 8M9.5 8H16v6.5"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="g-give" viewBox="0 0 48 48"><path d="M24 39s-13-7.6-13-17.2C11 16.9 14.6 13 19.2 13c2.4 0 4 1.2 4.8 2.6.8-1.4 2.4-2.6 4.8-2.6 4.6 0 8.2 3.9 8.2 8.8C37 31.4 24 39 24 39Z"/></symbol>
+  <symbol id="g-pray" viewBox="0 0 48 48"><path d="M24 8.5c3.6 3.9 3.8 7.8 0 10.5-3.8-2.7-3.6-6.6 0-10.5Z"/><path d="M19 23.5h10V39H19z"/><path d="M14 39h20"/></symbol>
+  <symbol id="g-go" viewBox="0 0 48 48"><circle cx="24" cy="24" r="14"/><path d="m29.5 18.5-3.4 7.6-7.6 3.4 3.4-7.6 7.6-3.4Z"/></symbol>
+  <symbol id="g-learn" viewBox="0 0 48 48"><path d="M24 15c-3-2.4-7.4-3-12-2.6V35c4.6-.4 9 .2 12 2.6 3-2.4 7.4-3 12-2.6V12.4c-4.6-.4-9 .2-12 2.6Z"/><path d="M24 15v22.6"/></symbol>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<aside class="strip" aria-label="About this concept">
+  <div class="wrap"><div class="inner">
+    <p>Future look: a second concept by Singh Studio for ABM and AID. It isn’t the live site.</p>
+    <p class="strip-links"><button type="button" id="ideasOpen" aria-haspopup="dialog">The ideas</button><a href="../review/">Website review</a><a href="../">First concept</a></p>
+  </div></div>
+</aside>
+
+<div class="bar-wrap">
+  <header class="bar" id="bar">
+    <a class="brand" href="#top" aria-label="Anglican Board of Mission and Anglicans in Development, home"><img src="img/logos.svg" width="762" height="362" alt=""></a>
+    <nav class="bar-links" aria-label="Main">
+      <a href="#intents" data-intent="give">Give</a><a href="#intents" data-intent="pray">Pray</a><a href="#intents" data-intent="go">Go</a><a href="#intents" data-intent="learn">Learn</a><a href="#year">Appeals</a><a href="#where">Where we work</a>
+    </nav>
+    <button class="bar-btn" type="button" id="askOpen" aria-haspopup="dialog"><svg class="ico" aria-hidden="true"><use href="#i-search"/></svg><span class="ask-lbl">Ask</span><span class="kbd" aria-hidden="true">⌘K</span></button>
+    <button class="bar-btn donate" type="button" data-give="aid-general">Donate</button>
+    <button class="bar-btn" type="button" id="menuOpen" aria-haspopup="dialog" aria-expanded="false"><svg class="ico" aria-hidden="true"><use href="#i-menu"/></svg><span class="menu-lbl">Menu</span></button>
+  </header>
+</div>
+
+<main id="main">
+
+<section class="lens dark" id="top" aria-labelledby="lens-h">
+  <div class="lens-stage grain">
+    <div class="lens-glow" aria-hidden="true"></div>
+    <p class="season"><span class="dot" aria-hidden="true"></span>Season of Creation 2026 · Current appeal</p>
+    <div class="disc-wrap">
+      <div class="disc">
+        <div class="photo"><img src="img/lens-640.webp" srcset="img/lens-640.webp 640w, img/lens-1240.webp 1240w" sizes="(min-width: 900px) 52vmin, 60vw" width="640" height="640" alt="Cliffs above a turquoise sea. Photo © Stephen Daughtry, ABM AID" fetchpriority="high"></div>
+        <svg class="rim" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
+          <circle cx="300" cy="300" r="266"/>
+          <defs><path id="lens-ring" d="M300 300m-283 0a283 283 0 1 1 566 0a283 283 0 1 1-566 0"/></defs>
+          <g><text><textPath href="#lens-ring" textLength="1772" lengthAdjust="spacing">WORKING FOR LOVE, HOPE &amp; JUSTICE <tspan class="sep">●</tspan> ANGLICAN BOARD OF MISSION <tspan class="sep">●</tspan> ANGLICANS IN DEVELOPMENT <tspan class="sep">●</tspan></textPath></text></g>
+        </svg>
+      </div>
+    </div>
+    <div class="lens-copy">
+      <h1 id="lens-h"><span class="l1">Working to heal</span> <span class="l2">a weary world</span></h1>
+      <p class="lens-lede">Our world is in crisis. Help us protect, care for and renew life on our planet through the Season of Creation Appeal.</p>
+      <div class="lens-actions">
+        <button class="btn btn-leaf" type="button" data-give="soc">Give to the appeal <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        <a class="btn btn-ghost" href="https://www.abmission.org/appeals/appeals-major/creation2026/">Read the appeal</a>
+      </div>
+      <p class="lens-meta"><span>Our goal is to raise <b>$40,000</b></span><span>Tax-deductible</span><span>Donation code <b>XG011</b></span></p>
+    </div>
+    <p class="cue" aria-hidden="true"><i></i>Scroll</p>
+  </div>
+</section>
+
+<section class="intents" id="intents" aria-labelledby="intents-h">
+  <div class="wrap"><div class="inner">
+    <div class="sec-head"><h2 id="intents-h">How would you like to be part of it?</h2></div>
+    <div class="intent-tabs" role="tablist" aria-label="Ways to take part">
+      <button class="intent i-give" type="button" role="tab" id="t-give" aria-controls="p-give" aria-selected="true" tabindex="0" data-tab="give"><span class="disc-i" aria-hidden="true"><svg class="rim-i" viewBox="0 0 200 200" focusable="false"><circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-opacity=".28"/><defs><path id="ri-give" d="M100 100m-77 0a77 77 0 1 1 154 0a77 77 0 1 1-154 0"/></defs><g><text><textPath href="#ri-give" textLength="480" lengthAdjust="spacing">GIVE ● ANGLICANS IN DEVELOPMENT ●</textPath></text></g></svg><svg class="glyph" viewBox="0 0 48 48" focusable="false"><use href="#g-give"/></svg></span><span class="intent-label">Give</span><span class="intent-sub">To an appeal or a fund</span></button><button class="intent i-pray" type="button" role="tab" id="t-pray" aria-controls="p-pray" aria-selected="false" tabindex="-1" data-tab="pray"><span class="disc-i" aria-hidden="true"><svg class="rim-i" viewBox="0 0 200 200" focusable="false"><circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-opacity=".28"/><defs><path id="ri-pray" d="M100 100m-77 0a77 77 0 1 1 154 0a77 77 0 1 1-154 0"/></defs><g><text><textPath href="#ri-pray" textLength="480" lengthAdjust="spacing">PRAY ● ANGLICAN BOARD OF MISSION ●</textPath></text></g></svg><svg class="glyph" viewBox="0 0 48 48" focusable="false"><use href="#g-pray"/></svg></span><span class="intent-label">Pray</span><span class="intent-sub">With today’s partner</span></button><button class="intent i-go" type="button" role="tab" id="t-go" aria-controls="p-go" aria-selected="false" tabindex="-1" data-tab="go"><span class="disc-i" aria-hidden="true"><svg class="rim-i" viewBox="0 0 200 200" focusable="false"><circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-opacity=".28"/><defs><path id="ri-go" d="M100 100m-77 0a77 77 0 1 1 154 0a77 77 0 1 1-154 0"/></defs><g><text><textPath href="#ri-go" textLength="480" lengthAdjust="spacing">GO ● COME AND SEE ● PILGRIMAGE ●</textPath></text></g></svg><svg class="glyph" viewBox="0 0 48 48" focusable="false"><use href="#g-go"/></svg></span><span class="intent-label">Go</span><span class="intent-sub">On a pilgrimage</span></button><button class="intent i-learn" type="button" role="tab" id="t-learn" aria-controls="p-learn" aria-selected="false" tabindex="-1" data-tab="learn"><span class="disc-i" aria-hidden="true"><svg class="rim-i" viewBox="0 0 200 200" focusable="false"><circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-opacity=".28"/><defs><path id="ri-learn" d="M100 100m-77 0a77 77 0 1 1 154 0a77 77 0 1 1-154 0"/></defs><g><text><textPath href="#ri-learn" textLength="480" lengthAdjust="spacing">LEARN ● FIVE MARKS OF MISSION ●</textPath></text></g></svg><svg class="glyph" viewBox="0 0 48 48" focusable="false"><use href="#g-learn"/></svg></span><span class="intent-label">Learn</span><span class="intent-sub">About mission and our work</span></button>
+    </div>
+    <div class="panels">
+
+      <section class="panel" role="tabpanel" id="p-give" aria-labelledby="t-give" tabindex="0">
+        <div class="bento">
+          <form class="tile tile-quick" id="quickGive" novalidate aria-labelledby="qg-h">
+            <div><h3 id="qg-h">Give to ABM and AID</h3><p style="margin-top:.7rem">Choose how much and how often. You can change where it goes on the next step.</p></div>
+            <div class="qg">
+              <fieldset style="border:0;margin:0;padding:0"><legend class="sr-only">How often</legend><div class="seg"><input class="opt" type="radio" name="q-freq" id="q-once" value="once" checked><label for="q-once">One-time</label><input class="opt" type="radio" name="q-freq" id="q-monthly" value="monthly"><label for="q-monthly">Monthly</label></div></fieldset>
+              <fieldset style="border:0;margin:0;padding:0"><legend class="sr-only">Amount</legend><div class="amts"><input class="opt" type="radio" name="q-amt" id="q-60" value="60"><label for="q-60">$60</label><input class="opt" type="radio" name="q-amt" id="q-150" value="150" checked><label for="q-150">$150</label><input class="opt" type="radio" name="q-amt" id="q-300" value="300"><label for="q-300">$300</label><input class="opt" type="radio" name="q-amt" id="q-600" value="600"><label for="q-600">$600</label></div></fieldset>
+              <p class="qg-fund"><img src="img/aid-badge.svg" width="362" height="362" alt="" loading="lazy">AID General Fund · Tax-deductible</p>
+              <div><button class="btn btn-cream" type="submit">Continue <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+            </div>
+          </form>
+          <article class="tile rv" style="--k:0">
+            <div class="ph"><img src="img/give-nepal-560.webp" width="560" height="420" loading="lazy" decoding="async" alt="A village in Nepal beside a river. Photo: Sushanta Rokka, Unsplash"></div>
+            <h3>Nepal Flash Flood</h3>
+            <p>You can bring urgently needed help to families suffering from Nepal’s flash flood.</p>
+            <div class="tile-foot"><span class="chip chip-em">Emergency</span><button class="btn btn-teal btn-sm" type="button" data-give="nepal">Give</button></div>
+          </article>
+          <article class="tile rv" style="--k:1">
+            <div class="ph"><img src="img/give-gaza-560.webp" width="560" height="420" loading="lazy" decoding="async" alt="A midwife tends to a newborn at St Luke’s Hospital in the West Bank. Photo © Diocese of Jerusalem"></div>
+            <h3>Gaza &amp; West Bank</h3>
+            <p>You can help bring medical relief to families in Gaza and the West Bank who are living through ongoing violence and displacement.</p>
+            <div class="tile-foot"><span class="chip chip-em">Emergency</span><button class="btn btn-teal btn-sm" type="button" data-give="gaza">Give</button></div>
+          </article>
+          <article class="tile rv" style="--k:2">
+            <div class="ph"><img src="img/give-myanmar-560.webp" width="560" height="420" loading="lazy" decoding="async" alt="A man with the piglets he raises in Myanmar"></div>
+            <h3>Myanmar</h3>
+            <p>Support vulnerable displaced people during the protracted crisis in Myanmar.</p>
+            <div class="tile-foot"><span class="chip chip-em">Emergency</span><button class="btn btn-teal btn-sm" type="button" data-give="myanmar">Give</button></div>
+          </article>
+          <article class="tile rv" style="--k:3">
+            <div class="ph"><img src="img/give-martyrs-560.webp" width="560" height="420" loading="lazy" decoding="async" alt="Four smiling adult literacy students in Papua New Guinea"></div>
+            <h3>Martyrs Gift 2026</h3>
+            <p>The New Guinea Martyrs chose to remain with the people they loved. Honour their legacy by supporting education and leadership programs for our neighbours in Papua New Guinea.</p>
+            <div class="tile-foot"><span class="chip chip-aid">Tax-deductible</span><button class="btn btn-teal btn-sm" type="button" data-give="martyrs">Give</button></div>
+          </article>
+          <div class="tile tile-two">
+            <div><h3>Two organisations</h3><p style="margin-top:.6rem">Anglicans in Development (AID) is wholly owned by ABM and operates our Sustainable Communities program.</p></div>
+            <p class="org"><img src="img/aid-badge.svg" width="362" height="362" alt="" loading="lazy"><span><b>Anglicans in Development</b>Donations ($2 and over) made to AID are tax-deductible.</span></p>
+            <p class="org"><img src="img/abm-badge.svg" width="362" height="362" alt="" loading="lazy"><span><b>Anglican Board of Mission</b>Donations made to ABM are not tax-deductible.</span></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" role="tabpanel" id="p-pray" aria-labelledby="t-pray" tabindex="0" hidden>
+        <div class="split">
+          <article class="card card-night">
+            <div class="ph"><img src="img/pray-cathedral-800.webp" srcset="img/pray-cathedral-800.webp 800w, img/pray-cathedral-1200.webp 1200w" sizes="(min-width: 900px) 46vw, 92vw" width="800" height="433" loading="lazy" decoding="async" alt="Pilgrims worshipping at St Barnabas Provincial Cathedral in the Solomon Islands. © ABM/Meagan Schwarz"></div>
+            <div class="card-pad">
+              <p class="pod">Prayer of the day</p>
+              <h3 style="color:#fff"><time datetime="2026-10-20">Tuesday 20 October</time></h3>
+              <dl class="pod-items">
+                <div><dt>ABM Partner of the Day</dt><dd>Please pray for the Episcopal Church of South Sudan; the Church’s Health Commission, the Education Commission, and the Development and Relief Agency, SUDRA.</dd></div>
+                <div><dt>Australian Cycle of Prayer</dt><dd>Please pray for the Diocese of the Riverina: Bishop Donald Kirk, the clergy and people.</dd></div>
+              </dl>
+            </div>
+          </article>
+          <div class="card card-pad" style="background:var(--paper)">
+            <p class="prayer-big">God of all, bless the Anglican Board of Mission as it serves the Church in Australia and our partner churches overseas. Inspire its work and its vision that all may come to know your justice, your peace and your love; through Jesus Christ our Lord. Amen.</p>
+            <p class="src">A Prayer Book for Australia, p&nbsp;214</p>
+            <p class="links"><a class="link" href="https://www.abmission.org/resources/missional-prayers/">Missional prayers <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a><a class="link" href="https://www.abmission.org/resources/reconciliation/">Reconciliation resources <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" role="tabpanel" id="p-go" aria-labelledby="t-go" tabindex="0" hidden>
+        <figure class="go-ph"><img src="img/go-musicians-800.webp" srcset="img/go-musicians-800.webp 800w, img/go-musicians-1400.webp 1400w" sizes="92vw" width="1400" height="519" loading="lazy" decoding="async" alt="ABM pilgrims with the Kolomosu Youth and their bamboo instruments. © ABM/Meagan Schwarz"></figure>
+        <div class="go-grid">
+          <div style="display:grid;gap:1rem">
+            <p class="lead">“Come and See” is repeated throughout the Bible, inviting people to experience what God is doing.</p>
+            <p>ABM’s Pilgrimage program is an opportunity for ABM supporters to “come and see” what God is doing through their support of our partners. It is a chance to experience what it means to be church in a different culture and context.</p>
+            <p class="links"><a class="btn btn-ink" href="https://www.abmission.org/get-involved/go-on-a-pilgrimage/">Register your interest <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a><a class="link" href="https://www.abmission.org/news/pilgrimage-solomon-islands-2026">The Solomon Islands pilgrimage, July 2026 <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></p>
+          </div>
+          <figure class="quote">
+            <blockquote><p>We will come back changed. Of that I am certain. But of course, that is the reason why you go on pilgrimage in the first place, to find the holy, stumble upon God in action, and be changed forever by the experience.</p></blockquote>
+            <figcaption class="src">Canon Trevor Dennis</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="panel" role="tabpanel" id="p-learn" aria-labelledby="t-learn" tabindex="0" hidden>
+        <div class="split">
+          <div>
+            <h3 style="margin-bottom:1rem">The Five Marks of Mission</h3>
+            <ol class="marks">
+              <li>Witness to Christ’s saving, forgiving and reconciling love for all people</li>
+              <li>Build welcoming, transforming communities of faith</li>
+              <li>Stand in solidarity with the poor and needy</li>
+              <li>Challenge violence, injustice and oppression, and work for peace and reconciliation</li>
+              <li class="five">Protect, care for and renew life on our planet</li>
+            </ol>
+          </div>
+          <div>
+            <h3 style="margin-bottom:1rem">Resources</h3>
+            <div class="res">
+              <a href="https://www.abmission.org/resources/seasonal/"><b>Seasonal</b><svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a>
+              <a href="https://www.abmission.org/resources/studies/"><b>Studies</b><svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a>
+              <a href="https://www.abmission.org/resources/missional-prayers/"><b>Missional Prayers</b><svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a>
+              <a href="https://www.abmission.org/resources/pew-reflections/"><b>Pew Reflections</b><svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a>
+              <a href="https://www.abmission.org/resources/reconciliation/"><b>Reconciliation</b><svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a>
+              <a href="https://www.abmission.org/resources/from-the-abm-archives/"><b>Archival Resources</b><svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a>
+            </div>
+            <h3 style="margin:1.75rem 0 1rem">New from ABM</h3>
+            <div class="res">
+              <a class="wide" href="https://www.abmission.org/resources/weavingastrongerspell/"><span><b>Weaving a Stronger Spell</b><small>A new study app written by Celia Kemp for the Season of Creation.</small></span><svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a>
+              <a class="wide" href="https://www.abmission.org/resources/abm-project-books/"><span><b>Love, Hope and Justice in Action</b><small>ABM and AID’s 2025 publication, formerly known as the Project Book.</small></span><svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div></div>
+</section>
+
+<section class="year dark" id="year" aria-labelledby="year-h">
+  <div class="year-pin grain">
+    <div class="wrap"><div class="inner">
+      <div class="sec-head"><h2 id="year-h">A year of mission</h2><p>ABM’s appeals follow the church year, from Advent to the Season of Creation. These are this year’s.</p></div>
+    </div></div>
+    <div class="track" id="track" tabindex="0" role="region" aria-label="This year’s appeals, in order">
+      <ol class="years" id="years">
+        <li class="yr" style="--lit:var(--lit-violet)"><div class="yr-top"><div class="yr-ph"><img src="img/yr-advent-360.webp" width="360" height="360" loading="lazy" decoding="async" alt="A smiling pre-school boy from Sri Lanka"></div><div class="yr-side"><span class="yr-n" aria-hidden="true">01</span></div></div><h3>Advent and Christmas Appeal 2025</h3><p>In the laughter of children we hear the angels sing</p><div class="yr-foot"><span>Goal <b>$100,000</b></span><span class="yr-acts"><a class="link" href="https://www.abmission.org/appeals/appeals-major/advent2025/">Read<span class="sr-only"> about the Advent and Christmas Appeal 2025</span> <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></span></div></li><li class="yr" style="--lit:var(--lit-violet)"><div class="yr-top"><div class="yr-ph"><img src="img/yr-lent-360.webp" width="360" height="360" loading="lazy" decoding="async" alt="A smiling woman with a hose as water splashes around her"></div><div class="yr-side"><span class="yr-n" aria-hidden="true">02</span></div></div><h3>Lent Appeal 2026</h3><p>Clean water, decent toilets and good hygiene are basic human rights.</p><div class="yr-foot"><span>Goal <b>$120,000</b></span><span class="yr-acts"><a class="link" href="https://www.abmission.org/appeals/appeals-major/lent2026/">Read<span class="sr-only"> about the Lent Appeal 2026</span> <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></span></div></li><li class="yr" style="--lit:var(--lit-red)"><div class="yr-top"><div class="yr-ph"><img src="img/yr-goodfriday-360.webp" width="360" height="360" loading="lazy" decoding="async" alt="A gold and red mosaic of Mary holding Jesus close"></div><div class="yr-side"><span class="yr-n" aria-hidden="true">03</span></div></div><h3>Good Friday Gift 2026</h3><p>Standing in Solidarity with the Church in the Land of the Holy One</p><div class="yr-foot"><span>Goal <b>$40,000</b></span><span class="yr-acts"><a class="link" href="https://www.abmission.org/appeals/appeals-major/goodfriday2026/">Read<span class="sr-only"> about the Good Friday Gift 2026</span> <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></span></div></li><li class="yr" style="--lit:var(--lit-green)"><div class="yr-top"><div class="yr-ph"><img src="img/yr-tax-360.webp" width="360" height="360" loading="lazy" decoding="async" alt="A man and a woman mending a fishing net beside outrigger boats"></div><div class="yr-side"><span class="yr-n" aria-hidden="true">04</span></div></div><h3>Tax Appeal 2026</h3><p>Together, we can empower more people around the world</p><div class="yr-foot"><span>Goal <b>$100,000</b></span><span class="yr-acts"><a class="link" href="https://www.abmission.org/appeals/appeals-major/tax2026/">Read<span class="sr-only"> about the Tax Appeal 2026</span> <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></span></div></li><li class="yr" style="--lit:var(--lit-red)"><div class="yr-top"><div class="yr-ph"><img src="img/yr-martyrs-360.webp" width="360" height="360" loading="lazy" decoding="async" alt="Tehillah, a young woman from near Popondetta in Oro Province, Papua New Guinea"></div><div class="yr-side"><span class="yr-n" aria-hidden="true">05</span></div></div><h3>Martyrs Gift 2026</h3><p>Honour the martyrs by supporting literacy in Papua New Guinea</p><div class="yr-foot"><span>Goal <b>$30,000</b></span><span class="yr-acts"><button class="btn btn-leaf btn-sm" type="button" data-give="martyrs">Give<span class="sr-only"> to the Martyrs Gift 2026</span></button><a class="link" href="https://www.abmission.org/appeals/appeals-major/martyrs2026/">Read<span class="sr-only"> about the Martyrs Gift 2026</span> <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></span></div></li><li class="yr is-now" style="--lit:var(--lit-green)" aria-current="true"><div class="yr-top"><div class="yr-ph"><img src="img/yr-creation-360.webp" width="360" height="360" loading="lazy" decoding="async" alt="Annah harvests vegetables from her farm in Kenya. © ADSE, used with permission"></div><div class="yr-side"><span class="yr-n" aria-hidden="true">06</span><span class="now">Now</span></div></div><h3>Season of Creation 2026</h3><p>Caring for God’s earth is both a responsibility and a reflection of faith in action.</p><div class="yr-foot"><span>Goal <b>$40,000</b></span><span class="yr-acts"><button class="btn btn-leaf btn-sm" type="button" data-give="soc">Give<span class="sr-only"> to the Season of Creation 2026</span></button><a class="link" href="https://www.abmission.org/appeals/appeals-major/creation2026/">Read<span class="sr-only"> about the Season of Creation 2026</span> <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></span></div></li>
+      </ol>
+    </div>
+    <div class="rail" aria-hidden="true"><i></i></div>
+    <div class="wrap"><div class="inner">
+      <p class="emergency"><b>Emergency appeals open now</b><button class="em-chip" type="button" data-give="nepal">Nepal flash flood</button><button class="em-chip" type="button" data-give="gaza">Gaza &amp; West Bank</button><button class="em-chip" type="button" data-give="myanmar">Myanmar</button></p>
+    </div></div>
+  </div>
+</section>
+
+<section class="where" id="where" aria-labelledby="where-h">
+  <div class="wrap"><div class="inner">
+    <div class="sec-head"><h2 id="where-h">Where we work</h2><p>ABM AID’s Sustainable Communities work is done in collaboration with Anglican Church Partners across the Pacific, Africa, the Middle East, South East Asia and Sri Lanka.</p></div>
+    <div class="where-grid">
+      <div>
+        <div class="map">
+          <svg viewBox="0 0 1000 522.9" aria-hidden="true" focusable="false"><path d="M16.5 3.3h0M42.9 3.3h6.6M75.9 3.3h547.8M643.5 3.3h0M663.3 3.3h6.6M755.7 3.3h0M13.2 9h0M46.2 9h6.6M79.2 9h534.6M666.6 9h13.2M752.4 9h0M3.3 14.7h0M49.5 14.7h0M82.5 14.7h541.2M636.9 14.7h0M669.9 14.7h13.2M742.5 14.7h13.2M52.8 20.4h0M92.4 20.4h0M112.2 20.4h6.6M132 20.4h501.6M673.2 20.4h13.2M732.6 20.4h19.8M122.1 26.2h0M135.3 26.2h488.4M676.5 26.2h6.6M716.1 26.2h0M729.3 26.2h19.8M112.2 31.9h0M132 31.9h495M673.2 31.9h0M706.2 31.9h33M128.7 37.6h501.6M696.3 37.6h0M709.5 37.6h13.2M46.2 43.3h0M125.4 43.3h508.2M693 43.3h6.6M3.3 49h0M36.3 49h26.4M128.7 49h508.2M696.3 49h0M6.6 54.7h13.2M39.6 54.7h600.6M3.3 60.5h198M221.1 60.5h415.8M6.6 66.2h99M118.8 66.2h79.2M224.4 66.2h415.8M3.3 71.9h105.6M128.7 71.9h72.6M227.7 71.9h409.2M6.6 77.6h105.6M132 77.6h79.2M237.6 77.6h389.4M3.3 83.3h112.2M135.3 83.3h79.2M260.7 83.3h363M6.6 89h112.2M138.6 89h72.6M250.8 89h0M283.8 89h0M316.8 89h303.6M640.2 89h0M3.3 94.7h118.8M141.9 94.7h79.2M240.9 94.7h13.2M320.1 94.7h297M636.9 94.7h0M6.6 100.5h118.8M151.8 100.5h112.2M330 100.5h277.2M633.6 100.5h0M3.3 106.2h125.4M155.1 106.2h112.2M333.3 106.2h118.8M465.3 106.2h125.4M6.6 111.9h125.4M151.8 111.9h112.2M336.6 111.9h92.4M468.6 111.9h85.8M574.2 111.9h0M3.3 117.6h132M155.1 117.6h105.6M353.1 117.6h79.2M471.9 117.6h72.6M570.9 117.6h0M6.6 123.3h125.4M165 123.3h92.4M356.4 123.3h66M475.2 123.3h66M567.6 123.3h6.6M3.3 129h132M168.3 129h79.2M353.1 129h59.4M478.5 129h66M564.3 129h6.6M6.6 134.8h138.6M171.6 134.8h72.6M356.4 134.8h52.8M481.8 134.8h66M633.6 134.8h6.6M3.3 140.5h145.2M174.9 140.5h52.8M359.7 140.5h39.6M478.5 140.5h72.6M636.9 140.5h6.6M6.6 146.2h145.2M171.6 146.2h52.8M356.4 146.2h33M501.6 146.2h59.4M633.6 146.2h6.6M3.3 151.9h151.8M174.9 151.9h33M359.7 151.9h33M504.9 151.9h59.4M636.9 151.9h0M6.6 157.6h158.4M178.2 157.6h19.8M363 157.6h26.4M501.6 157.6h59.4M640.2 157.6h13.2M3.3 163.3h165M181.5 163.3h0M366.3 163.3h26.4M504.9 163.3h59.4M636.9 163.3h0M6.6 169.1h165M217.8 169.1h0M369.6 169.1h19.8M508.2 169.1h0M534.6 169.1h26.4M660 169.1h0M3.3 174.8h171.6M201.3 174.8h13.2M372.9 174.8h13.2M504.9 174.8h0M537.9 174.8h19.8M643.5 174.8h0M6.6 180.5h211.2M376.2 180.5h6.6M547.8 180.5h0M646.8 180.5h0M3.3 186.2h211.2M372.9 186.2h6.6M392.7 186.2h0M504.9 186.2h6.6M544.5 186.2h0M617.1 186.2h0M6.6 191.9h204.6M396 191.9h0M501.6 191.9h6.6M646.8 191.9h19.8M3.3 197.6h204.6M392.7 197.6h6.6M511.5 197.6h0M643.5 197.6h0M656.7 197.6h6.6M6.6 203.3h198M396 203.3h0M514.8 203.3h6.6M613.8 203.3h0M660 203.3h0M3.3 209.1h198M485.1 209.1h6.6M518.1 209.1h6.6M603.9 209.1h19.8M6.6 214.8h191.4M488.4 214.8h13.2M521.4 214.8h6.6M600.6 214.8h13.2M3.3 220.5h191.4M498.3 220.5h6.6M524.7 220.5h6.6M590.7 220.5h19.8M6.6 226.2h178.2M501.6 226.2h6.6M528 226.2h6.6M580.8 226.2h33M3.3 231.9h178.2M504.9 231.9h19.8M570.9 231.9h46.2M676.5 231.9h0M6.6 237.6h165M508.2 237.6h19.8M567.6 237.6h46.2M633.6 237.6h19.8M679.8 237.6h0M3.3 243.4h165M518.1 243.4h13.2M570.9 243.4h39.6M630.3 243.4h0M6.6 249.1h158.4M521.4 249.1h13.2M574.2 249.1h33M627 249.1h13.2M699.6 249.1h13.2M3.3 254.8h151.8M524.7 254.8h13.2M577.5 254.8h26.4M630.3 254.8h6.6M716.1 254.8h0M729.3 254.8h19.8M6.6 260.5h145.2M528 260.5h19.8M594 260.5h13.2M627 260.5h0M640.2 260.5h0M673.2 260.5h19.8M712.8 260.5h52.8M3.3 266.2h145.2M531.3 266.2h13.2M630.3 266.2h0M643.5 266.2h0M722.7 266.2h52.8M821.7 266.2h0M6.6 271.9h138.6M541.2 271.9h0M646.8 271.9h0M739.2 271.9h39.6M818.4 271.9h0M3.3 277.6h138.6M551.1 277.6h6.6M716.1 277.6h0M742.5 277.6h52.8M808.5 277.6h0M841.5 277.6h0M6.6 283.4h138.6M554.4 283.4h33M745.8 283.4h46.2M851.4 283.4h0M3.3 289.1h145.2M577.5 289.1h19.8M742.5 289.1h26.4M788.7 289.1h6.6M6.6 294.8h138.6M660 294.8h6.6M759 294.8h6.6M792 294.8h6.6M3.3 300.5h145.2M630.3 300.5h0M656.7 300.5h0M801.9 300.5h6.6M6.6 306.2h145.2M765.6 306.2h0M3.3 311.9h151.8M709.5 311.9h0M729.3 311.9h0M762.3 311.9h0M6.6 317.7h145.2M211.2 317.7h0M693 317.7h33M765.6 317.7h0M3.3 323.4h151.8M207.9 323.4h6.6M689.7 323.4h33M762.3 323.4h6.6M6.6 329.1h151.8M204.6 329.1h6.6M666.6 329.1h13.2M693 329.1h26.4M765.6 329.1h13.2M3.3 334.8h151.8M194.7 334.8h19.8M663.3 334.8h66M762.3 334.8h13.2M6.6 340.5h145.2M184.8 340.5h26.4M653.4 340.5h79.2M759 340.5h19.8M983.4 340.5h0M3.3 346.2h132M181.5 346.2h26.4M650.1 346.2h132M973.5 346.2h6.6M6.6 352h125.4M184.8 352h19.8M646.8 352h138.6M3.3 357.7h118.8M181.5 357.7h19.8M643.5 357.7h145.2M6.6 363.4h112.2M184.8 363.4h19.8M620.4 363.4h178.2M897.6 363.4h0M3.3 369.1h118.8M181.5 369.1h19.8M610.5 369.1h191.4M900.9 369.1h0M6.6 374.8h118.8M178.2 374.8h19.8M600.6 374.8h204.6M3.3 380.5h118.8M181.5 380.5h13.2M597.3 380.5h211.2M6.6 386.2h118.8M178.2 386.2h19.8M594 386.2h224.4M9.9 392h99M188.1 392h0M597.3 392h224.4M6.6 397.7h99M594 397.7h231M9.9 403.4h99M597.3 403.4h224.4M13.2 409.1h92.4M600.6 409.1h224.4M16.5 414.8h85.8M603.9 414.8h224.4M19.8 420.5h79.2M607.2 420.5h217.8M23.1 426.3h72.6M603.9 426.3h217.8M26.4 432h59.4M607.2 432h72.6M706.2 432h118.8M29.7 437.7h52.8M610.5 437.7h46.2M716.1 437.7h105.6M26.4 443.4h39.6M607.2 443.4h46.2M726 443.4h0M739.2 443.4h72.6M36.3 449.1h0M610.5 449.1h6.6M735.9 449.1h72.6M947.1 449.1h0M745.8 454.8h59.4M950.4 454.8h0M749.1 460.5h59.4M752.4 466.3h52.8M957 466.3h6.6M768.9 472h0M782.1 472h6.6M960.3 472h13.2M957 477.7h6.6M960.3 483.4h6.6M785.4 489.1h13.2M943.8 489.1h6.6M782.1 494.8h13.2M940.5 494.8h6.6M785.4 500.6h6.6M930.6 500.6h13.2M920.7 506.3h13.2M910.8 512h19.8M914.1 517.7h13.2" stroke-dasharray="0 6.6"/></svg>
+          <div class="pins" aria-hidden="true"><span class="pin" data-place="australia" style="left:71.37%;top:73.23%"><span class="pin-label">Australia</span></span><span class="pin" data-place="holyland" style="left:12.63%;top:9.47%"><span class="pin-label">Holy Land</span></span><span class="pin" data-place="kenya" style="left:13.58%;top:47.47%"><span class="pin-label">Kenya</span></span><span class="pin" data-place="myanmar" style="left:48.91%;top:26.62%"><span class="pin-label">Myanmar</span></span><span class="pin" data-place="png" style="left:79.27%;top:56.84%"><span class="pin-label">Papua New Guinea</span></span><span class="pin on" data-place="solomons" style="left:86.88%;top:56.82%"><span class="pin-label">Solomon Islands</span></span><span class="pin" data-place="srilanka" style="left:39.20%;top:38.02%"><span class="pin-label">Sri Lanka</span></span><span class="pin" data-place="philippines" style="left:65.41%;top:34.12%"><span class="pin-label">The Philippines</span></span><span class="pin" data-place="vanuatu" style="left:91.86%;top:66.36%"><span class="pin-label">Vanuatu</span></span><span class="pin" data-place="zambia" style="left:8.52%;top:63.66%"><span class="pin-label">Zambia</span></span></div>
+        </div>
+        <div class="places" role="group" aria-label="Choose a country"><button type="button" data-place="australia" aria-pressed="false" aria-controls="pc-australia">Australia</button><button type="button" data-place="holyland" aria-pressed="false" aria-controls="pc-holyland">Holy Land</button><button type="button" data-place="kenya" aria-pressed="false" aria-controls="pc-kenya">Kenya</button><button type="button" data-place="myanmar" aria-pressed="false" aria-controls="pc-myanmar">Myanmar</button><button type="button" data-place="png" aria-pressed="false" aria-controls="pc-png">Papua New Guinea</button><button type="button" data-place="solomons" aria-pressed="true" aria-controls="pc-solomons">Solomon Islands</button><button type="button" data-place="srilanka" aria-pressed="false" aria-controls="pc-srilanka">Sri Lanka</button><button type="button" data-place="philippines" aria-pressed="false" aria-controls="pc-philippines">The Philippines</button><button type="button" data-place="vanuatu" aria-pressed="false" aria-controls="pc-vanuatu">Vanuatu</button><button type="button" data-place="zambia" aria-pressed="false" aria-controls="pc-zambia">Zambia</button></div>
+      </div>
+      <div aria-live="polite"><article class="place-card" id="pc-australia" data-place="australia" hidden aria-labelledby="pc-australia-h"><div class="badge"><img src="img/p-rec.svg" width="120" height="120" alt="Reconciliation" loading="lazy"></div><div class="place-body"><h3 id="pc-australia-h">Australia</h3><p class="partners">Programs: <a href="https://www.abmission.org/programs/reconciliationfund">Reconciliation Fund</a>, <a href="https://www.abmission.org/programs/leadership">Aboriginal and Torres Strait Islander Leadership</a>, <a href="https://www.abmission.org/programs/endowmentfund/">Bishop Arthur Malcolm Endowment Fund</a></p><p>We believe that the task of working for reconciliation within Australia is integral to mission.</p><p>Through its Reconciliation Fund, ABM provides a mechanism for the National Aboriginal and Torres Strait Islander Anglican Council (NATSIAC) to prioritise and fund local ministry initiatives by, for and with Aboriginal and Torres Strait Islander peoples.</p><p><a class="link" href="https://www.abmission.org/reconciliation/">Reconciliation at ABM <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></p></div></article><article class="place-card" id="pc-holyland" data-place="holyland" hidden aria-labelledby="pc-holyland-h"><div class="ph"><img src="img/give-gaza-560.webp" width="560" height="420" loading="lazy" decoding="async" alt="A midwife tends to a newborn at St Luke’s Hospital in the West Bank. Photo © Diocese of Jerusalem"></div><div class="place-body"><h3 id="pc-holyland-h">Holy Land</h3><p class="partners">Partner: <a href="https://www.abmission.org/partners/jerusalem/">Diocese of Jerusalem</a></p><p>In Gaza and the West Bank, your generosity enables the Diocese of Jerusalem to provide emergency medical care and essential health services to families in need.</p><p><button class="btn btn-teal btn-sm" type="button" data-give="gaza">Give to the Gaza &amp; West Bank appeal</button></p></div></article><article class="place-card" id="pc-kenya" data-place="kenya" hidden aria-labelledby="pc-kenya-h"><div class="ph"><img src="img/map-kenya-640.webp" width="640" height="427" loading="lazy" decoding="async" alt="Annah harvests vegetables from her farm in Kenya. © ADSE, used with permission"></div><div class="place-body"><h3 id="pc-kenya-h">Kenya</h3><p class="partners">Partner: <a href="https://www.abmission.org/partners/kenya">Anglican Church of Kenya</a></p><p>In Kenya, your generous support enabled our partner, Anglican Development Services Eastern, to work with local people to build a sand dam that provides fresh water close by.</p><p><a class="link" href="https://www.abmission.org/appeals/appeals-major/lent2026/">Lent Appeal 2026 <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></p></div></article><article class="place-card" id="pc-myanmar" data-place="myanmar" hidden aria-labelledby="pc-myanmar-h"><div class="ph"><img src="img/give-myanmar-560.webp" width="560" height="420" loading="lazy" decoding="async" alt="A man with the piglets he raises in Myanmar"></div><div class="place-body"><h3 id="pc-myanmar-h">Myanmar</h3><p class="partners">Partner: <a href="https://www.abmission.org/partners/myanmar">Church of the Province of Myanmar</a></p><p>Over the past few years, AID’s partner, the Church of the Province of Myanmar, has been providing emergency food relief and other support to people who have been displaced from their homes through the ongoing humanitarian crisis in that country.</p><p><button class="btn btn-teal btn-sm" type="button" data-give="myanmar">Give to the Myanmar appeal</button></p></div></article><article class="place-card" id="pc-png" data-place="png" hidden aria-labelledby="pc-png-h"><div class="ph"><img src="img/give-martyrs-560.webp" width="560" height="420" loading="lazy" decoding="async" alt="Four smiling adult literacy students in Papua New Guinea"></div><div class="place-body"><h3 id="pc-png-h">Papua New Guinea</h3><p class="partners">Partners: <a href="https://www.abmission.org/partners/acpng">Anglican Church of Papua New Guinea</a>, <a href="https://www.abmission.org/partners/newton">Bishop Newton School of Theology</a></p><p>As the Second World War reached Papua New Guinea, twelve Anglican martyrs chose to remain in that country with the people they loved.</p><p>Today, we honour their memory through the Martyrs Gift – supporting education, strong leadership and brighter futures for our neighbours in Papua New Guinea.</p><p><button class="btn btn-teal btn-sm" type="button" data-give="martyrs">Give to the Martyrs Gift</button></p></div></article><article class="place-card" id="pc-solomons" data-place="solomons" aria-labelledby="pc-solomons-h"><div class="ph"><img src="img/map-solomons-640.webp" width="640" height="427" loading="lazy" decoding="async" alt="ABM pilgrims with the Kolomosu Youth dancers from the Diocese of Ysabel. © ABM/Meagan Schwarz"></div><div class="place-body"><h3 id="pc-solomons-h">Solomon Islands</h3><p class="partners">Partner: <a href="https://www.abmission.org/partners/melanesia">Anglican Church of Melanesia</a></p><figure class="quote-s"><blockquote><p>“In July 2026, 12 pilgrims joined me for 10 days in the Solomon Islands, visiting the Anglican Church of Melanesia (ACOM).”</p></blockquote><figcaption>Meagan Schwarz, Pilgrimage and Engagement Missioner</figcaption></figure><p><a class="link" href="https://www.abmission.org/news/pilgrimage-solomon-islands-2026">From “Come and Do” to “Come and See” <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></p></div></article><article class="place-card" id="pc-srilanka" data-place="srilanka" hidden aria-labelledby="pc-srilanka-h"><div class="badge"><img src="img/p-sc.svg" width="120" height="120" alt="Sustainable Communities" loading="lazy"></div><div class="place-body"><h3 id="pc-srilanka-h">Sri Lanka</h3><p class="partners">Partner: <a href="https://www.abmission.org/partners/srilanka">Church of Ceylon</a></p><p>In a country where differences of religion have caused conflict and misunderstanding, our work in Sri Lanka, through the Church of Ceylon, promotes peace.</p><p><a class="link" href="https://www.abmission.org/appeals/appeals-major/advent2025/">Advent and Christmas Appeal 2025 <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></p></div></article><article class="place-card" id="pc-philippines" data-place="philippines" hidden aria-labelledby="pc-philippines-h"><div class="ph"><img src="img/map-philippines-640.webp" width="640" height="427" loading="lazy" decoding="async" alt="Rosalina, far right, with members of her community-based group in the Philippines. © Isabel Robinson, ABM AID, used with permission"></div><div class="place-body"><h3 id="pc-philippines-h">The Philippines</h3><p class="partners">Partners: <a href="https://www.abmission.org/partners/ecp">Episcopal Church in the Philippines</a>, <a href="https://www.abmission.org/partners/ifi">Philippine Independent Church</a></p><p>Rosalina is one of 245 rural people who gained new skills in organic farming and increased their food production through a community development program in the Visayas region of the Philippines.</p><figure class="quote-s"><blockquote><p>“If the project had not come to the community, we would still be confined to our homes.”</p></blockquote><figcaption>Rosalina</figcaption></figure><p><a class="link" href="https://www.abmission.org/news/vimrod-evaluation-article">More food, more capital, better prepared <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></p></div></article><article class="place-card" id="pc-vanuatu" data-place="vanuatu" hidden aria-labelledby="pc-vanuatu-h"><div class="ph"><img src="img/map-vanuatu-640.webp" width="640" height="427" loading="lazy" decoding="async" alt="Ray shows the numbers one to ten he wrote in Bislama, in Sola"></div><div class="place-body"><h3 id="pc-vanuatu-h">Vanuatu</h3><p class="partners">Partner: <a href="https://www.abmission.org/partners/melanesia">Anglican Church of Melanesia</a></p><p>Ray Jounto grew up in the remote coastal village of Wasaka in far north Vanuatu. He joined his first adult literacy and numeracy class in 2015.</p><p>The classes are run by ABM AID’s partner in Vanuatu, the Anglican Church of Melanesia (ACOM).</p><p><a class="link" href="https://www.abmission.org/news/how-did-ray-with-no-formal-education-become-so-respected-in-wasaka">How did Ray, with no formal education, become so respected in Wasaka? <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></p></div></article><article class="place-card" id="pc-zambia" data-place="zambia" hidden aria-labelledby="pc-zambia-h"><div class="ph"><img src="img/map-zambia-640.webp" width="640" height="427" loading="lazy" decoding="async" alt="Kelvin and Bethsheba, a married couple in Zambia. © ZACOP, used with permission"></div><div class="place-body"><h3 id="pc-zambia-h">Zambia</h3><p class="partners">Partners: <a href="https://www.abmission.org/partners/stjohns">St John’s Anglican Seminary Zambia</a>, <a href="https://www.abmission.org/partners/zambia">Zambia Anglican Council</a></p><p>An independent evaluation of the Zambia Anglican Council’s Gender Program has found that equality between men and women has improved, conflict has reduced, and local organisations have banded together as a result of the program’s activities.</p><p><a class="link" href="https://www.abmission.org/news/zambia-program-evaluation">“This project has transformed lives” <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></p></div></article></div>
+    </div>
+  </div></div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap"><div class="inner">
+    <p class="tagline" id="tagline"><span class="sr-only">Working for Love, Hope and Justice</span><span class="t1" aria-hidden="true">Working for</span><span class="t2" aria-hidden="true">Love, Hope</span><span class="t3" aria-hidden="true">&amp; Justice</span></p>
+    <div class="foot-grid">
+      <div class="foot-badges"><img src="img/abm-badge-white.svg" width="362" height="362" alt="Anglican Board of Mission" loading="lazy"><img src="img/aid-badge-white.svg" width="362" height="362" alt="Anglicans in Development" loading="lazy"></div>
+      <div>
+        <h2>Contact</h2>
+        <address>
+          <span>Local call: <a href="tel:1300302663">1300&nbsp;302&nbsp;663</a></span>
+          <span>International: <a href="tel:+61292641021">+61&nbsp;2&nbsp;9264&nbsp;1021</a></span>
+          <span><a href="mailto:info@abmission.org.au">info@abmission.org.au</a></span>
+          <span>Locked Bag Q4005, Queen Victoria Building NSW 1230</span>
+        </address>
+      </div>
+      <nav aria-label="Quick links">
+        <h2>Quick links</h2>
+        <ul>
+          <li><a href="https://www.abmission.org/appeals">Appeals</a></li>
+          <li><a href="https://www.abmission.org/news/">News</a></li>
+          <li><a href="https://www.abmission.org/about">About</a></li>
+          <li><a href="https://www.abmission.org/feedback-and-complaints">Feedback and complaints</a></li>
+          <li><a href="https://www.abmission.org/privacy-policy">Privacy policy</a></li>
+          <li><a href="https://www.abmission.org/accessibility">Accessibility</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Follow us</h2>
+        <ul>
+          <li><a href="https://www.facebook.com/ABMission">Facebook</a></li>
+          <li><a href="https://www.instagram.com/abmission_au/">Instagram</a></li>
+          <li><a href="https://www.youtube.com/user/AnglicanBoardMission/videos">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-ack">
+      <p>ABM acknowledges and pays respect to the past, present and future Traditional Custodians and Elders of this nation and the continuation of cultural, spiritual and educational practices of Aboriginal and Torres Strait Islander peoples. Aboriginal and Torres Strait Islander peoples should be aware that this website may contain images or names of people who have passed away.</p>
+      <p>© 2026 Anglican Board of Mission Australia, ABN 18 097 944 717. Anglicans in Development, ABN 86 647 293 481.</p>
+      <p>Future look: a concept by Singh Studio, October 2026. Not the live site.</p>
+    </div>
+  </div></div>
+</footer>
+
+<dialog class="sheet" id="giveSheet" aria-labelledby="give-h">
+  <div class="sheet-top"><h2 id="give-h">Give</h2><button class="x" type="button" data-close><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg><span class="sr-only">Close</span></button></div>
+  <form class="give" id="giveForm" data-give-form="f" novalidate aria-label="Make a donation">
+    <fieldset><legend>How often</legend><div class="seg"><input class="opt" type="radio" name="f-freq" id="f-once" value="once" checked><label for="f-once">One-time</label><input class="opt" type="radio" name="f-freq" id="f-monthly" value="monthly"><label for="f-monthly">Monthly</label></div></fieldset><fieldset><legend>Amount</legend><div class="amts"><input class="opt" type="radio" name="f-amt" id="f-a60" value="60"><label for="f-a60">$60</label><input class="opt" type="radio" name="f-amt" id="f-a150" value="150" checked><label for="f-a150">$150</label><input class="opt" type="radio" name="f-amt" id="f-a300" value="300"><label for="f-a300">$300</label><input class="opt" type="radio" name="f-amt" id="f-a600" value="600"><label for="f-a600">$600</label></div><label class="other" for="f-other"><span>Other A$</span><input id="f-other" type="text" inputmode="numeric" autocomplete="off" placeholder="Enter an amount"></label></fieldset><div><p class="lbl">Your gift goes to</p><div class="fund-card" id="f-card"><img src="img/aid-badge.svg" width="362" height="362" alt="" loading="lazy"><div><p class="fund-name">AID General Fund</p><p class="fund-org">Anglicans in Development</p><span class="chip chip-aid">Tax-deductible</span></div></div><details class="funds" id="f-funds"><summary><svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg>Choose a different fund or appeal</summary><fieldset><legend class="sr-only">Fund or appeal</legend><p class="funds-group">General funds</p><div class="fund-opt"><input class="opt" type="radio" name="f-fund" id="f-f-aid-general" value="aid-general" checked><label class="fund-opt-l" for="f-f-aid-general"><span class="dot" aria-hidden="true"></span><span><b>AID General Fund</b><small>Tax-deductible</small></span><span class="o" aria-hidden="true"></span></label></div><div class="fund-opt"><input class="opt" type="radio" name="f-fund" id="f-f-abm-general" value="abm-general"><label class="fund-opt-l" for="f-f-abm-general"><span class="dot" aria-hidden="true"></span><span><b>ABM General Fund</b><small>Not tax-deductible</small></span><span class="o abm" aria-hidden="true"></span></label></div><p class="funds-group">Appeals</p><div class="fund-opt"><input class="opt" type="radio" name="f-fund" id="f-f-soc" value="soc"><label class="fund-opt-l" for="f-f-soc"><span class="dot" aria-hidden="true"></span><span><b>Season of Creation 2026</b><small>Tax-deductible · code XG011</small></span><span class="o" aria-hidden="true"></span></label></div><div class="fund-opt"><input class="opt" type="radio" name="f-fund" id="f-f-nepal" value="nepal"><label class="fund-opt-l" for="f-f-nepal"><span class="dot" aria-hidden="true"></span><span><b>Nepal Flash Flood Emergency Appeal</b><small>Tax-deductible · code NP001</small></span><span class="o" aria-hidden="true"></span></label></div><div class="fund-opt"><input class="opt" type="radio" name="f-fund" id="f-f-gaza" value="gaza"><label class="fund-opt-l" for="f-f-gaza"><span class="dot" aria-hidden="true"></span><span><b>Gaza &amp; West Bank Emergency Appeal</b><small>Tax-deductible · code PS002EX</small></span><span class="o" aria-hidden="true"></span></label></div><div class="fund-opt"><input class="opt" type="radio" name="f-fund" id="f-f-myanmar" value="myanmar"><label class="fund-opt-l" for="f-f-myanmar"><span class="dot" aria-hidden="true"></span><span><b>Myanmar Emergency Appeal</b><small>Tax-deductible · code MM014</small></span><span class="o" aria-hidden="true"></span></label></div><div class="fund-opt"><input class="opt" type="radio" name="f-fund" id="f-f-martyrs" value="martyrs"><label class="fund-opt-l" for="f-f-martyrs"><span class="dot" aria-hidden="true"></span><span><b>Martyrs Gift 2026</b><small>Tax-deductible · code XG011</small></span><span class="o" aria-hidden="true"></span></label></div></fieldset></details></div><p class="give-summary" id="f-sum" aria-live="polite"><strong>A$150 one-time gift</strong> to the AID General Fund, received by Anglicans in Development Ltd. Gifts of $2 or more are tax-deductible.</p><button class="btn btn-teal btn-block" type="submit"><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg>Continue to secure payment</button><div class="handover" id="f-hand" role="status"></div><p class="give-note">All donations are in Australian dollars (AUD). Need help? Call us on 1300&nbsp;302&nbsp;663.</p>
+  </form>
+</dialog>
+
+<dialog class="ask" id="askSheet" aria-label="Ask a question or search">
+  <form class="ask-form" id="askForm" role="search">
+    <svg class="ico" aria-hidden="true"><use href="#i-search"/></svg>
+    <label for="ask-q" class="sr-only">Ask a question or search</label>
+    <input id="ask-q" type="search" placeholder="Ask a question or search" autocomplete="off" enterkeyhint="search">
+    <button class="x" type="button" data-close><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg><span class="sr-only">Close</span></button>
+  </form>
+  <div class="ask-body">
+    <ul class="ask-list" id="askList"><li><button type="button" data-ask="tax" data-k="is my gift tax-deductible? tax deductible receipt deduction claim">Is my gift tax-deductible?<svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button></li><li><button type="button" data-ask="abm-aid" data-k="what’s the difference between abm and aid? abm aid difference anglicans development board mission who">What’s the difference between ABM and AID?<svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button></li><li><button type="button" data-ask="pray" data-k="who can i pray for today? pray prayer today partner cycle">Who can I pray for today?<svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button></li><li><button type="button" data-ask="will" data-k="how do i leave a gift in my will? will bequest estate legacy">How do I leave a gift in my Will?<svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button></li><li><button type="button" data-ask="pilgrimage" data-k="how can i go on a pilgrimage? pilgrimage travel visit trip come and see">How can I go on a pilgrimage?<svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button></li><li><button type="button" data-ask="bank" data-k="can i give by bank transfer? bank transfer bsb account deposit direct eft">Can I give by bank transfer?<svg class="ico" aria-hidden="true"><use href="#i-chev"/></svg></button></li></ul>
+    <div class="ask-answer" id="askAnswer" aria-live="polite"></div>
+    <p class="ask-foot">Answers come from ABM’s own pages. <a id="askSearch" href="https://www.abmission.org/?s=">Search abmission.org</a></p>
+  </div>
+  <template id="ans-tax"><h3>Is my gift tax-deductible?</h3><p>Donations ($2 and over) made to AID are tax-deductible. Donations made to ABM are not tax-deductible.</p><p>Each appeal page says so beside its donation code. All of this year’s appeals, and the three emergency appeals, are tax-deductible.</p></template><template id="ans-abm-aid"><h3>What’s the difference between ABM and AID?</h3><p>ABM is the national mission agency for the Anglican Church of Australia. It is the channel through which Australian Anglicans participate in mission, both here and overseas.</p><p>Anglicans in Development (AID) is wholly owned by ABM and operates our Sustainable Communities program. AID works with church partners to deliver grassroots, community-driven development, Aboriginal and Torres Strait Islander leadership, and disaster preparedness and response.</p></template><template id="ans-pray"><h3>Who can I pray for today?</h3><dl><dt>ABM Partner of the Day</dt><dd>Please pray for the Episcopal Church of South Sudan; the Church’s Health Commission, the Education Commission, and the Development and Relief Agency, SUDRA.</dd><dt>Australian Cycle of Prayer</dt><dd>Please pray for the Diocese of the Riverina: Bishop Donald Kirk, the clergy and people.</dd></dl><p><button class="btn btn-ink btn-sm" type="button" data-goto="pray">Open today’s prayers</button></p></template><template id="ans-will"><h3>How do I leave a gift in my Will?</h3><p>By including the Anglican Board of Mission (ABM) and Anglicans in Development (AID) in your Will, you can leave a lasting legacy that extends far beyond your immediate circle, enriches communities and strengthens churches for generations to come.</p><p>For a confidential conversation about leaving a gift in Will, contact Lyn Moorfoot, Head of Fundraising, on <a href="tel:1300302663">1300&nbsp;302&nbsp;663</a> or at <a href="mailto:bequests@abmission.org.au">bequests@abmission.org.au</a>.</p><p><a class="link" href="https://www.abmission.org/get-involved/leave-a-bequest/">Leave a Gift in your Will <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></p></template><template id="ans-pilgrimage"><h3>How can I go on a pilgrimage?</h3><p>ABM’s Pilgrimage program is an opportunity for ABM supporters to “come and see” what God is doing through their support of our partners.</p><p>Please complete the expression of interest form to ensure you are among the first to find out when a new pilgrimage is planned.</p><p><a class="link" href="https://www.abmission.org/get-involved/go-on-a-pilgrimage/">Go on a Pilgrimage <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></p></template><template id="ans-bank"><h3>Can I give by bank transfer?</h3><p>Yes. Please use your name and Donor ID (if known) as the reference.</p><dl><dt>To AID</dt><dd>Anglicans in Development Ltd, BSB 032&nbsp;135, account 691271</dd><dt>To ABM</dt><dd>Anglican Board of Mission Ltd, BSB 032&nbsp;008, account 130754</dd></dl><p>Donations ($2 and over) made to AID are tax-deductible. Donations made to ABM are not tax-deductible.</p></template>
+</dialog>
+
+<dialog class="menu" id="menuSheet" aria-label="Menu">
+  <div class="menu-top"><img src="img/abm-badge-white.svg" width="362" height="362" alt="" loading="lazy" style="height:52px;width:52px"><button class="x" type="button" data-close><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg><span class="sr-only">Close menu</span></button></div>
+  <div class="menu-grid">
+    <nav class="menu-big" aria-label="Menu">
+      <a href="#intents" data-intent="give">Give <span>To an appeal or a fund</span></a>
+      <a href="#intents" data-intent="pray">Pray <span>With today’s partner</span></a>
+      <a href="#intents" data-intent="go">Go <span>On a pilgrimage</span></a>
+      <a href="#intents" data-intent="learn">Learn <span>The Five Marks and resources</span></a>
+      <a href="#year">Appeals <span>This year’s, in order</span></a>
+      <a href="#where">Where we work <span>Partners and stories</span></a>
+    </nav>
+    <div class="menu-small">
+      <button class="btn btn-leaf" type="button" data-give="aid-general">Donate</button>
+      <p style="margin-top:1rem">Call us on <a href="tel:1300302663">1300&nbsp;302&nbsp;663</a>, Monday to Friday, 9am to 5pm AEST.</p>
+      <p><a href="https://www.abmission.org/about">About ABM and AID</a></p>
+      <p><a href="https://www.abmission.org/news/">News</a></p>
+      <p><a href="https://www.abmission.org/contact">Contact</a></p>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="ask" id="ideasSheet" aria-labelledby="ideas-h" style="margin-top:8vh">
+  <div class="ask-body" style="padding:1.4rem 1.5rem 1.6rem">
+    <div class="sheet-top" style="margin:0"><h2 id="ideas-h" style="font-size:2rem">The ideas in this concept</h2><button class="x" type="button" data-close><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg><span class="sr-only">Close</span></button></div>
+    <ol class="marks" style="margin-top:.4rem">
+      <li>The page asks what you’d like to do (give, pray, go or learn) instead of making you work out which menu it sits under.</li>
+      <li>The current appeal sits in a round window, like your badges, that opens up as you scroll.</li>
+      <li>This year’s appeals are laid out across the church year, each in the colour of its season, so supporters can see the rhythm of the year and what’s on now.</li>
+      <li>A map of your partners, from the Holy Land to Vanuatu, with a story or a program for each.</li>
+      <li>Giving opens in a panel over the page, so nobody loses their place, and it carries the fund and its tax status with it.</li>
+      <li>An Ask button answers common questions in your own words, such as whether a gift is tax-deductible, and searches the site for anything else.</li>
+    </ol>
+    <p class="ask-foot">Like the first concept, it keeps ABM’s logos, red and teal. Apart from headings, labels and these notes, every word and photograph is ABM’s, taken from abmission.org in October 2026.</p>
+  </div>
+</dialog>
+
+<script>
+(function () {
+  'use strict';
+  var d = document, root = d.documentElement, W = window;
+  root.classList.add('js');
+  var reduce = W.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(s, c) { return (c || d).querySelector(s); }
+  function $$(s, c) { return Array.prototype.slice.call((c || d).querySelectorAll(s)); }
+  function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
+  function ease(t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  // swap content inside a View Transition where the browser has them
+  // (if the page isn't rendering frames, skip the animation after a moment so the content still changes)
+  function vt(fn) {
+    if (reduce || !d.startViewTransition) { fn(); return; }
+    var t = d.startViewTransition(fn);
+    setTimeout(function () { try { t.skipTransition(); } catch (e) {} }, 900);
+  }
+  function external(scope) { $$('a[href^="http"]', scope).forEach(function (a) { a.target = '_blank'; a.rel = 'noopener'; }); }
+  external(d);
+  if (!/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)) $$('.kbd').forEach(function (k) { k.textContent = 'Ctrl K'; });
+
+  // ---------- sheets: native dialogs give focus trapping, Esc and an inert page for free ----------
+  function openDlg(dlg, opener) {
+    if (!dlg || !dlg.showModal || dlg.open) return;
+    var parent = opener && opener.closest && opener.closest('dialog');
+    dlg._opener = parent ? parent._opener : opener;
+    $$('dialog[open]').forEach(function (o) { o._opener = null; o.close(); });
+    dlg.showModal();
+    if (dlg._opener && dlg._opener.hasAttribute && dlg._opener.hasAttribute('aria-expanded')) dlg._opener.setAttribute('aria-expanded', 'true');
+  }
+  $$('dialog').forEach(function (dlg) {
+    dlg.addEventListener('click', function (e) {
+      if (e.target.closest && e.target.closest('[data-close]')) { dlg.close(); return; }
+      if (e.target !== dlg) return;
+      var r = dlg.getBoundingClientRect();   // a click on the backdrop, not on the sheet's own padding
+      if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dlg.close();
+    });
+    dlg.addEventListener('close', function () {
+      var o = dlg._opener;
+      $$('[aria-expanded="true"]').forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
+      if (o && o.focus && d.contains(o)) o.focus({ preventScroll: true });
+    });
+  });
+  var giveSheet = $('#giveSheet'), askSheet = $('#askSheet');
+  $('#menuOpen').addEventListener('click', function () { openDlg($('#menuSheet'), this); });
+  $('#ideasOpen').addEventListener('click', function () { openDlg($('#ideasSheet'), this); });
+  $('#askOpen').addEventListener('click', function () { openDlg(askSheet, this); });
+  d.addEventListener('keydown', function (e) {
+    if ((e.metaKey || e.ctrlKey) && !e.altKey && e.key && e.key.toLowerCase() === 'k') { e.preventDefault(); openDlg(askSheet, d.activeElement); }
+  });
+
+  // in-page links: choose the intent, close any sheet, move focus to where the reader lands
+  function goTo(id, intent) {
+    if (intent) selectTab(intent, false);
+    var t = d.getElementById(id);
+    if (!t) return;
+    t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    var f = intent ? $('#t-' + intent) : $('h2', t);
+    if (f) { if (!intent) f.setAttribute('tabindex', '-1'); f.focus({ preventScroll: true }); }
+    try { history.replaceState(null, '', '#' + id); } catch (e) { /* a sandboxed frame may refuse it */ }
+  }
+  d.addEventListener('click', function (e) {
+    var el = e.target.closest && e.target.closest('a[href^="#"], [data-give], [data-goto]');
+    if (!el) return;
+    var dlg = el.closest('dialog');
+    if (el.hasAttribute('data-give')) {
+      e.preventDefault();
+      give.set({ fund: el.getAttribute('data-give') });
+      openDlg(giveSheet, el);
+      return;
+    }
+    var id = el.hasAttribute('data-goto') ? 'intents' : el.getAttribute('href').slice(1);
+    var intent = el.getAttribute('data-goto') || el.getAttribute('data-intent');
+    if (!id || id === 'main' || !d.getElementById(id)) return;
+    e.preventDefault();
+    if (dlg) { dlg._opener = null; dlg.close(); }
+    goTo(id, intent);
+  });
+
+  // ---------- giving ----------
+  var FUNDS = {
+    'aid-general': { name: 'the AID General Fund', org: 'aid', title: 'AID General Fund' },
+    'abm-general': { name: 'the ABM General Fund', org: 'abm', title: 'ABM General Fund' },
+    soc: { name: 'the Season of Creation 2026 appeal', org: 'aid', title: 'Season of Creation 2026', code: 'XG011' },
+    nepal: { name: 'the Nepal Flash Flood Emergency Appeal', org: 'aid', title: 'Nepal Flash Flood Emergency Appeal', code: 'NP001' },
+    gaza: { name: 'the Gaza & West Bank Emergency Appeal', org: 'aid', title: 'Gaza & West Bank Emergency Appeal', code: 'PS002EX' },
+    myanmar: { name: 'the Myanmar Emergency Appeal', org: 'aid', title: 'Myanmar Emergency Appeal', code: 'MM014' },
+    martyrs: { name: 'the Martyrs Gift 2026', org: 'aid', title: 'Martyrs Gift 2026', code: 'XG011' }
+  };
+  var ORG = {
+    aid: { long: 'Anglicans in Development', ltd: 'Anglicans in Development Ltd', badge: 'img/aid-badge.svg', chip: 'chip-aid', tax: 'Tax-deductible',
+      line: 'Gifts of $2 or more are tax-deductible.' },
+    abm: { long: 'Anglican Board of Mission', ltd: 'the Anglican Board of Mission', badge: 'img/abm-badge.svg', chip: 'chip-abm', tax: 'Not tax-deductible',
+      line: 'Donations made to ABM are not tax-deductible.' }
+  };
+  var LIVE_FORM = 'https://www.abmission.org/appeals/appeals-major/creation2026/?bbFormId=a4a5036c-e494-4a4b-bd7a-b5668887dfc7';
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+
+  function Give(form, p) {
+    var other = $('#' + p + '-other'), sum = $('#' + p + '-sum'), hand = $('#' + p + '-hand'), card = $('#' + p + '-card');
+    function amount() {
+      var v = other.value.replace(/[^0-9]/g, '');
+      if (other.value.trim()) return v ? parseInt(v, 10) : 0;
+      var r = $('input[name="' + p + '-amt"]:checked', form);
+      return r ? parseInt(r.value, 10) : 0;
+    }
+    function fundKey() { return ($('input[name="' + p + '-fund"]:checked', form) || {}).value || 'aid-general'; }
+    function render() {
+      var f = FUNDS[fundKey()], o = ORG[f.org], a = amount();
+      var monthly = ($('input[name="' + p + '-freq"]:checked', form) || {}).value === 'monthly';
+      var gift = a > 0 ? 'A$' + a.toLocaleString('en-AU') + (monthly ? ' every month' : ' one-time gift') : 'Your gift';
+      sum.innerHTML = '<strong>' + gift + '</strong> to ' + esc(f.name) + (f.code ? ' (donation code ' + f.code + ')' : '') +
+        ', received by ' + o.ltd + '. ' + o.line;
+      sum.classList.toggle('abm', f.org === 'abm');
+      card.querySelector('img').src = o.badge;
+      card.querySelector('.fund-name').textContent = f.title;
+      card.querySelector('.fund-org').textContent = o.long;
+      var chip = card.querySelector('.chip');
+      chip.className = 'chip ' + o.chip; chip.textContent = o.tax;
+    }
+    form.addEventListener('change', function (e) {
+      if (e.target.name === p + '-amt') other.value = '';
+      hand.innerHTML = '';
+      render();
+    });
+    other.addEventListener('input', function () {
+      if (other.value.trim()) $$('input[name="' + p + '-amt"]', form).forEach(function (r) { r.checked = false; });
+      hand.innerHTML = '';
+      render();
+    });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var f = FUNDS[fundKey()];
+      if (amount() < 1) {
+        hand.innerHTML = '<strong>Choose an amount, or enter one in whole dollars.</strong>';
+        other.focus();
+        return;
+      }
+      hand.innerHTML = '<strong>This is a concept, so it stops here.</strong> On the live site this button opens Blackbaud’s secure donation form for ' +
+        esc(f.name) + '. It’s the same adaptive form ABM’s appeal pages already use. ' +
+        '<a class="link" href="' + LIVE_FORM + '" target="_blank" rel="noopener">See it on the Season of Creation appeal <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a>';
+    });
+    render();
+    return {
+      set: function (o) {
+        var r;
+        if (o.fund && (r = $('#' + p + '-f-' + o.fund))) r.checked = true;
+        if (o.freq && (r = $('#' + p + '-' + o.freq))) r.checked = true;
+        if (o.amt && (r = $('#' + p + '-a' + o.amt))) { r.checked = true; other.value = ''; }
+        hand.innerHTML = '';
+        $('#' + p + '-funds').open = false;
+        render();
+      }
+    };
+  }
+  var give = Give($('#giveForm'), 'f');
+
+  // the quick-give tile carries its choices into the sheet
+  var quick = $('#quickGive');
+  quick.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var freq = ($('input[name="q-freq"]:checked', quick) || {}).value, amt = ($('input[name="q-amt"]:checked', quick) || {}).value;
+    give.set({ fund: 'aid-general', freq: freq, amt: amt });
+    openDlg(giveSheet, e.submitter || $('button[type="submit"]', quick));
+  });
+
+  // ---------- intents: a tablist of four badges ----------
+  var tabs = $$('.intent'), panels = $$('.panel');
+  function selectTab(key, focus) {
+    var cur = $('.intent[aria-selected="true"]');
+    if (!cur || cur.getAttribute('data-tab') !== key) {
+      vt(function () {
+        tabs.forEach(function (t) {
+          var on = t.getAttribute('data-tab') === key;
+          t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1;
+        });
+        panels.forEach(function (p) { p.hidden = p.id !== 'p-' + key; });
+        observeAll();
+      });
+    }
+    if (focus) $('#t-' + key).focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { selectTab(t.getAttribute('data-tab'), false); });
+    t.addEventListener('keydown', function (e) {
+      var n = tabs.length, j = -1;
+      if (e.key === 'ArrowRight') j = (i + 1) % n;
+      else if (e.key === 'ArrowLeft') j = (i - 1 + n) % n;
+      else if (e.key === 'Home') j = 0;
+      else if (e.key === 'End') j = n - 1;
+      if (j < 0) return;
+      e.preventDefault();
+      selectTab(tabs[j].getAttribute('data-tab'), true);
+    });
+  });
+
+  // ---------- where we work: chips, pins and one card ----------
+  var chips = $$('.places button'), pins = $$('.pin'), pcards = $$('.place-card');
+  function selectPlace(key) {
+    vt(function () {
+      chips.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-place') === key)); });
+      pins.forEach(function (p) { p.classList.toggle('on', p.getAttribute('data-place') === key); });
+      pcards.forEach(function (c) { c.hidden = c.getAttribute('data-place') !== key; });
+    });
+    var c = $('#pc-' + key);
+    setTimeout(function () {   // on phones the card sits below the chips: bring its top into view
+      var r = c.getBoundingClientRect();
+      if (r.top > W.innerHeight - 140) W.scrollBy({ top: r.top - W.innerHeight * .35, behavior: reduce ? 'auto' : 'smooth' });
+    }, reduce ? 0 : 420);
+  }
+  chips.forEach(function (b) { b.addEventListener('click', function () { selectPlace(b.getAttribute('data-place')); }); });
+  pins.forEach(function (p) { p.addEventListener('click', function () { selectPlace(p.getAttribute('data-place')); }); });
+
+  // ---------- Ask: common questions answered in ABM's words, and a search of the live site ----------
+  var askQ = $('#ask-q'), askItems = $$('#askList button'), askAns = $('#askAnswer'), askSearch = $('#askSearch');
+  var STOP = ' how can the and what whats who for does are you your with about that this from have into can i do is a to my me of in on it ';
+  function answer(key) {
+    var tpl = $('#ans-' + key);
+    if (!tpl) return;
+    askAns.innerHTML = '';
+    askAns.appendChild(tpl.content.cloneNode(true));
+    external(askAns);
+  }
+  askItems.forEach(function (b) { b.addEventListener('click', function () { answer(b.getAttribute('data-ask')); }); });
+  // Esc in a search box would only clear it; here it closes the panel, like other command panels
+  askQ.addEventListener('keydown', function (e) { if (e.key === 'Escape') { e.preventDefault(); askSheet.close(); } });
+  function visibleItems() { return askItems.filter(function (b) { return !b.parentNode.hidden; }); }
+  askQ.addEventListener('input', function () {
+    var v = askQ.value.trim().toLowerCase();
+    var words = v.replace(/[^a-z0-9 ]/g, ' ').split(/\s+/).filter(function (w) { return w.length > 1 && STOP.indexOf(' ' + w + ' ') < 0; });
+    askItems.forEach(function (b) {
+      var k = b.getAttribute('data-k');
+      b.parentNode.hidden = words.length > 0 && !words.some(function (w) { return k.indexOf(w) > -1; });
+    });
+    askSearch.href = 'https://www.abmission.org/?s=' + encodeURIComponent(askQ.value.trim());
+    askSearch.textContent = v ? 'Search abmission.org for “' + askQ.value.trim() + '”' : 'Search abmission.org';
+    askAns.innerHTML = '';
+  });
+  $('#askForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var vis = visibleItems();
+    if (vis.length === 1) answer(vis[0].getAttribute('data-ask'));
+    else if (vis.length) vis[0].focus();
+    else askAns.innerHTML = '<p>There isn’t a ready answer for that here. <a class="link" href="' + askSearch.href +
+      '" target="_blank" rel="noopener">Search abmission.org <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a></p>';
+  });
+  askSheet.addEventListener('close', function () {
+    askQ.value = ''; askAns.innerHTML = '';
+    askItems.forEach(function (b) { b.parentNode.hidden = false; });
+    askSearch.href = 'https://www.abmission.org/?s='; askSearch.textContent = 'Search abmission.org';
+  });
+
+  // ---------- a year of mission: pinned and moved sideways by the page's own scroll on wide screens ----------
+  var year = $('#year'), track = $('#track'), years = $('#years');
+  var mqPin = W.matchMedia('(min-width: 1000px) and (min-height: 700px)');
+  var pinned = false, dx = 0;
+  function setupYear() {
+    pinned = mqPin.matches && !reduce;
+    year.classList.toggle('pinned', pinned);
+    year.style.removeProperty('--yh');
+    if (!pinned) { year.style.setProperty('--x', '0'); return; }
+    var cs = getComputedStyle(track);
+    var inner = track.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    dx = Math.max(0, years.scrollWidth - inner);
+    year.style.setProperty('--dx', dx + 'px');
+    year.style.setProperty('--yh', 'calc(100svh + ' + Math.round(dx) + 'px)');
+  }
+  track.addEventListener('scroll', function () {
+    if (pinned) return;
+    var max = track.scrollWidth - track.clientWidth;
+    year.style.setProperty('--x', max > 0 ? (track.scrollLeft / max).toFixed(4) : '0');
+  }, { passive: true });
+  // keyboard users tabbing through the cards: scroll the page so the focused card is in view
+  years.addEventListener('focusin', function (e) {
+    if (!pinned || !dx) return;
+    var li = e.target.closest('.yr');
+    var x = clamp((li.offsetLeft - years.firstElementChild.offsetLeft) / dx, 0, 1);
+    var top = year.getBoundingClientRect().top + W.scrollY;
+    W.scrollTo({ top: top + x * dx, behavior: 'auto' });
+  });
+
+  // ---------- scroll-linked motion: the lens opens, the year moves, the tagline closes up ----------
+  var lens = $('#top'), tag = $('#tagline');
+  var mqLens = W.matchMedia('(min-width: 900px) and (min-height: 620px)');
+  function frame() {
+    var vh = W.innerHeight;
+    if (!reduce) {
+      var r = lens.getBoundingClientRect();
+      var span = mqLens.matches ? r.height - vh : r.height * .7;
+      lens.style.setProperty('--p', ease(clamp(-r.top / Math.max(1, span), 0, 1)).toFixed(3));
+      var q = tag.getBoundingClientRect();
+      tag.style.setProperty('--q', ease(clamp((vh - q.top) / (vh * .75), 0, 1)).toFixed(3));
+    }
+    if (pinned) year.style.setProperty('--x', clamp(-year.getBoundingClientRect().top / Math.max(1, dx), 0, 1).toFixed(4));
+  }
+  var ticking = false;
+  W.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(function () { ticking = false; frame(); }); }
+  }, { passive: true });
+  var rs;
+  W.addEventListener('resize', function () { clearTimeout(rs); rs = setTimeout(function () { setupYear(); frame(); }, 120); }, { passive: true });
+
+  // ---------- reveals start from a visible resting state ----------
+  // An element only takes its "before" state while it is still below the fold and about to arrive.
+  var items = [], near = null, inview = null;
+  function observeAll() {
+    if (!near) return;
+    items.forEach(function (el) { near.unobserve(el); inview.unobserve(el); });
+    items = $$('.rv').filter(function (el) { return el.getClientRects().length; });
+    items.forEach(function (el) { near.observe(el); inview.observe(el); });
+  }
+  if (!reduce && 'IntersectionObserver' in W) {
+    near = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (en.isIntersecting && en.boundingClientRect.top > W.innerHeight && !en.target.dataset.seen) en.target.classList.add('pre');
+      });
+    }, { rootMargin: '0px 0px 35% 0px' });
+    inview = new IntersectionObserver(function (es) {
+      es.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.dataset.seen = '1';
+        en.target.classList.remove('pre');
+      });
+    }, { rootMargin: '0px 0px -6% 0px' });
+    d.addEventListener('visibilitychange', function () { if (d.hidden) $$('.pre').forEach(function (el) { el.classList.remove('pre'); }); });
+  }
+
+  setupYear();
+  observeAll();
+  frame();
+})();
+
+</script>
+</body>
+</html>
