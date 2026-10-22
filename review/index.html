@@ -187,6 +187,9 @@ tr.concept th,tr.concept td{ background:#FBFAF7 }
 @media (min-width:760px){ .gallery .tall{ grid-column:1 / -1 } }
 .gallery .tall img{ border-radius:16px }
 
+.update{ margin:0 0 1.25rem; padding:.85rem 1.05rem; border-radius:12px; background:var(--aid-tint); color:var(--ink); max-width:42rem }
+.update b{ color:var(--aid-deep) }
+
 /* the future look */
 .future-lead{ display:grid; gap:0; margin:.5rem 0 1.75rem; border-radius:18px; overflow:hidden; background:#0B2733; box-shadow:0 0 0 1px var(--line-2) }
 .future-lead img{ width:100% }
@@ -229,9 +232,9 @@ tr.concept th,tr.concept td{ background:#FBFAF7 }
 
 <div class="cover"><div class="wrap"><div class="inner">
   <div>
-    <p class="meta">Prepared for ABM and AID by Kris Singh, Singh Studio, 20 October 2026</p>
+    <p class="meta">Prepared for ABM and AID by Kris Singh, Singh Studio, 20 October 2026, updated 23 October</p>
     <h1>A review of abmission.org</h1>
-    <p class="dek">I went through the site on a laptop and on a phone, checked every page in the sitemap for a working donation form, and built two concepts from your own words and photographs, one close to the site you have and one that looks further ahead. This is what I found and what I’d keep, with a plan that starts with the donate forms, because those can’t wait.</p>
+    <p class="dek">I went through the site on a laptop and on a phone, checked every page in the sitemap for a working donation form, and built two concepts from your own words and photographs, one close to the site you have and one that looks further ahead. This is what I found and what I’d keep, with a plan that starts with the donate forms, so they can’t go blank again.</p>
     <div class="cta-row">
       <a class="btn btn-teal" href="../">Open the concept <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       <a class="btn btn-line" href="#future">See the future look</a>
@@ -285,31 +288,32 @@ tr.concept th,tr.concept td{ background:#FBFAF7 }
         </article>
         <article style="--c:var(--bad)">
           <h3>What needs attention first</h3>
-          <p>On 20 October the donation form on 63 pages didn’t appear, including both general donate pages and nearly every program and partner page. On a phone Donate is hard to find and zoom is switched off, and in Google’s slow-connection test the homepage takes about 40 seconds to show its main image.</p>
+          <p>On 20 October the donation form on 63 pages didn’t appear, including both general donate pages and nearly every program and partner page. They were working again by 23 October, but those pages still use the older form that failed. On a phone Donate is hard to find and zoom is switched off, and in Google’s slow-connection test the homepage takes about 40 seconds to show its main image.</p>
         </article>
         <article style="--c:var(--abm)">
           <h3>What I’d do</h3>
-          <p>Move every Donate button onto Blackbaud’s newer form straight away, then give the current site a short tidy-up for phones, accessibility and a fresh homepage. After that I’d rebuild the templates on WordPress without the Divi page builder, keeping Blackbaud and your content, along the lines of the concept.</p>
+          <p>Move every Donate button onto Blackbaud’s newer form so the forms can’t go blank again, then give the current site a short tidy-up for phones, accessibility and a fresh homepage. After that I’d rebuild the templates on WordPress without the Divi page builder, keeping Blackbaud and your content, along the lines of the concept.</p>
         </article>
       </div>
     </section>
 
     <section id="forms" aria-labelledby="forms-t">
       <div class="sec-title"><span class="n" aria-hidden="true">2</span><h2 id="forms-t">The donate forms</h2></div>
+      <p class="update"><b>Update, 23 October:</b> the forms are working again. They weren’t when I checked on 20 October, and the pages below still use the older form that failed, so the advice in this section still stands.</p>
       <div class="prose">
-        <p>Blackbaud offers two ways to put a donation form on a website. The appeal pages you’ve made since Advent 2025 use the newer one, the adaptive form, and they work. Most of the rest of the site uses the older one, Online Express, which loads a script from Blackbaud’s servers. On 20 October that script was sending browsers to a Blackbaud error page, so the forms never appear. The pages still say “The donation form will appear below. Please allow time for it to open”, and then nothing happens.</p>
-        <p>The Internet Archive’s copies show the script still loading normally on 16 October, so this looks like a recent change at Blackbaud’s end and nothing your team did. It does mean that, for now, anyone who presses Donate in the main menu, or gives to a program or partner, finds an empty page.</p>
+        <p>Blackbaud offers two ways to put a donation form on a website. The appeal pages you’ve made since Advent 2025 use the newer one, the adaptive form, and they work. Most of the rest of the site uses the older one, Online Express, which loads a script from Blackbaud’s servers. On 20 October that script was sending browsers to a Blackbaud error page, so the forms never appeared. The pages said “The donation form will appear below. Please allow time for it to open”, and then nothing happened.</p>
+        <p>The Internet Archive’s copies show the script still loading normally on 16 October, and by 23 October it was working again, so this looks like a fault at Blackbaud’s end and nothing your team did. While it lasted, anyone who pressed Donate in the main menu, or tried to give to a program or partner, found an empty page, and the same could happen again while those pages use the older form.</p>
       </div>
       <div class="chart" role="group" aria-labelledby="forms-chart-t">
         <h3 id="forms-chart-t">Pages with a donation form, 20 October 2026</h3>
         <div class="stack" aria-hidden="true">
-          <div class="seg seg-blank" style="flex:63" title="63 pages: the form doesn’t appear">63 blank</div>
+          <div class="seg seg-blank" style="flex:63" title="63 pages: the form didn’t appear on 20 October">63 blank</div>
           <div class="seg seg-ok" style="flex:11" title="11 pages: the adaptive form works">11</div>
         </div>
         <p class="legend"><span><i class="k-blank"></i>Older form, blank on 20 October (63 pages)</span><span><i class="k-ok"></i>Adaptive form, working (11 pages)</span></p>
       </div>
       <div class="prose">
-        <p>The 63 pages with a blank form are:</p>
+        <p>The 63 pages that use the older form are:</p>
         <ul class="moves">
           <li><b>both general donate pages</b>, for the ABM General Fund and the AID General Fund;</li>
           <li><b>Church to Church and Sustainable Communities;</b></li>
@@ -320,12 +324,12 @@ tr.concept th,tr.concept td{ background:#FBFAF7 }
       </div>
       <figure class="shot">
         <img src="img/before-donate.webp" width="1200" height="844" loading="lazy" decoding="async" alt="The Donate Online to AID page on a laptop: a heading, a thank-you message, the line ‘The donation form will appear below. Please allow time for it to open.’ and then blank space where the form should be">
-        <figcaption>The AID donate page on 20 October. The form never arrives, even after 20 seconds.</figcaption>
+        <figcaption>The AID donate page on 20 October. The form never arrived, even after 20 seconds. It was back by 23 October.</figcaption>
       </figure>
       <div class="finding">
         <span class="tag first">Fix first</span>
-        <h3>What I’d do this week</h3>
-        <p>Point every Donate button at an adaptive form. Your Blackbaud account already has one for each appeal, so I’d expect most of the work to be setting up forms for the general funds, and for the programs and partners you want to keep taking gifts for, then swapping the old embed code on those pages. It may also be worth asking Blackbaud whether the older forms are being retired. This is worth doing whether or not anything else in this review goes ahead.</p>
+        <h3>What I’d do first</h3>
+        <p>Point every Donate button at an adaptive form. Your Blackbaud account already has one for each appeal, so I’d expect most of the work to be setting up forms for the general funds, and for the programs and partners you want to keep taking gifts for, then swapping the old embed code on those pages. It may also be worth asking Blackbaud whether the older forms are being retired. The older forms are back for now, so there’s time to do this carefully, and it’s worth doing whether or not anything else in this review goes ahead.</p>
       </div>
     </section>
 
@@ -598,14 +602,14 @@ tr.concept th,tr.concept td{ background:#FBFAF7 }
       </div>
       <div class="phases">
         <article class="phase" style="--c:var(--bad)">
-          <h3><span class="n">1.</span> Fix the donate forms</h3>
-          <p class="when">Now</p>
+          <h3><span class="n">1.</span> Move the donate forms across</h3>
+          <p class="when">First</p>
           <ul>
             <li>Adaptive forms for the general funds, and for the programs and partners you want to keep taking gifts for</li>
             <li>Every Donate button pointing at a working form, with the old embed code removed</li>
             <li>A check of every page with a form once it’s done</li>
           </ul>
-          <p class="aim">Aim: no blank forms anywhere.</p>
+          <p class="aim">Aim: every form on the newer version, so none of them can go blank again.</p>
         </article>
         <article class="phase" style="--c:var(--aid)">
           <h3><span class="n">2.</span> Tidy up the current site</h3>
@@ -648,7 +652,7 @@ tr.concept th,tr.concept td{ background:#FBFAF7 }
     <section id="next" aria-labelledby="next-t">
       <div class="sec-title"><span class="n" aria-hidden="true">11</span><h2 id="next-t">Next steps</h2></div>
       <ol class="steps">
-        <li>Check the donate forms this week. If they’re still blank, getting the Donate buttons onto adaptive forms before the Christmas appeals matters more than anything else here.</li>
+        <li>The donate forms are working again, but I’d still move them onto adaptive forms before the Christmas appeals, so they can’t go blank at the busiest time of year.</li>
         <li>Open <a href="../">the concept</a>, ideally on your phone, and click around, including <a href="../#donate">the donate page</a> and <a href="../#season-of-creation">the Season of Creation appeal</a>. Then try <a href="../future/">the future look</a>, which goes further.</li>
         <li>Let me know what’s useful and what isn’t. Please do pick it apart. It’s a starting point, and I’m sure there’s context I’m missing.</li>
         <li>If it helps, I can start with the forms and the tidy-up on their own.</li>
@@ -662,7 +666,7 @@ tr.concept th,tr.concept td{ background:#FBFAF7 }
 </div></div></div>
 
 <footer class="foot"><div class="wrap"><div class="inner">
-  <p>Tested on 20 October 2026. Scores are from Google Lighthouse 12.8, using its simulated mid-range phone on slow 4G and its desktop setting. Every page in the site’s sitemap (619 pages) was checked for which donation form it uses, and the two general donate pages were opened in a browser and left for 20 seconds.</p>
+  <p>Tested on 20 October 2026. Scores are from Google Lighthouse 12.8, using its simulated mid-range phone on slow 4G and its desktop setting. Every page in the site’s sitemap (619 pages) was checked for which donation form it uses, and the two general donate pages were opened in a browser and left for 20 seconds, and again on 23 October, when the forms were back.</p>
   <p>The concept and this review use ABM’s and AID’s published words, photographs and logos only to illustrate the ideas here.</p>
 </div></div></footer>
 
